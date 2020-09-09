@@ -1,0 +1,285 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,user-scalable=0,minimum-scale=1.0,maximum-scale=1.0" />
+    <meta name="author" content="火星科技 http://cesium.marsgis.cn ">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="x5-fullscreen" content="true">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <!-- 标题及搜索关键字 -->
+    <meta name="keywords" content="火星科技,cesium,3D,GIS,marsgis,三维,地球,地图,开发,框架,系统,示例,资料,模型,离线,外包,合肥,安徽,中国" />
+    <meta name="description"
+        content="火星科技 合肥火星 合肥火星科技 合肥火星科技有限公司 leaflet leaflet框架 leaflet开发 cesium cesium开发 cesium框架 三维 地球 模型  gis marsgis 地图离线 地图开发 地图框架 地图外包 框架 开发 外包  地图离线 二维地图 三维地图 全景漫游 地理信息系统 云GIS 三维GIS GIS平台 WebGIS" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="http://cesium.marsgis.cn/favicon.ico">
+    <title>三维地图 |Mars3D ( MarsGIS for Cesium )|三维地图| 火星科技|合肥火星科技|合肥火星科技有限公司</title>
+
+
+    <!--第三方lib-->
+    <script type="text/javascript" src="../lib/include-lib.js" libpath="../lib/"
+        include="jquery,jquery.range,font-awesome,bootstrap,bootstrap-checkbox,layer,haoutil,turf,mars3d,mars3d-space"></script>
+
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+
+<body class="dark">
+    <!--加载前进行操作提示，优化用户体验-->
+    <div id="mask" class="signmask" onclick="removeMask()"></div>
+
+    <div id="cesiumContainer" class="mars3d-container"></div>
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!mars3d.util.webglreport()) {
+                alert('系统检测到您使用的浏览器不支持WebGL功能');
+                layer.open({
+                    type: 1,
+                    title: "当前浏览器不支持WebGL功能",
+                    closeBtn: 0,
+                    shadeClose: false,
+                    resize: false,
+                    area: ['600px', '200px'], //宽高
+                    content: '<div style="margin: 20px;"><h3>系统检测到您使用的浏览器不支持WebGL功能！</h3>  <p>1、请您检查浏览器版本，安装使用最新版chrome、火狐或IE11以上浏览器！</p> <p>2、WebGL支持取决于GPU支持，请保证客户端电脑已安装显卡驱动程序！</p></div>'
+                });
+            }
+
+            initMap();
+        });
+
+        function removeMask() {
+            $("#mask").remove();
+        }
+
+
+        var viewer;
+        //初始化地图
+        function initMap() {
+            //url传参，一个系统动态使用不同配置
+            var configfile = haoutil.system.getRequestByName("config", "config/config.json");
+
+            mars3d.createMap({
+                id: 'cesiumContainer',
+                url: configfile,
+                maxzoom: 300000000,
+                center: { "y": 12.845055, "x": 112.931363, "z": 24286797.17, "heading": 3.4, "pitch": -89.6, "roll": 0 },
+                animation: true,       //是否创建动画小器件，左下角仪表
+                timeline: true,        //是否显示时间线控件           
+                success: function (_viewer, jsondata) {//地图成功加载完成后执行
+                    viewer = _viewer;
+
+                    setTimeout(removeMask, 3000);
+                    initWork();
+                }
+            });
+        }
+
+        //地面站
+        var dmzEntity
+
+        //当前页面业务相关
+        function initWork() {
+            //加日照
+            viewer.scene.globe.enableLighting = true;
+            viewer.shadows = true
+
+
+            viewer.clock.shouldAnimate = true;
+            viewer.clock.multiplier = 60; //速度
+
+            satelliteList.create();
+
+            //地面站gltf模型 
+            var position = Cesium.Cartesian3.fromDegrees(109.266201, 34.328747, 1213.46);
+            var radius = 2000000.0
+            var orientation = Cesium.Transforms.headingPitchRollQuaternion(position, new Cesium.HeadingPitchRoll(0, 0, 0));
+            dmzEntity = viewer.entities.add({
+                name: '地面站模型',
+                position: position,
+                orientation: orientation,
+                model: {
+                    uri: serverURL_gltf + '/mars/leida.glb',
+                    minimumPixelSize: 30,
+                },
+                ellipse: {
+                    semiMinorAxis: radius,
+                    semiMajorAxis: radius,
+                    material: Cesium.Color.RED.withAlpha(0.2),
+                    outline: true
+                },
+                popup: "地面站",
+            });
+
+
+        }
+
+
+        //卫星加载 及卫星列表数据
+        var satelliteList = {
+            visible: true,
+            //初始化
+            create: function () {
+                this.sat_map = new Map;
+
+                var that = this;
+                $.ajax({
+                    url: serverURL_file + '/apidemo/tle-china.json',
+                    dataType: 'json',
+                    type: 'get',
+                    success: function (data) {
+                        that.initData(data.data);
+                    },
+                    error: function (data) {
+                        haoutil.msg("获取卫星信息异常！");
+                    }
+                });
+                setInterval(function () {
+                    that.sat_map.forEach(function (satelliteObj, key, mapObj) {
+                        satelliteObj.update();
+                    });
+                }, 1000);
+            },
+            initData: function (arr) {
+                var that = this;
+
+                for (var i = 0; i < arr.length; i++) {
+                    var item = arr[i];
+                    var norad = item.norad;
+                    if (norad == null || norad == undefined) continue;
+
+                    //属性处理 
+                    item.interval = false;
+                    item.visible = this.visible;
+
+                    item.model = item.model || {};
+                    item.model.uri = item.model.uri || serverURL_gltf + '/mars/weixin.gltf';
+                    item.path = item.path || {};
+                    item.path.color = Cesium.defaultValue(item.path.color, "#e2e2e2");
+                    item.path.closure = Cesium.defaultValue(item.path.closure, true)
+
+                    //test data
+                    item.cone = {
+                        "areaType": (i % 2 == 1),
+                        "angle1": haoutil.math.random(20, 50),
+                        "angle2": haoutil.math.random(10, 30),
+                    };
+
+                    item.popup = `名称：${item.name}<br/>英文名：${item.name_en}<br/>类型：${item.type}`;
+                    item.click = function (satellite, position) {
+                        highlightSatellite(satellite)
+                    }
+                    item.onChange = processInArea
+                    //属性处理  END
+
+                    var satelliteObj = new mars3d.space.Satellite(viewer, item);
+                    this.sat_map.set(norad, satelliteObj);
+                }
+                console.log('当前卫星数量: ' + arr.length);
+
+                //单击地图空白处
+                viewer.mars.click = function () {
+                    highlightSatellite()
+                }
+            },
+            getItem: function (norad) {
+                if (norad == null || norad == undefined) return null;
+                return this.sat_map.get(norad);
+            },
+            clearAll: function () {
+                this.sat_map.forEach(function (satelliteObj, key, mapObj) {
+                    satelliteObj.destroy();
+                    unbindLayerControl(satelliteObj.name)
+                });
+                this.sat_map.clear();
+            }
+        };
+
+
+        var lastSelectWX;
+        function highlightSatellite(satelliteObj) {
+            if (lastSelectWX) {//重置上次选中的轨道样式
+                lastSelectWX.updateConfig({
+                    path: {
+                        "color": "#e2e2e2",
+                        "opacity": 0.5,
+                        "width": 1,
+                    }
+                });
+                lastSelectWX.setConeVisible(false);  //关闭视锥体   
+                lastSelectWX = null
+            }
+
+            if (satelliteObj) {
+                //高亮选中的轨道样式
+                satelliteObj.updateConfig({
+                    path: {
+                        "color": "#ffff00",
+                        "opacity": 1,
+                        "width": 2,
+                    }
+                });
+                satelliteObj.setConeVisible(true);  //打开视锥体   
+                lastSelectWX = satelliteObj;
+            }
+        }
+
+
+        //判断卫星是否在面内
+        function processInArea(weixin) {
+            var position = weixin.position;
+            if (!position) return;
+
+            position = mars3d.point.setPositionsHeight(position, 0)
+
+            var thisIsInPoly = mars3d.point.isInPoly(position, dmzEntity)
+            if (thisIsInPoly != weixin._lastInPoly) {
+                if (thisIsInPoly) {
+                    //开始进入区域内
+                    console.log(weixin.name + "开始进入区域内");
+
+                    weixin.setConeVisible(true); //打开视锥体    
+                    weixin.lineToDMZ = viewer.entities.add({
+                        polyline: {
+                            positions: new Cesium.CallbackProperty(function (time) {
+                                var pots = weixin.position;
+                                if (!pots) return [];
+                                return [pots, dmzEntity.position._value]
+                            }, false),
+                            arcType: Cesium.ArcType.NONE,
+                            width: 7,
+                            material: new mars3d.LineFlowMaterial({ //动画线材质
+                                color: Cesium.Color.AQUA,
+                                duration: 500, //时长，控制速度
+                                url: './img/textures/arrow2.png',
+                                repeat: new Cesium.Cartesian2(15, 1),
+                            }),
+                        }
+                    });
+
+                }
+                else {
+                    //离开区域
+                    console.log(weixin.name + "离开区域");
+
+                    weixin.setConeVisible(false);     //关闭视锥体   
+                    viewer.entities.remove(weixin.lineToDMZ);
+                    delete weixin.lineToDMZ
+                }
+
+                weixin._lastInPoly = thisIsInPoly;
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>

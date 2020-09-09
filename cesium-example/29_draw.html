@@ -1,0 +1,700 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,user-scalable=0,minimum-scale=1.0,maximum-scale=1.0" />
+    <meta name="author" content="火星科技 http://cesium.marsgis.cn ">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="x5-fullscreen" content="true">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+
+    <!-- 标题及搜索关键字 -->
+    <meta name="keywords" content="火星科技,cesium,3D,GIS,marsgis,三维,地球,地图,开发,框架,系统,示例,资料,模型,离线,外包,合肥,安徽,中国" />
+    <meta name="description"
+        content="火星科技 合肥火星 合肥火星科技 合肥火星科技有限公司 leaflet leaflet框架 leaflet开发 cesium cesium开发 cesium框架 三维 地球 模型  gis marsgis 地图离线 地图开发 地图框架 地图外包 框架 开发 外包  地图离线 二维地图 三维地图 全景漫游 地理信息系统 云GIS 三维GIS GIS平台 WebGIS" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="http://cesium.marsgis.cn/favicon.ico">
+    <title>标绘 绘制 矢量数据-绘制文字、点、线、面、模型、管道等 |Mars3D ( MarsGIS for Cesium )|三维地图| 火星科技|合肥火星科技|合肥火星科技有限公司</title>
+
+
+    <!--第三方lib-->
+    <script type="text/javascript" src="../lib/include-lib.js" libpath="../lib/"
+        include="jquery,font-awesome,web-icons,bootstrap,bootstrap-checkbox,layer,toastr,haoutil,terraformer,turf,mars3d"></script>
+
+    <link href="css/style.css" rel="stylesheet" />
+    <style>
+        .infoview div {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body class="dark">
+    <!--加载前进行操作提示，优化用户体验-->
+    <div id="mask" class="signmask" onclick="removeMask()"></div>
+
+    <div id="cesiumContainer" class="mars3d-container"></div>
+
+    <div class="infoview">
+        <div>
+            <input type="button" class="btn btn-danger" value="清除" onclick="deleteAll()" />
+            <input id="btnImpFile" type="button" class="btn btn-primary" value="打开" />
+            <input id="btnSave" type="button" class="btn btn-primary" value="保存" title="保存为GeoJSON" />
+            <input id="btnSaveKML" type="button" class="btn btn-primary" value="另存KML" />
+            <input id="btnSaveWKT" type="button" class="btn btn-primary" value="另存WKT" />
+
+            <input id="input_plot_file" type="file" accept=".json" style="display:none;" />
+
+
+            <br />
+            <span style="color: #cad1d1;">提示：单击按钮后在图上按提示进行操作</span>
+        </div>
+
+
+        <div>
+            单个点类：
+            <input type="button" class="btn btn-primary" value="点" onclick="drawPoint()" />
+            <input type="button" class="btn btn-primary" value="图标点" onclick="drawMarker()" />
+            <input type="button" class="btn btn-primary" value="文字" onclick="drawLabel()" />
+            <input type="button" class="btn btn-primary" value="小模型" onclick="drawModel()" />
+        </div>
+
+        <div>
+            二维空间：
+            <input type="button" class="btn btn-primary" value="线" onclick="drawPolyline(false)" />
+            <input type="button" class="btn btn-primary" value="曲线" onclick="drawCurve(false)" />
+            <input type="button" class="btn btn-primary" value="走廊" onclick="drawCorridor(false)" />
+            <input type="button" class="btn btn-primary" value="面" onclick="drawPolygon(false)" />
+            <input type="button" class="btn btn-primary" value="圆" onclick="drawEllipse(false)" />
+            <input type="button" class="btn btn-primary" value="矩形" onclick="drawRectangle(false)" />
+            <input type="button" class="btn btn-primary" value="平面" onclick="draPlane()" />
+        </div>
+
+        <div>
+            二维贴地：
+            <input type="button" class="btn btn-primary" value="线" onclick="drawPolyline(true)" />
+            <input type="button" class="btn btn-primary" value="曲线" onclick="drawCurve(true)" />
+            <input type="button" class="btn btn-primary" value="走廊" onclick="drawCorridor(true)" />
+            <input type="button" class="btn btn-primary" value="面" onclick="drawPolygon(true)" />
+            <input type="button" class="btn btn-primary" value="圆" onclick="drawEllipse(true)" />
+            <input type="button" class="btn btn-primary" value="矩形" onclick="drawRectangle(true)" />
+
+        </div>
+
+        <div>
+            三维空间：
+            <input type="button" class="btn btn-primary" value="墙" onclick="draWall()" />
+            <input type="button" class="btn btn-primary" value="面立体" onclick="drawExtrudedPolygon()" />
+            <input type="button" class="btn btn-primary" value="矩形立体" onclick="drawExtrudedRectangle()" />
+            <input type="button" class="btn btn-primary" value="盒子" onclick="drawBox()" />
+            <input type="button" class="btn btn-primary" value="圆柱" onclick="drawExtrudedCircle()" />
+            <input type="button" class="btn btn-primary" value="圆锥" onclick="drawCylinder()" />
+            <input type="button" class="btn btn-primary" value="球" onclick="drawEllipsoid()" />
+        </div>
+    </div>
+
+    <!-- 切换视角到模型或地形（山区）的快捷按钮 -->
+    <script type="text/javascript" src="js/center_terrain_3dtiles.js"></script>
+
+    <!-- 导出KML数据 -->
+    <script type="text/javascript" src="http://cesium.marsgis.cn/lib/kml/tokml.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!mars3d.util.webglreport()) {
+                alert('系统检测到您使用的浏览器不支持WebGL功能');
+                layer.open({
+                    type: 1,
+                    title: "当前浏览器不支持WebGL功能",
+                    closeBtn: 0,
+                    shadeClose: false,
+                    resize: false,
+                    area: ['600px', '200px'], //宽高
+                    content: '<div style="margin: 20px;"><h3>系统检测到您使用的浏览器不支持WebGL功能！</h3>  <p>1、请您检查浏览器版本，安装使用最新版chrome、火狐或IE11以上浏览器！</p> <p>2、WebGL支持取决于GPU支持，请保证客户端电脑已安装显卡驱动程序！</p></div>'
+                });
+            }
+
+            initMap();
+        });
+
+        function removeMask() {
+            $("#mask").remove();
+        }
+
+
+        var viewer;
+        //初始化地图
+        function initMap() {
+            //url传参，一个系统动态使用不同配置
+            var configfile = haoutil.system.getRequestByName("config", "config/config.json");
+
+            mars3d.createMap({
+                id: 'cesiumContainer',
+                url: configfile,
+                success: function (_viewer, jsondata) {//地图成功加载完成后执行
+                    viewer = _viewer;
+
+                    setTimeout(removeMask, 3000);
+                    initWork();
+                }
+            });
+        }
+
+
+        var drawControl;
+
+        //当前页面业务相关
+        function initWork() {
+            drawControl = new mars3d.Draw(viewer, {
+                hasEdit: true,
+                isAutoEditing:true,//绘制完成后是否自动激活编辑
+                // hasDel: function (e) {
+                //     //当需要判断该entity是否可以删除时，在该回调方法中处理，return false不可删除
+                //     var entity = e.target;
+                //     return true;
+                // }
+            });
+
+            //事件监听(可以自行加相关代码实现业务需求，此处主要做示例)
+            drawControl.on(mars3d.draw.event.DrawStart, function (e) {
+                console.log('开始绘制');
+            });
+            drawControl.on(mars3d.draw.event.DrawAddPoint, function (e) {
+                console.log('绘制过程中增加了点');
+            });
+            drawControl.on(mars3d.draw.event.DrawRemovePoint, function (e) {
+                console.log('绘制过程中删除了点');
+            });
+
+
+            drawControl.on(mars3d.draw.event.DrawCreated, function (e) {
+                
+                console.log('创建完成');
+            });
+            drawControl.on(mars3d.draw.event.EditStart, function (e) {
+                
+                var entity = e.entity;
+                startEditing(entity);
+                console.log('开始编辑');
+            });
+            drawControl.on(mars3d.draw.event.EditMovePoint, function (e) {
+                var entity = e.entity;
+                startEditing(entity);
+                console.log('编辑修改了点');
+            });
+            drawControl.on(mars3d.draw.event.EditRemovePoint, function (e) {
+                var entity = e.entity;
+                startEditing(entity);
+                console.log('编辑删除了点');
+            });
+            drawControl.on(mars3d.draw.event.EditStop, function (e) {
+                stopEditing();
+                console.log('停止编辑');
+            });
+            drawControl.on(mars3d.draw.event.Delete, function (e) {
+                stopEditing();
+                console.log('删除了对象');
+            });
+
+            ////编辑时拖拽点颜色（修改内部默认值）
+            //mars3d.draw.dragger.PointColor.Control = new Cesium.Color.fromCssColorString("#1c197d");          //位置控制拖拽点
+            //mars3d.draw.dragger.PointColor.MoveHeight = new Cesium.Color.fromCssColorString("#9500eb");       //上下移动高度的拖拽点
+            //mars3d.draw.dragger.PointColor.EditAttr = new Cesium.Color.fromCssColorString("#f73163");         //辅助修改属性（如半径）的拖拽点
+            //mars3d.draw.dragger.PointColor.AddMidPoint = new Cesium.Color.fromCssColorString("#04c2c9").withAlpha(0.3);     //增加新点，辅助拖拽点
+
+            ////标绘时的tooltip（修改内部默认值）
+            //mars3d.draw.tooltip.draw.point.start = '单击 完成绘制';
+            //mars3d.draw.tooltip.draw.polyline.start = '单击 开始绘制';
+            //mars3d.draw.tooltip.draw.polyline.cont = '单击增加点，右击删除点';
+            //mars3d.draw.tooltip.draw.polyline.end = '单击增加点，右击删除点<br/>双击完成绘制';
+            //mars3d.draw.tooltip.draw.polyline.end2 = '单击完成绘制';
+            //mars3d.draw.tooltip.edit.start = '单击后 激活编辑';
+            //mars3d.draw.tooltip.edit.end = '释放后 完成修改';
+            //mars3d.draw.tooltip.dragger.def = '拖动 修改位置'; //默认拖拽时提示  
+            //mars3d.draw.tooltip.dragger.addMidPoint = '拖动 增加点';
+            //mars3d.draw.tooltip.dragger.moveHeight = '拖动 修改高度';
+            //mars3d.draw.tooltip.dragger.editRadius = '拖动 修改半径';
+            //mars3d.draw.tooltip.dragger.editHeading = '拖动 修改方向';
+            //mars3d.draw.tooltip.dragger.editScale = '拖动 修改缩放比例';
+            //mars3d.draw.tooltip.del.def = '<br/>右击 删除该点';
+            //mars3d.draw.tooltip.del.min = '无法删除，点数量不能少于';
+
+
+
+            $("#btnSave").click(function () {
+                var strResult = toGeoJSON();
+                if (strResult == null) {
+                    layer.msg("当前没有标注任何数据，无需保存！");
+                    return;
+                }
+                haoutil.file.downloadFile("我的标注.json", JSON.stringify(strResult));
+            });
+
+            $("#btnSaveKML").click(function () {
+                var strResult = toKML();
+                if (strResult == null) {
+                    layer.msg("当前没有标注任何数据，无需保存！");
+                    return;
+                }
+                haoutil.file.downloadFile("我的标注.kml", strResult);
+            });
+
+            $("#btnSaveWKT").click(function () {
+                var strResult = toWKT();
+                if (strResult == null) {
+                    layer.msg("当前没有标注任何数据，无需保存！");
+                    return;
+                }
+                haoutil.file.downloadFile("我的标注wkt.json", JSON.stringify(strResult));
+            });
+
+
+            $("#input_plot_file").change(function (e) {
+                var file = this.files[0];
+
+                var fileName = file.name;
+                var fileType = (fileName.substring(fileName.lastIndexOf(".") + 1, fileName.length)).toLowerCase();
+                if (fileType != "json") {
+                    layer.msg('文件类型不合法,请选择json格式标注文件！');
+                    clearSelectFile();
+                    return;
+                }
+
+
+                if (window.FileReader) {
+                    var reader = new FileReader();
+                    reader.readAsText(file, 'UTF-8');
+                    reader.onloadend = function (e) {
+                        var json = this.result;
+                        jsonToLayer(json);
+
+                        clearSelectFile();
+                    };
+                }
+            });
+
+
+            $("#btnImpFile").click(function () {
+                $("#input_plot_file").click();
+            });
+
+
+            //加载历史演示数据
+            if (location.hostname != "127.0.0.1" && location.hostname != "localhost") {
+                $.getJSON(serverURL_file + "/geojson/draw-demo.json", function (result) {
+                    drawControl.loadJson(result, {
+                        clear: true,
+                        flyTo: true
+                    });
+                });
+            }
+
+
+            //[示例] 标绘生产的数据可以作为图层使用
+            // var layerWork = mars3d.layer.createLayer({ 
+            //     "type": "geojson-draw", 
+            //     "url": serverURL_file + "/geojson/draw-demo.json",
+            //     "visible": true,
+            //     "flyTo": true,
+            // }, viewer);
+
+
+
+
+        }
+
+
+
+        function clearSelectFile() {
+            if (!window.addEventListener) {
+                document.getElementById('input_plot_file').outerHTML += '';  //IE
+            } else {
+                document.getElementById('input_plot_file').value = "";   //FF
+            }
+        }
+
+        function toGeoJSON() {
+            return drawControl.toGeoJSON();
+        }
+
+        function toKML() {
+            var geojsonObject = drawControl.toGeoJSON();
+            if (geojsonObject == null) {
+                return null;
+            }
+
+            geojsonObject = haoutil.system.clone(geojsonObject);
+
+            var index = 0;
+            geojsonObject.features.forEach(feature => {
+                var attr = feature.properties.attr;
+                var style = feature.properties.style;
+                feature.properties = {
+                    "id": (++index),
+                    "name": attr.name || "",
+                    "remark": attr.remark || "",
+
+                    'marker-symbol': style.image || "",
+                    'marker-color': style.outlineColor,
+
+                    "stroke": style.outlineColor,
+                    "stroke-width": style.outlineWidth,
+                    "stroke-opacity": Cesium.defaultValue(style.outlineOpacity, style.opacity),
+
+                    "fill": style.color,
+                    "fill-opacity": style.opacity,
+                };
+            });
+
+            var kml = tokml(geojsonObject, {
+                name: 'MarsGIS标绘数据',
+                documentName: 'MarsGIS标绘数据',
+                documentDescription: "MarsGIS标绘数据 by marsgis",
+                simplestyle: true
+            });
+
+            return kml
+        }
+
+        function toWKT() {
+            var geojsonObject = drawControl.toGeoJSON();
+            if (geojsonObject == null) {
+                return null;
+            }
+            geojsonObject = haoutil.system.clone(geojsonObject);
+
+            var arrWKT = [];
+            var index = 0;
+            geojsonObject.features.forEach(feature => {
+                var attr = feature.properties.attr;
+                var style = feature.properties.style;
+
+                var wkt = Terraformer.WKT.convert(feature.geometry); //geojson转换WKT格式 ,terraformer库
+                arrWKT.push({
+                    "id": (++index),
+                    "name": attr.name || "",
+                    "remark": attr.remark || "",
+                    "style": style,
+                    "wkt": wkt
+                });
+            });
+            return arrWKT;
+        }
+
+        function jsonToLayer(json) {
+            //简化json
+            //var options = { tolerance: 0.0001, highQuality: false };
+            //json = turf.simplify(JSON.parse(json), options);
+
+            return drawControl.loadJson(json, {
+                clear: true,
+                flyTo: true
+            });
+        }
+
+
+        function deleteAll() {
+            stopEditing();
+            drawControl.clearDraw();
+        }
+
+
+        function drawPoint() {
+            drawControl.startDraw({
+                type: "point",
+                style: {
+                    pixelSize: 12,
+                    color: '#3388ff',
+                    label: {//不需要文字时，去掉label配置即可
+                        "text": "可以同时支持文字",
+                        "font_size": 20,
+                        "color": "#ffffff",
+                        "border": true,
+                        "border_color": "#000000",
+                        "pixelOffset": [0, -15],
+                    }
+                }
+            });
+        }
+
+        function drawMarker() {
+            drawControl.startDraw({
+                type: "billboard",
+                style: {
+                    image: "img/marker/mark1.png",
+                    label: {//不需要文字时，去掉label配置即可
+                        "text": "可以同时支持文字",
+                        "font_size": 30,
+                        "color": "#ffffff",
+                        "border": true,
+                        "border_color": "#000000",
+                        "pixelOffset": [0, -50],
+                    }
+                }
+            });
+        }
+
+        function drawLabel() {
+            drawControl.startDraw({
+                type: "label",
+                style: {
+                    text: "火星科技三维地球",
+                    color: "#0081c2",
+                    font_size: 50,
+                    border: true,
+                    border_color: "#ffffff",
+                    border_width: 2
+                }
+            });
+        }
+
+        function drawModel() {
+            drawControl.startDraw({
+                type: "model",
+                style: {
+                    scale: 10,
+                    modelUrl: serverURL_gltf + "/mars/firedrill/xiaofangche.gltf"//serverURL_gltf定义在 config\marsUrl.js
+                }
+            });
+        }
+
+
+
+        function drawPolyline(clampToGround) {
+            drawControl.startDraw({
+                type: "polyline",
+                // config: { maxPointNum: 2 },  //限定最大点数，可以绘制2个点的线，自动结束
+                style: {
+                    color: "#55ff33",
+                    width: 3,
+                    clampToGround: clampToGround,
+                }
+            });
+        }
+
+        function drawPolygon(clampToGround) {
+            drawControl.startDraw({
+                type: "polygon",
+                style: {
+                    color: "#29cf34",
+                    opacity: 0.5,
+                    outline: true,
+                    outlineWidth: 2.0,
+                    clampToGround: clampToGround
+                }
+            });
+        }
+
+        function drawCurve(clampToGround) {
+            drawControl.startDraw({
+                type: "curve",
+                style: {
+                    color: "#55ff33",
+                    width: 3,
+                    clampToGround: clampToGround,
+                }
+            });
+        }
+
+        function drawCorridor(clampToGround) {
+            drawControl.startDraw({
+                type: "corridor",
+                style: {
+                    color: "#55ff33",
+                    width: 500,
+                    clampToGround: clampToGround,
+                }
+            });
+        }
+
+        function drawEllipse(clampToGround) {
+            drawControl.startDraw({
+                type: "circle",
+                style: {
+                    color: "#ffff00",
+                    opacity: 0.6,
+                    semiMinorAxis: 100,
+                    semiMajorAxis: 100,
+                    clampToGround: clampToGround,
+                }
+            });
+        }
+
+        function drawRectangle(clampToGround) {
+            drawControl.startDraw({
+                type: "rectangle",
+                style: {
+                    color: "#ffff00",
+                    opacity: 0.6,
+                    clampToGround: clampToGround,
+                }
+            });
+        }
+
+
+        function draPlane() {
+            drawControl.startDraw({
+                type: "plane",
+                style: {
+                    color: "#00ff00",
+                    opacity: 0.8,
+                    plane_normal: "x",
+                    dimensionsX: 1000.0,
+                    dimensionsY: 1000.0,
+                }
+            });
+        }
+
+
+        function draWall() {
+            drawControl.startDraw({
+                type: "wall",
+                style: {
+                    color: "#00ff00",
+                    opacity: 0.8,
+                    extrudedHeight: 400,
+                }
+            });
+        }
+
+        function drawBox() {
+            drawControl.startDraw({
+                type: "box",
+                style: {
+                    color: "#00ff00",
+                    opacity: 0.6,
+                    dimensionsX: 1000.0,
+                    dimensionsY: 1000.0,
+                    dimensionsZ: 1000.0
+                }
+            });
+        }
+        function drawCylinder() {
+            drawControl.startDraw({
+                type: "cylinder",
+                style: {
+                    fill: true,
+                    color: "#00ff00",
+                    opacity: 0.6,
+                    length: 1000,
+                }
+            });
+        }
+
+
+        function drawEllipsoid() {
+            drawControl.startDraw({
+                type: "ellipsoid",
+                style: {
+                    fill: true,
+                    color: "#00ff00",
+                    opacity: 0.6,
+                }
+            });
+        }
+
+
+
+
+        function drawExtrudedPolygon() {
+            drawControl.startDraw({
+                type: "polygon",
+                edittype: "extrudedPolygon",//该参数非必须，是属性编辑widget使用的
+                style: {
+                    color: "#00ff00",
+                    opacity: 0.6,
+                    extrudedHeight: 300
+                }
+            });
+        }
+
+        function drawExtrudedRectangle() {
+            drawControl.startDraw({
+                type: "rectangle",
+                edittype: "extrudedRectangle", //该参数非必须，是属性编辑widget使用的
+                style: {
+                    color: "#00ff00",
+                    opacity: 0.6,
+                    extrudedHeight: 300
+                }
+            });
+        }
+
+
+
+
+        function drawExtrudedCircle() {
+            drawControl.startDraw({
+                type: "circle",
+                edittype: "extrudedCircle", //该参数非必须，是属性编辑widget使用的
+                style: {
+                    color: "#00ff00",
+                    opacity: 0.6,
+                    extrudedHeight: 300
+                }
+            });
+        }
+
+
+
+
+
+
+        //附加：激活属性编辑widget【非必需，可以注释该方法内部代码】
+        var timeTik;
+        function startEditing(entity) {
+            var lonlats = drawControl.getCoordinates(entity);
+
+            clearTimeout(timeTik);
+
+            var plotAttr = mars3d.widget.getClass('widgets/plotAttr/widget.js');
+            if (plotAttr && plotAttr.isActivate) {
+                plotAttr.startEditing(entity, lonlats);
+            }
+            else {
+                mars3d.widget.activate({
+                    viewer: viewer,
+                    uri: 'widgets/plotAttr/widget.js',
+                    name: "属性编辑",
+                    entity: entity,
+                    lonlats: lonlats,
+                    deleteEntity: function (entity) {
+                        drawControl.deleteEntity(entity);
+                    },
+                    updateAttr: function (attr) {
+                        drawControl.updateAttribute(attr);
+                    },
+                    updateGeo: function (positions) {
+                        drawControl.setPositions(positions); //更新当前编辑的entity  
+                    },
+                    centerAt: function (entity) {
+                        viewer.mars.flyTo(entity);
+                    },
+                });
+            }
+        }
+
+        function stopEditing() {
+            timeTik = setTimeout(function () {
+                mars3d.widget.disable('widgets/plotAttr/widget.js');
+            }, 200);
+        }
+        //附加：激活属性编辑widget【非必需，可以注释该方法内部代码】
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

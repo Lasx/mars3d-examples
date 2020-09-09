@@ -1,0 +1,600 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,user-scalable=0,minimum-scale=1.0,maximum-scale=1.0" />
+    <meta name="author" content="火星科技 http://cesium.marsgis.cn ">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="x5-fullscreen" content="true">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+
+    <!-- 标题及搜索关键字 -->
+    <meta name="keywords" content="火星科技,cesium,3D,GIS,marsgis,三维,地球,地图,开发,框架,系统,示例,资料,模型,离线,外包,合肥,安徽,中国" />
+    <meta name="description"
+        content="火星科技 合肥火星 合肥火星科技 合肥火星科技有限公司 leaflet leaflet框架 leaflet开发 cesium cesium开发 cesium框架 三维 地球 模型  gis marsgis 地图离线 地图开发 地图框架 地图外包 框架 开发 外包  地图离线 二维地图 三维地图 全景漫游 地理信息系统 云GIS 三维GIS GIS平台 WebGIS" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="http://cesium.marsgis.cn/favicon.ico">
+    <title>卫星侦察视锥体 示例 |Mars3D ( MarsGIS for Cesium )|三维地图| 火星科技|合肥火星科技|合肥火星科技有限公司</title>
+
+    <!--第三方lib-->
+    <script type="text/javascript" src="../lib/include-lib.js" libpath="../lib/"
+        include="jquery,jquery.range,font-awesome,bootstrap,bootstrap-checkbox,layer,haoutil,turf,mars3d,mars3d-space"></script>
+
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+
+<body class="dark">
+    <!--加载前进行操作提示，优化用户体验-->
+    <div id="mask" class="signmask" onclick="removeMask()"></div>
+
+    <div id="cesiumContainer" class="mars3d-container"></div>
+
+
+    <!-- 面板 -->
+    <div class="infoview">
+        <input type="button" class="btn btn-primary" value="定位至卫星" onclick="locate()" />
+        <table class="mars-table">
+            <tr>
+                <td>位置</td>
+                <td colspan="2">经度
+                    <input id="model_x" type="number" step="0.01" value="117.169969" 
+                        style="width:90px;">
+                    纬度
+                    <input id="model_y" type="number" step="0.01" value="31.840886"
+                        style="width:90px;">
+                    高度
+                    <input id="model_z" type="number" step="0.01" value="900000" 
+                        style="width:90px;">
+                </td>
+            </tr>
+
+            <tr>
+                <td class="nametd">轨迹方向（heading）</td>
+                <td>
+                    <input id="model_heading" type="range" min="0" max="360" step="0.01" value="0" title="方向heading">
+                </td>
+                <td>
+                    <input id="model_heading_2" type="number" min="0" max="360" step="0.01" value="0" title="方向heading">
+                </td>
+            </tr>
+            <tr>
+                <td class="nametd">前后侧摆（pitch）</td>
+                <td>
+                    <input id="model_pitch" type="range" min="-180" max="180" step="0.01" value="0" title="前后侧摆pitch">
+                </td>
+                <td>
+                    <input id="model_pitch_2" type="number" min="-180" max="180" step="0.01" value="0" title="前后侧摆pitch">
+                </td>
+            </tr>
+            <tr>
+                <td class="nametd">左右侧摆（roll）</td>
+                <td>
+                    <input id="model_roll" type="range" min="-180" max="180" step="0.01" value="0" title="左右侧摆roll">
+                </td>
+                <td>
+                    <input id="model_roll_2" type="number" min="-180" max="180" step="0.01" value="0" title="左右侧摆roll">
+                </td>
+            </tr>
+
+            <tr>
+                <td class="nametd">参考系轴</td>
+                <td>
+                    <div class="checkbox checkbox-primary checkbox-inline">
+                        <input id="chkShowModelMatrix" class="styled" type="checkbox" checked>
+                        <label for="chkShowModelMatrix">
+                            显示/隐藏
+                        </label>
+                    </div>
+
+                </td>
+                <td>
+                    <input id="modelMatrixLength" type="number" min="1" max="10000" step="1" value="30">(轴长度)
+                </td>
+            </tr>
+
+            <tr>
+                <td class="nametd">视锥体状态</td>
+                <td>
+                    <div class="checkbox checkbox-primary checkbox-inline">
+                        <input id="chkShowCone" class="styled" type="checkbox" checked>
+                        <label for="chkShowCone">
+                            显示/隐藏
+                        </label>
+                    </div>
+                </td>
+                <td>
+                    <div class="checkbox checkbox-primary checkbox-inline coneEntityAttr">
+                        <input id="chkUnderground" class="styled" type="checkbox">
+                        <label for="chkUnderground">
+                            求交地球
+                        </label>
+                    </div>
+                </td>
+            </tr>
+            <tr class="coneEntityAttr">
+                <td class="nametd">类型</td>
+                <td colspan="2">
+                    <div class="radio radio-info radio-inline">
+                        <input type="radio" id="shadingMaterials1" name="shadingMaterials" value="1">
+                        <label for="shadingMaterials1">圆锥体</label>
+                    </div>
+                    <div class="radio radio-info radio-inline">
+                        <input type="radio" id="shadingMaterials2" name="shadingMaterials" value="2" checked="checked">
+                        <label for="shadingMaterials2">四棱锥体</label>
+                    </div>
+                </td>
+            </tr>
+            <tr class="coneEntityAttr">
+                <td class="nametd">夹角1</td>
+                <td>
+                    <input id="model_angle1" type="range" min="0" max="89" step="0.01" value="30">
+                </td>
+                <td>
+                    <input id="model_angle1_2" type="number" min="0" max="89" step="0.01" value="30">
+                </td>
+            </tr>
+            <tr id="tr_angle2" class="coneEntityAttr">
+                <td class="nametd">夹角2</td>
+                <td>
+                    <input id="model_angle2" type="range" min="0" max="89" step="0.01" value="20">
+                </td>
+                <td>
+                    <input id="model_angle2_2" type="number" min="0" max="89" step="0.01" value="20">
+                </td>
+            </tr>
+
+            <tr class="coneEntityAttr">
+                <td class="nametd">地面成像区域</td>
+                <td colspan="2">
+                    <button id="btnGetRegion" class="btn btn-primary">获取区域边界值</button>
+                    <button id="btnGetCenter" class="btn btn-primary">获取中心点坐标</button>
+                    <button id="btnRemoveAll" class="btn btn-primary">清除</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+ 
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!mars3d.util.webglreport()) {
+                alert('系统检测到您使用的浏览器不支持WebGL功能');
+                layer.open({
+                    type: 1,
+                    title: "当前浏览器不支持WebGL功能",
+                    closeBtn: 0,
+                    shadeClose: false,
+                    resize: false,
+                    area: ['600px', '200px'], //宽高
+                    content: '<div style="margin: 20px;"><h3>系统检测到您使用的浏览器不支持WebGL功能！</h3>  <p>1、请您检查浏览器版本，安装使用最新版chrome、火狐或IE11以上浏览器！</p> <p>2、WebGL支持取决于GPU支持，请保证客户端电脑已安装显卡驱动程序！</p></div>'
+                });
+            }
+
+            initMap();
+        });
+
+        function removeMask() {
+            $("#mask").remove();
+        }
+
+
+        var viewer;
+
+        //初始化地图
+        function initMap() {
+            var configfile = haoutil.system.getRequestByName("config", "config/config.json");
+
+            mars3d.createMap({
+                id: 'cesiumContainer',
+                url: configfile,
+                maxzoom: 9000000000,
+                center:{"y":15.938584,"x":117.523776,"z":3813636.09,"heading":342.9,"pitch":-66.4,"roll":359.9},
+                success: function (_viewer, gisdata) {//地图成功加载完成后执行
+                    viewer = _viewer;
+
+                    setTimeout(removeMask, 3000);
+                    initWork();
+                }
+            });
+        }
+
+
+        var coneEntity;
+        var modelEntity;
+        var debugModelMatrixPrimitive;
+
+
+        var reverse = false; //z轴方向，true朝向空中，false朝向地心
+        // var converter = Cesium.Transforms.eastNorthUpToFixedFrame;
+        var converter = Cesium.Transforms.localFrameToFixedFrameGenerator('east', 'south')
+
+
+        //当前页面功能
+        function initWork() {
+            //移除2.5D视图
+            var arr = $(".cesium-sceneModePicker-wrapper").children()
+            if (arr.length > 3) {
+                arr[3].remove();
+            }
+      
+
+
+            $("#chkShowModelMatrix").change(function () {
+                var val = $(this).is(':checked');
+                debugModelMatrixPrimitive.show = val;
+
+            });
+            $("#modelMatrixLength").change(function () {
+                var value = Number($(this).val());
+                debugModelMatrixPrimitive.length = value * 1000;
+            });
+
+
+            $("#chkShowCone").change(function () {
+                var val = $(this).is(':checked');
+                coneEntity.show = val;
+
+                if (val)
+                    $(".coneEntityAttr").show();
+                else
+                    $(".coneEntityAttr").hide();
+            });
+
+
+            $("#chkUnderground").click(function () {
+                coneEntity._rayEllipsoid = $(this)[0].checked;
+            });
+
+
+            //滑动条
+            $("#model_heading").range({
+                onChange: function (value, bfb) {
+                    $("#model_heading_2").val(value);
+                    updateModel();
+                }
+            });
+            $("#model_heading_2").change(function () {
+                var value = Number($(this).val());
+                $("#model_heading").val(value);
+                updateModel();
+            });
+
+            $("#model_pitch").range({
+                onChange: function (value, bfb) {
+                    $("#model_pitch_2").val(value);
+                    updateModel();
+                }
+            });
+            $("#model_pitch_2").change(function () {
+                var value = Number($(this).val());
+                $("#model_pitch").val(value);
+                updateModel();
+            });
+
+            $("#model_roll").range({
+                onChange: function (value, bfb) {
+                    $("#model_roll_2").val(value);
+                    updateModel();
+                }
+            });
+            $("#model_roll_2").change(function () {
+                var value = Number($(this).val());
+                $("#model_roll").val(value);
+                updateModel();
+            });
+
+            $("#model_angle1").range({
+                onChange: function (value, bfb) {
+                    $("#model_angle1_2").val(value);
+                    coneEntity.angle1 = value;
+                }
+            });
+            $("#model_angle1_2").change(function () {
+                var value = Number($(this).val());
+                $("#model_angle1").val(value);
+                coneEntity.angle1 = value;
+            });
+
+
+
+            $("#model_angle2").range({
+                onChange: function (value, bfb) {
+                    $("#model_angle2_2").val(value);
+                    coneEntity.angle2 = value;
+                }
+            });
+            $("#model_angle2_2").change(function () {
+                var value = Number($(this).val());
+                $("#model_angle2").val(value);
+                coneEntity.angle2 = value;
+            });
+
+
+            $("#model_x").change(function () {
+                updateModel()
+                locate();
+            });
+            $("#model_y").change(function () {
+                updateModel()
+                locate();
+            });
+            $("#model_z").change(function () {
+                updateModel()
+                locate();
+            });
+
+
+            $('input[type=radio][name=shadingMaterials]').change(function () {
+                var areaType;
+                if (this.value == '1') {
+                    areaType = mars3d.space.FrustumPrimitive.AreaType.Cone;
+                    $("#tr_angle2").hide();
+                }
+                else {
+                    areaType = mars3d.space.FrustumPrimitive.AreaType.FourPrism;
+                    $("#tr_angle2").show();
+                }
+                coneEntity.areaType = areaType;
+            });
+
+            var dataSource = new Cesium.CustomDataSource();
+            viewer.dataSources.add(dataSource);
+            $("#btnGetRegion").click(function () {
+                var coords = coneEntity.exportImagingArea(6)//导出成像区边界坐标，参数6指示保留小数位数
+
+                //显示边界点，测试
+                dataSource.entities.removeAll()
+                $(coords).each(function (i, item) {
+                    var entitie = dataSource.entities.add({
+                        position: Cesium.Cartesian3.fromDegrees(item[0], item[1]),
+                        point: {
+                            color: new Cesium.Color.fromCssColorString("#ff0000"),
+                            pixelSize: 10,
+                            outlineColor: new Cesium.Color.fromCssColorString("#ffffff"),
+                            outlineWidth: 2,
+                            heightReference: Cesium.HeightReference.CLAMP_TO_GROUND
+                        },
+                    });
+                });
+
+                //提示边界值，测试
+                haoutil.alert(JSON.stringify(coords));
+            });
+            $("#btnRemoveAll").click(function () {
+                dataSource.entities.removeAll()
+            });
+
+
+            $("#btnGetCenter").click(function () {
+                dataSource.entities.removeAll()
+
+                var groundPosition = coneEntity.groundPosition;
+                if (!groundPosition) {
+                    haoutil.alert('当前与地球无交点');
+                    return;
+                }
+
+                var entitie = dataSource.entities.add({
+                    position: groundPosition,
+                    point: {
+                        color: new Cesium.Color.fromCssColorString("#ff0000"),
+                        pixelSize: 10,
+                        outlineColor: new Cesium.Color.fromCssColorString("#ffffff"),
+                        outlineWidth: 2,
+                        // heightReference: Cesium.HeightReference.CLAMP_TO_GROUND
+                    },
+                });
+
+                var point = mars3d.point.formatPosition(groundPosition);
+                haoutil.alert(JSON.stringify(point));
+            });
+
+
+            //测试位置
+            $("#model_x").val(117.169969)
+            $("#model_y").val(31.840886)
+            $("#model_z").val(900000)
+            //测试位置
+
+
+            //位置
+            var x = Number($("#model_x").val());
+            var y = Number($("#model_y").val());
+            var z = Number($("#model_z").val());
+            var position = new Cesium.Cartesian3.fromDegrees(x, y, z);
+
+
+            var heading = Cesium.Math.toRadians(Number($("#model_heading").val()));
+            var pitch = Cesium.Math.toRadians(Number($("#model_pitch").val()));
+            var roll = Cesium.Math.toRadians(Number($("#model_roll").val()));
+            var hpr = new Cesium.HeadingPitchRoll(heading, pitch, roll);
+            var orientation = Cesium.Transforms.headingPitchRollQuaternion(position, hpr, viewer.scene.globe.ellipsoid, converter);
+
+            //卫星 展示
+            modelEntity = this.viewer.entities.add({
+                position: position,
+                orientation: orientation,
+                model: {
+                    uri: serverURL_gltf + '/mars/weixin.gltf',
+                    scale: 1,
+                    minimumPixelSize: 150
+                },
+            });
+
+
+            //angle1、angle2 指 半张角
+            var angle1 = Number($("#model_angle1").val());
+            var angle2 = Number($("#model_angle2").val());
+
+
+            //视锥体
+            coneEntity = new mars3d.space.FrustumPrimitive(viewer, {
+                position: position,
+                areaType: mars3d.space.FrustumPrimitive.AreaType.FourPrism,
+                angle1: angle1,
+                angle2: angle2,
+                rotation: {//传入弧度值
+                    heading: heading,
+                    pitch: pitch,
+                    roll: roll
+                },
+                color: new Cesium.Color.fromCssColorString("#00ffff").withAlpha(0.7),
+                fixedFrameTransform: converter,
+                reverse: reverse, //默认反转，改为不反转。
+                //outline: true,
+            });
+
+
+
+            //3个轴进行显示对比
+            var modelMatrix = Cesium.Transforms.headingPitchRollToFixedFrame(position, new Cesium.HeadingPitchRoll(), viewer.scene.globe.ellipsoid, converter);
+            debugModelMatrixPrimitive = viewer.scene.primitives.add(new Cesium.DebugModelMatrixPrimitive({
+                modelMatrix: modelMatrix,
+                length: 30000.0,
+                width: 5.0
+            }));
+            debugModelMatrixPrimitive.tooltip = 'X轴是<span style="color: red;">红色</span><br/> Y轴是<span style="color: green;">绿色</span><br/>Z轴是<span style="color: blue;">蓝色</span>'
+
+
+
+        }
+
+
+
+        function updateModel() {
+            var x = Number($("#model_x").val());
+            var y = Number($("#model_y").val());
+            var z = Number($("#model_z").val());
+            var position = new Cesium.Cartesian3.fromDegrees(x, y, z);
+
+            var heading = Cesium.Math.toRadians(Number($("#model_heading").val()));
+            var pitch = Cesium.Math.toRadians(Number($("#model_pitch").val()));
+            var roll = Cesium.Math.toRadians(Number($("#model_roll").val()));
+            var hpr = new Cesium.HeadingPitchRoll(heading, pitch, roll);
+            var orientation = Cesium.Transforms.headingPitchRollQuaternion(position, hpr, viewer.scene.globe.ellipsoid, converter);
+            modelEntity.position = position;
+            modelEntity.orientation = orientation;
+
+
+            var modelMatrix = Cesium.Transforms.headingPitchRollToFixedFrame(position, new Cesium.HeadingPitchRoll(), viewer.scene.globe.ellipsoid, converter);
+            debugModelMatrixPrimitive.modelMatrix = modelMatrix;
+
+            coneEntity.position = position;
+
+            coneEntity.heading = heading; //角度使用的是弧度 
+            coneEntity.pitch = pitch;
+            coneEntity.roll = roll;
+        }
+
+
+
+        function locate() {
+            viewer.flyTo(modelEntity);
+
+            // var position = wxModel.position._value;
+            // viewer.mars.centerPoint(position, {
+            //     radius: 10000,   //距离目标点的距离
+            //     pitch: -90,      //相机方向
+            // });
+        }
+
+
+        // //===============线的方向性测试（测试）====================
+
+        // function testLineHdr(){ 
+        //     var position1 = Cesium.Cartesian3.fromDegrees(88.009, 0, 3578830.835);
+        //     var position2 = Cesium.Cartesian3.fromDegrees(80, 10, 1000);
+        //     var hpr = mars3d.matrix.getHeadingPitchRollForLine(position1, position2);
+
+        //     var dashedLine = viewer.entities.add({
+        //         name: '测试线',
+        //         polyline: {
+        //             positions: [position1, position2],
+        //             width: 4,
+        //             arcType: Cesium.ArcType.NONE,
+        //             material: new Cesium.PolylineDashMaterialProperty({
+        //                 color: Cesium.Color.CYAN
+        //             })
+        //         }
+        //     });
+
+        //     //视锥体
+        //     coneEntity = new mars3d.space.FrustumPrimitive(viewer, {
+        //         position: position1,
+        //         angle1: 10,
+        //         angle2: 20,
+        //         areaType: mars3d.space.FrustumPrimitive.AreaType.FourPrism,// Cone,
+        //         rotation: hpr,
+        //         color: new Cesium.Color.fromCssColorString("#6ef500").withAlpha(0.5),
+        //         reverse: false,//默认反转，改为不反转。
+        //     });
+        // }
+
+
+
+
+        // //===============显示边线（测试）====================
+
+        // function showBX() {
+        //     var entity_zone_cur = viewer.entities.add({
+        //         polyline: {
+        //             positions: new Cesium.CallbackProperty(function (time) {
+        //                 var _position = coneEntity.position;
+        //                 // var _orientation = Cesium.Property.getValueOrUndefined(weixin.velocityOrientation, time, new Cesium.Quaternion());
+        //                 if (!_position) return [];
+
+        //                 // 注意这个滚动角是卫星根据位置和朝向算出来的固有，没有加卫星的姿态调整 
+        //                 var hpr = coneEntity.rotation;//mars3d.matrix.getHeadingPitchRollByOrientation(_position, _orientation);
+
+        //                 var angle1 = coneEntity.angle1;
+        //                 let edge_length = calculate_scout_cone_edge2(_position, angle1 / 2);
+        //                 let pos_left = calculate_research_zone_pos(hpr, _position, edge_length, 0 - angle1 / 2);
+        //                 let pos_right = calculate_research_zone_pos(hpr, _position, edge_length, angle1 / 2);
+
+        //                 return [_position, pos_left, pos_right, _position];
+
+        //             }, false),
+        //             width: 2,
+        //             arcType: Cesium.ArcType.NONE,
+        //             material: new Cesium.Color.fromCssColorString("#ff0000")
+        //         }
+        //     });
+        // }
+
+        // //输入：目标的空间位置(组合位置x,y,z, lon, lat, h)
+        // function calculate_scout_cone_edge2(position, angle1) {
+        //     var h = Cesium.Cartographic.fromCartesian(position).height;
+        //     var w = h * Math.tan(Cesium.Math.toRadians(angle1));
+        //     var p = Math.sqrt(h * h + w * w);
+        //     return p;
+        // }
+
+
+        // /**
+        // * 计算卫星侦察覆盖区域的边界点  
+        // * 计算逻辑：
+        // * 1、根据时间和卫星的轨道插值，得到卫星的位置
+        // * 2、根据时间和卫星的朝向插值，得到卫星的朝向
+        // * 3、沿着地心方向（z向）做一个edge_length的偏移量,得到一个点
+        // * 4、把这个点做一个滚动角，在做一个偏航角
+        // */
+        // function calculate_research_zone_pos(hpr, _position, edge_length, angle) {
+        //     var roll = hpr.roll + angle * Math.PI / 180.0;
+        //     var heading = hpr.heading;
+
+        //     let offset = { x: 0, y: 0, z: 0 - edge_length };
+        //     var par1Position = mars3d.matrix.getPositionTranslation(_position, offset, 0 - roll * 180 / Math.PI, 'y');
+        //     var par3Position = mars3d.matrix.getRotateCenterPoint(_position, par1Position, heading * 180 / Math.PI + 90);
+
+        //     return par3Position;
+        // }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,230 @@
+﻿<!-- 2017-12-4 14:24:10 | 修改 木遥（微信:  http://marsgis.cn/weixin.html ） -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,user-scalable=0,minimum-scale=1.0,maximum-scale=1.0" />
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="x5-fullscreen" content="true">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+
+    <!-- 标题及搜索关键字 -->
+    <meta name="keywords" content="火星科技,cesium,3D,GIS,marsgis,三维,地球,地图,开发,框架,系统,示例,资料,模型,离线,外包,合肥,安徽,中国" />
+    <meta name="description"
+        content="火星科技 合肥火星 合肥火星科技 合肥火星科技有限公司 leaflet leaflet框架 leaflet开发 cesium cesium开发 cesium框架 三维 地球 模型  gis marsgis 地图离线 地图开发 地图框架 地图外包 框架 开发 外包  地图离线 二维地图 三维地图 全景漫游 地理信息系统 云GIS 三维GIS GIS平台 WebGIS" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="http://cesium.marsgis.cn/favicon.ico">
+    <title>加载高德在线地图 |Mars3D ( MarsGIS for Cesium )|三维地图| 火星科技|合肥火星科技|合肥火星科技有限公司</title>
+
+
+    <script type="text/javascript" src="../lib/include-lib.js" libpath="../lib/"
+        include="jquery,font-awesome,bootstrap,layer,haoutil,mars3d"></script>
+
+    <link href="css/style.css" rel="stylesheet" />
+
+</head>
+
+<body class="dark">
+    <div id="cesiumContainer" class="mars3d-container"></div>
+
+
+    <!-- 涉及mars的在线服务地址统一配置入口 -->
+    <script type="text/javascript" src="config/marsUrl.js" ></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!mars3d.util.webglreport()) {
+                alert('系统检测到您使用的浏览器不支持WebGL功能');
+                layer.open({
+                    type: 1,
+                    title: "当前浏览器不支持WebGL功能",
+                    closeBtn: 0,
+                    shadeClose: false,
+                    resize: false,
+                    area: ['600px', '200px'], //宽高
+                    content: '<div style="margin: 20px;"><h3>系统检测到您使用的浏览器不支持WebGL功能！</h3>  <p>1、请您检查浏览器版本，安装使用最新版chrome、火狐或IE11以上浏览器！</p> <p>2、WebGL支持取决于GPU支持，请保证客户端电脑已安装显卡驱动程序！</p></div>'
+                });
+            }
+            initMap();
+        });
+
+
+
+        var viewer
+        function initMap() {
+            Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI1NjM5MjMxOS1lMWVkLTQyNDQtYTM4Yi0wZjA4ZDMxYTlmNDMiLCJpZCI6MTQ4MiwiaWF0IjoxNTI4Njc3NDQyfQ.vVoSexHMqQhKK5loNCv6gCA5d5_z3wE2M0l_rWnIP_w';
+            Cesium.Camera.DEFAULT_VIEW_RECTANGLE = Cesium.Rectangle.fromDegrees(110, 20, 120, 30);
+
+            //构造地球
+            viewer = new Cesium.Viewer("cesiumContainer", {
+                animation: false,       //是否创建动画小器件，左下角仪表
+                timeline: false,        //是否显示时间线控件
+                fullscreenButton: false, //右下角全屏按钮
+                vrButton: false,         //右下角vr虚拟现实按钮
+
+                geocoder: false,         //是否显示地名查找控件
+                sceneModePicker: true,  //是否显示投影方式控件
+                homeButton: true,        //回到默认视域按钮
+                navigationHelpButton: false,    //是否显示帮助信息控件
+
+                baseLayerPicker: true,  //是否显示图层选择控件
+                imageryProviderViewModels: getImageryProviderArr(),     //地图底图
+                terrainProviderViewModels: getTerrainProviderViewModelsArr()
+            });
+
+
+
+            //火星对viewer的扩展
+            viewer.mars = new mars3d.ViewerEx(viewer, {
+                crs: "gcj",
+                contextmenu: true,
+                center: { "y": 20.758452, "x": 108.198353, "z": 7733735.96, "heading": 357.7, "pitch": -82.4, "roll": 0.9 },
+                mouseZoom: true,
+                location: {
+                    format: "<div>经度:{x}</div> <div>纬度:{y}</div> <div>海拔：{z}米</div> <div>方向：{heading}度</div> <div>视高：{height}米</div>"
+                },
+                navigation: {
+                    compass: { top: "10px", right: "5px" }
+                },
+            });
+
+
+            //查询poi，主要是为了数据与底图的位置匹配测试
+            activatePOIQuery(viewer);
+        }
+
+
+        //获取自定义底图切换
+        function getImageryProviderArr() {
+            var providerViewModels = [];
+            var imgModel;
+
+            imgModel = new Cesium.ProviderViewModel({
+                name: '高德影像',
+                tooltip: '高德影像地图服务',
+                iconUrl: "img/basemaps/gaode_img.png",
+                creationFunction: function () {
+                    return [
+                        mars3d.layer.createImageryProvider({ type: "www_gaode", layer: "img_d" }),
+                        mars3d.layer.createImageryProvider({ type: "www_gaode", layer: "img_z" })
+                    ];
+                }
+            });
+            providerViewModels.push(imgModel);
+
+
+            imgModel = new Cesium.ProviderViewModel({
+                name: '高德电子',
+                tooltip: '高德电子地图服务',
+                iconUrl: "img/basemaps/gaode_vec.png",
+                creationFunction: function () {
+                    return mars3d.layer.createImageryProvider({ type: "www_gaode", layer: "vec" });
+                }
+            });
+            providerViewModels.push(imgModel);
+
+
+            imgModel = new Cesium.ProviderViewModel({
+                name: '蓝色底图',
+                tooltip: 'geoq电子地图服务',
+                iconUrl: "img/basemaps/bd-c-midnight.png",
+                creationFunction: function () {
+                    viewer.mars.crs = "gcj";
+                    return mars3d.layer.createImageryProvider({
+                        "type": "arcgis",
+                        "url": "http://map.geoq.cn/arcgis/rest/services/ChinaOnlineStreetPurplishBlue/MapServer",
+                        "enablePickFeatures": false
+                    });
+                }
+            });
+            providerViewModels.push(imgModel);
+
+
+            imgModel = new Cesium.ProviderViewModel({
+                name: '灰色底图',
+                tooltip: 'geoq电子地图服务',
+                iconUrl: "img/basemaps/bd-c-grayscale.png",
+                creationFunction: function () {
+                    viewer.mars.crs = "gcj";
+                    return mars3d.layer.createImageryProvider({
+                        "type": "arcgis",
+                        "url": "http://map.geoq.cn/arcgis/rest/services/ChinaOnlineStreetGray/MapServer"
+                    });
+                }
+            });
+            providerViewModels.push(imgModel);
+
+ 
+
+
+            return providerViewModels;
+        }
+
+
+
+        function getTerrainProviderViewModelsArr() {
+            return [
+                new Cesium.ProviderViewModel({
+                    name: '无地形',
+                    tooltip: 'WGS84标准球体',
+                    iconUrl: "img/basemaps/TerrainEllipsoid.png",
+                    creationFunction: function () {
+                        return new Cesium.EllipsoidTerrainProvider({
+                            ellipsoid: Cesium.Ellipsoid.WGS84
+                        });;
+                    }
+                }),
+                new Cesium.ProviderViewModel({
+                    name: '全球地形',
+                    tooltip: '由 Cesium官方 提供的高分辨率全球地形',
+                    iconUrl: "img/basemaps/TerrainSTK.png",
+                    creationFunction: function () {
+                        return new Cesium.CesiumTerrainProvider({
+                            url: Cesium.IonResource.fromAssetId(1),
+                            requestWaterMask: true,
+                            requestVertexNormals: true
+                        });
+                    }
+                }),
+                new Cesium.ProviderViewModel({
+                    name: '中国地形',
+                    tooltip: '由 火星科技 提供的中国国内地形',
+                    iconUrl: "img/basemaps/TerrainSTK.png",
+                    creationFunction: function () {
+                        return new Cesium.CesiumTerrainProvider({
+                            url: serverURL_terrain, //定义在 config\marsUrl.js
+                            requestWaterMask: true,
+                            requestVertexNormals: true
+                        });
+                    }
+                })
+
+
+            ];
+        }
+
+
+
+
+
+        //附加：激活POI查询widget，用于在底图上叠加显示数据，【框架已自动纠偏处理】
+        function activatePOIQuery(viewer) {
+            mars3d.widget.activate({
+                viewer: viewer,
+                name: "POI查询",
+                uri: "widgets/queryBaiduPOI/widget.js",
+                success: function (item) {
+
+                }
+            });
+        }
+
+    </script>
+</body>
+
+</html>
