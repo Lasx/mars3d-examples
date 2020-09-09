@@ -84,7 +84,7 @@ li {
     z-index: 20180910;
     top: 0;
     left: 0;
-    background: rgba(0, 0, 0, .5) url("../img/icon-operate.png") center no-repeat;
+    background: rgba(0, 0, 0, .5) url("http://cesium.marsgis.cn/cesium-example/img/icon-operate.png") center no-repeat;
 }
 
 

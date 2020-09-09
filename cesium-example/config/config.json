@@ -38,7 +38,7 @@
             {
                 "pid": 10,
                 "name": "谷歌卫星",
-                "icon": "img/basemaps/google_img.png",
+                "icon": "http://cesium.marsgis.cn/cesium-example/img/basemaps/google_img.png",
                 "type": "www_google",
                 "crs": "wgs84",
                 "layer": "img_d",
@@ -47,7 +47,7 @@
             {
                 "pid": 10,
                 "name": "ArcGIS卫星",
-                "icon": "img/basemaps/esriWorldImagery.png",
+                "icon": "http://cesium.marsgis.cn/cesium-example/img/basemaps/esriWorldImagery.png",
                 "type": "arcgis",
                 "url": "https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer",
                 "enablePickFeatures": false
@@ -55,14 +55,14 @@
             {
                 "pid": 10,
                 "name": "微软卫星",
-                "icon": "img/basemaps/bingAerial.png",
+                "icon": "http://cesium.marsgis.cn/cesium-example/img/basemaps/bingAerial.png",
                 "type": "www_bing",
                 "layer": "Aerial"
             },
             {
                 "pid": 10,
                 "name": "天地图卫星",
-                "icon": "img/basemaps/tdt_img.png",
+                "icon": "http://cesium.marsgis.cn/cesium-example/img/basemaps/tdt_img.png",
                 "type": "www_tdt",
                 "layer": "img_d",
                 "key": [
@@ -76,7 +76,7 @@
             {
                 "pid": 10,
                 "name": "天地图电子",
-                "icon": "img/basemaps/tdt_vec.png",
+                "icon": "http://cesium.marsgis.cn/cesium-example/img/basemaps/tdt_vec.png",
                 "type": "group",
                 "layers": [
                     { "name": "底图", "type": "www_tdt", "layer": "vec_d", "key": ["313cd4b28ed520472e8b43de00b2de56" ] },
@@ -87,14 +87,14 @@
                 "pid": 10,
                 "name": "OSM地图",
                 "type": "xyz",
-                "icon": "img/basemaps/osm.png",
+                "icon": "http://cesium.marsgis.cn/cesium-example/img/basemaps/osm.png",
                 "url": "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
                 "subdomains": "abc"
             },
             {
                 "pid": 10,
                 "name": "蓝色底图(GCJ02偏移)",
-                "icon": "img/basemaps/bd-c-midnight.png",
+                "icon": "http://cesium.marsgis.cn/cesium-example/img/basemaps/bd-c-midnight.png",
                 "crs": "gcj",
                 "type": "arcgis",
                 "url": "http://map.geoq.cn/arcgis/rest/services/ChinaOnlineStreetPurplishBlue/MapServer",
@@ -106,7 +106,7 @@
                 "name": "谷歌卫星(GCJ02偏移)",
                 "type": "group",
                 "crs": "gcj",
-                "icon": "img/basemaps/google_img.png",
+                "icon": "http://cesium.marsgis.cn/cesium-example/img/basemaps/google_img.png",
                 "layers": [
                     { "name": "底图", "type": "www_google", "layer": "img_d" },
                     { "name": "注记", "type": "www_google", "layer": "img_z" }
@@ -116,7 +116,7 @@
                 "pid": 10,
                 "name": "高德卫星(GCJ02偏移)",
                 "type": "group",
-                "icon": "img/basemaps/gaode_img.png",
+                "icon": "http://cesium.marsgis.cn/cesium-example/img/basemaps/gaode_img.png",
                 "crs": "gcj",
                 "layers": [
                     { "name": "底图", "type": "www_gaode", "layer": "img_d" },
@@ -126,7 +126,7 @@
             {
                 "name": "高德电子(GCJ02偏移)",
                 "type": "group",
-                "icon": "img/basemaps/gaode_vec.png",
+                "icon": "http://cesium.marsgis.cn/cesium-example/img/basemaps/gaode_vec.png",
                 "crs": "gcj",
                 "layers": [
                     { "name": "底图", "type": "www_gaode", "layer": "vec_d" },
@@ -137,7 +137,7 @@
                 "pid": 10,
                 "name": "百度卫星 (BD偏移)",
                 "type": "group",
-                "icon": "img/basemaps/bd-img.png",
+                "icon": "http://cesium.marsgis.cn/cesium-example/img/basemaps/bd-img.png",
                 "crs": "baidu",
                 "layers": [
                     { "name": "底图", "type": "www_baidu", "layer": "img_d" },
@@ -147,7 +147,7 @@
             {
                 "pid": 10,
                 "name": "百度电子 (BD偏移)",
-                "icon": "img/basemaps/bd-vec.png",
+                "icon": "http://cesium.marsgis.cn/cesium-example/img/basemaps/bd-vec.png",
                 "crs": "baidu", 
                 "type": "www_baidu",
                 "layer": "vec" 
@@ -156,7 +156,7 @@
                 "pid": 10,
                 "name": "离线地图  (供参考)",
                 "type": "xyz",
-                "icon": "img/basemaps/mapboxSatellite.png",
+                "icon": "http://cesium.marsgis.cn/cesium-example/img/basemaps/mapboxSatellite.png",
                 "url": "http://data.marsgis.cn/maptile/wgs3857img/{z}/{x}/{y}.jpg", 
                 "minimumLevel": 1,
                 "maximumLevel": 18,
@@ -167,7 +167,7 @@
             {
                 "pid": 10,
                 "name": "单张图片  (本地离线)",
-                "icon": "img/basemaps/offline.png",
+                "icon": "http://cesium.marsgis.cn/cesium-example/img/basemaps/offline.png",
                 "type": "image",
                 "url": "img/world/world.jpg" 
             }          
