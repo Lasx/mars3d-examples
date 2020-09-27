@@ -353,9 +353,9 @@
                     var entitie = dataSource.entities.add({
                         position: Cesium.Cartesian3.fromDegrees(item[0], item[1]),
                         point: {
-                            color: new Cesium.Color.fromCssColorString("#ff0000"),
+                            color: Cesium.Color.fromCssColorString("#ff0000"),
                             pixelSize: 10,
-                            outlineColor: new Cesium.Color.fromCssColorString("#ffffff"),
+                            outlineColor: Cesium.Color.fromCssColorString("#ffffff"),
                             outlineWidth: 2,
                             heightReference: Cesium.HeightReference.CLAMP_TO_GROUND
                         },
@@ -382,9 +382,9 @@
                 var entitie = dataSource.entities.add({
                     position: groundPosition,
                     point: {
-                        color: new Cesium.Color.fromCssColorString("#ff0000"),
+                        color: Cesium.Color.fromCssColorString("#ff0000"),
                         pixelSize: 10,
-                        outlineColor: new Cesium.Color.fromCssColorString("#ffffff"),
+                        outlineColor: Cesium.Color.fromCssColorString("#ffffff"),
                         outlineWidth: 2,
                         // heightReference: Cesium.HeightReference.CLAMP_TO_GROUND
                     },
@@ -443,7 +443,7 @@
                     pitch: pitch,
                     roll: roll
                 },
-                color: new Cesium.Color.fromCssColorString("#00ffff").withAlpha(0.7),
+                color: Cesium.Color.fromCssColorString("#00ffff").withAlpha(0.7),
                 fixedFrameTransform: converter,
                 reverse: reverse, //默认反转，改为不反转。
                 //outline: true,
@@ -530,7 +530,7 @@
         //         angle2: 20,
         //         areaType: mars3d.space.FrustumPrimitive.AreaType.FourPrism,// Cone,
         //         rotation: hpr,
-        //         color: new Cesium.Color.fromCssColorString("#6ef500").withAlpha(0.5),
+        //         color: Cesium.Color.fromCssColorString("#6ef500").withAlpha(0.5),
         //         reverse: false,//默认反转，改为不反转。
         //     });
         // }
@@ -561,7 +561,7 @@
         //             }, false),
         //             width: 2,
         //             arcType: Cesium.ArcType.NONE,
-        //             material: new Cesium.Color.fromCssColorString("#ff0000")
+        //             material: Cesium.Color.fromCssColorString("#ff0000")
         //         }
         //     });
         // }

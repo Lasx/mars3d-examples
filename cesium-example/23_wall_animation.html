@@ -107,7 +107,7 @@
                     maximumHeights: [600, 600, 600, 600, 600, 600, 600, 600, 600, 600, 600, 600, 600, 600],
                     minimumHeights: [43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43],
                     material: new mars3d.LineFlowMaterial({//动画线材质
-                        color: new Cesium.Color.fromCssColorString("#00ff00"),
+                        color: Cesium.Color.fromCssColorString("#00ff00"),
                         duration: 2000, //时长，控制速度
                         url: 'img/textures/fence.png',
                         axisY: true
@@ -151,12 +151,12 @@
                     maximumHeights: [500, 500],
                     minimumHeights: [41.14, 39.84],
                     material: new mars3d.LineFlowMaterial({//动画线材质
-                        color: new Cesium.Color.fromCssColorString("#ff0000"),
+                        color: Cesium.Color.fromCssColorString("#ff0000"),
                         duration: 2000, //时长，控制速度
                         url: 'img/textures/fence.png',
                         axisY: true,
                         bgUrl: 'img/textures/tanhao.png',
-                        bgColor: new Cesium.Color.fromCssColorString("#FFFF00"),
+                        bgColor: Cesium.Color.fromCssColorString("#FFFF00"),
                     }),
                 }
             });
@@ -252,7 +252,7 @@
                     minimumHeights: minimumHeights,
                     material: new mars3d.LineFlowMaterial({
                         //动画线材质
-                        color: new Cesium.Color.fromCssColorString("#0111A9"),
+                        color: Cesium.Color.fromCssColorString("#0111A9"),
                         duration: 3000, //时长，控制速度
                         url: "img/textures/fence.png",
                         repeat: new Cesium.Cartesian2(5, 1),

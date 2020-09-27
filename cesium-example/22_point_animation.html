@@ -156,7 +156,7 @@
                     minimumHeights: minimumHeights,
                     material: new mars3d.LineFlowMaterial({
                         //动画线材质
-                        color: new Cesium.Color.fromCssColorString("#0111A9"),
+                        color: Cesium.Color.fromCssColorString("#0111A9"),
                         duration: 5000, //时长，控制速度
                         url: "img/textures/fence.png",
                         repeat: new Cesium.Cartesian2(5, 1),
@@ -175,8 +175,8 @@
                     text: feature.properties.Name,
                     font: "normal small-caps normal 16px 楷体",
                     style: Cesium.LabelStyle.FILL_AND_OUTLINE,
-                    fillColor: new Cesium.Color.fromCssColorString("#ffffff"),
-                    outlineColor: new Cesium.Color.fromCssColorString("#000000"),
+                    fillColor: Cesium.Color.fromCssColorString("#ffffff"),
+                    outlineColor: Cesium.Color.fromCssColorString("#000000"),
                     outlineWidth: 2,
                     horizontalOrigin: Cesium.HorizontalOrigin.CENTER,
                     verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
