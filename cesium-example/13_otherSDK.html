@@ -62,8 +62,8 @@
             //构造地球（可以使用原生Cesium或第3方SDK方式去构造Viewer）
             var viewer = new Cesium.Viewer("cesiumContainer");
 
- 
-            //火星对viewer的扩展，后续内部很多方法有关联，所以需要绑定下
+
+            //[可选]火星对viewer的扩展
             viewer.mars = new mars3d.ViewerEx(viewer, {
                 //支持config.json所有参数
                 contextmenu: true,

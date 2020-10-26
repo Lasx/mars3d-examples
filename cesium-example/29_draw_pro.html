@@ -46,7 +46,7 @@
             <input id="btnImpFile" type="button" class="btn btn-primary" value="打开" />
             <input id="btnSave" type="button" class="btn btn-primary" value="保存" />
             <input id="input_plot_file" type="file" accept=".json" style="display:none;" />
- 
+
             <span style="color: #cad1d1;">提示：单击按钮后在图上按提示进行操作</span>
         </div>
 
@@ -83,8 +83,8 @@
         </div>
     </div>
 
-     <!-- 切换视角到模型或地形（山区）的快捷按钮 -->
-     <script type="text/javascript" src="js/center_terrain_3dtiles.js"></script>
+    <!-- 切换视角到模型或地形（山区）的快捷按钮 -->
+    <script type="text/javascript" src="js/center_terrain_3dtiles.js"></script>
 
 
     <script type="text/javascript">
@@ -134,46 +134,48 @@
 
         //当前页面业务相关
         function initWork() {
-            drawControl = new mars3d.Draw(viewer, {});
+            drawControl = new mars3d.Draw({
+                viewer: viewer,
+            });
 
             //事件监听(可以自行加相关代码实现业务需求，此处主要做示例)
-            drawControl.on(mars3d.draw.event.DrawStart, function (e) {
+            drawControl.on(mars3d.Draw.event.drawStart, function (e) {
                 console.log('开始绘制');
             });
-            drawControl.on(mars3d.draw.event.DrawAddPoint, function (e) {
+            drawControl.on(mars3d.Draw.event.drawAddPoint, function (e) {
                 console.log('绘制过程中增加了点');
             });
-            drawControl.on(mars3d.draw.event.DrawRemovePoint, function (e) {
+            drawControl.on(mars3d.Draw.event.drawRemovePoint, function (e) {
                 console.log('绘制过程中删除了点');
             });
 
 
-            drawControl.on(mars3d.draw.event.DrawCreated, function (e) {
+            drawControl.on(mars3d.Draw.event.drawCreated, function (e) {
                 var entity = e.entity;
                 startEditing(entity);
                 console.log('创建完成');
             });
-            drawControl.on(mars3d.draw.event.EditStart, function (e) {
+            drawControl.on(mars3d.Draw.event.editStart, function (e) {
                 var entity = e.entity;
                 startEditing(entity);
                 console.log('开始编辑');
             });
-            drawControl.on(mars3d.draw.event.EditMovePoint, function (e) {
+            drawControl.on(mars3d.Draw.event.editMovePoint, function (e) {
                 var entity = e.entity;
                 startEditing(entity);
                 console.log('编辑修改了点');
             });
-            drawControl.on(mars3d.draw.event.EditRemovePoint, function (e) {
+            drawControl.on(mars3d.Draw.event.editRemovePoint, function (e) {
                 var entity = e.entity;
                 startEditing(entity);
                 console.log('编辑删除了点');
             });
-            drawControl.on(mars3d.draw.event.EditStop, function (e) {
+            drawControl.on(mars3d.Draw.event.editStop, function (e) {
                 stopEditing();
                 console.log('停止编辑');
             });
-            
-            drawControl.on(mars3d.draw.event.Delete, function (e) { 
+
+            drawControl.on(mars3d.Draw.event.delete, function (e) {
                 stopEditing();
                 console.log('删除了对象');
             });
@@ -351,7 +353,7 @@
             }, 200);
         }
 
- 
+
 
     </script>
 </body>

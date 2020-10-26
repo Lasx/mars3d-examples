@@ -184,9 +184,9 @@
                 console.log('当前卫星数量: ' + arr.length);
 
                 //单击地图空白处
-                viewer.mars.click = function () {
-                    highlightSatellite()
-                }
+                viewer.mars.on(mars3d.event.clickMap, function (event) {
+                    highlightSatellite();
+                })
             },
             getItem: function (norad) {
                 if (norad == null || norad == undefined) return null;

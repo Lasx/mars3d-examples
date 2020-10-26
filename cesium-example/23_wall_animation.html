@@ -68,7 +68,7 @@
             mars3d.createMap({
                 id: 'cesiumContainer',
                 url: configfile,
-                center: { "y": 31.756884, "x": 117.181677, "z": 9841.8, "heading": 12, "pitch": -52.9, "roll": 0.1 },
+                center: { "y": 31.735621, "x": 117.155931, "z": 11700.82, "heading": 5.9, "pitch": -50.9, "roll": 0 },
                 success: function (_viewer, jsondata) {//地图成功加载完成后执行
                     viewer = _viewer;
 
@@ -82,8 +82,16 @@
 
         //当前页面业务相关
         function initWork() {
+
             var dataSource = new Cesium.CustomDataSource();
             viewer.dataSources.add(dataSource);
+
+
+            //显示合肥市边界
+            $.getJSON(serverURL_file + "/geojson/hefei.json", function (result) {
+                addBoundary(result);
+            });
+
 
             //示例 
             dataSource.entities.add({
@@ -104,8 +112,8 @@
                         117.151215, 31.844734,
                         117.154788, 31.853486
                     ]),
-                    maximumHeights: [600, 600, 600, 600, 600, 600, 600, 600, 600, 600, 600, 600, 600, 600],
-                    minimumHeights: [43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43],
+                    maximumHeights: [600, 600, 600, 600, 600, 600, 600, 600, 600, 600, 600, 600, 600],
+                    minimumHeights: [43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43],
                     material: new mars3d.LineFlowMaterial({//动画线材质
                         color: Cesium.Color.fromCssColorString("#00ff00"),
                         duration: 2000, //时长，控制速度
@@ -117,7 +125,7 @@
 
             //示例 
             dataSource.entities.add({
-                name: '动态立体墙2',
+                name: '动态箭头立体墙',
                 wall: {
                     positions: Cesium.Cartesian3.fromDegreesArray([
                         117.216321, 31.842863,
@@ -137,10 +145,9 @@
                 }
             });
 
-
             //示例 
             dataSource.entities.add({
-                name: '动态立体墙3',
+                name: '红色感叹号墙',
                 wall: {
                     positions: Cesium.Cartesian3.fromDegreesArray([
                         117.191537,
@@ -160,29 +167,6 @@
                     }),
                 }
             });
-
-
-
-
-
-            //显示线的箭头效果
-            var redLine = viewer.entities.add({
-                name: 'polyline线',
-                polyline: {
-                    positions: Cesium.Cartesian3.fromDegreesArrayHeights([
-                        117.204289, 31.763824, 32.05,
-                        117.228083, 31.791911, 41.73,
-                    ]),
-                    width: 20,
-                    material: new mars3d.LineFlowMaterial({//动画线材质
-                        color: Cesium.Color.AQUA,
-                        duration: 1000, //时长，控制速度
-                        url: './img/textures/arrow2.png',
-                        repeat: new Cesium.Cartesian2(10, 1),
-                    }),
-                }
-            });
-
 
             //显示【贴地线】的箭头效果
             var flowMaterial = new mars3d.GroundLineFlowMaterial({
@@ -214,12 +198,61 @@
 
 
 
-
-
-            //显示边界
-            $.getJSON(serverURL_file + "/geojson/hefei.json", function (result) {
-                addBoundary(result);
+            //显示线的箭头效果
+            var redLine = dataSource.entities.add({
+                name: '箭头线',
+                polyline: {
+                    positions: Cesium.Cartesian3.fromDegreesArrayHeights([
+                        117.204289, 31.763824, 32.05,
+                        117.228083, 31.791911, 41.73,
+                    ]),
+                    width: 20,
+                    material: new mars3d.LineFlowMaterial({//动画线材质
+                        color: Cesium.Color.AQUA,
+                        duration: 1000, //时长，控制速度
+                        url: './img/textures/arrow2.png',
+                        repeat: new Cesium.Cartesian2(10, 1),
+                    }),
+                }
             });
+
+
+            //走马灯围墙效果
+            var positions = mars3d.pointconvert.lonlats2cartesians([
+                [117.13949, 31.822909, 38.43],
+                [117.148559, 31.822854, 35.56],
+                [117.151724, 31.822788, 41.61],
+                [117.161761, 31.816883, 42.53],
+                [117.152841, 31.805183, 40.7],
+                [117.139295, 31.805423, 26.78]
+            ]);
+            var scrollWallGlow = new mars3d.ScrollWallGlow(viewer, {
+                positions: positions,
+                color: Cesium.Color.fromCssColorString("#f2fa19"), 
+                height: 500,    //高度
+                direction: 1,   //方向：1往上、-1往下
+                speed: 100
+            });
+
+
+            //走马灯围墙效果2
+            var positions = mars3d.pointconvert.lonlats2cartesians([
+                [117.096979, 31.822785, 34.6],
+                [117.119188, 31.822947, 38.36],
+                [117.119354, 31.805121, 31.04],
+                [117.096974, 31.805181, 29.64]
+            ]);
+            var scrollWallGlow = new mars3d.ScrollWallGlow(viewer, {
+                positions: positions,
+                color: Cesium.Color.fromCssColorString("#f33349"), 
+                height: 500,    //高度
+                direction: 1,   //方向：1往上、-1往下
+                speed: 200,
+                style: 2
+            });
+
+
+
 
 
 

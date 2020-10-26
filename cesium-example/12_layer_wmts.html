@@ -59,7 +59,7 @@
             //地图底图
             // var imageryProvider = mars3d.layer.createImageryProvider({
             //     "type": "image",
-            //     "url": "img/world/world.jpg"
+            //     "url": "img/tietu/world.jpg"
             // });
             var imageryProvider = mars3d.layer.createImageryProvider({
                 type: "www_google",
@@ -100,7 +100,7 @@
             for (var z = 0; z <= maxLevel; z++) {
                 matrixIds[z] = 'EPSG:4326:' + (z).toString(); //第0成对应1，z值都+1
             }
-            var layer = mars3d.layer.createLayer({
+            var layer = mars3d.layer.createLayer(viewer,{
                 "type": "wmts",
                 "url": 'http://data.marsgis.cn/geoserver/gwc/service/wmts',
                 "layer": 'mars:hfgh',
@@ -111,11 +111,11 @@
                 "crs": "4326",
                 "alpha": 0.5,
                 "visible": true,
-            }, viewer);
+            });
 
 
             //山西天地图 EPSG4490   
-            // var layer = mars3d.layer.createLayer({
+            // var layer = mars3d.layer.createLayer(viewer,{
             //     "type": "wmts",
             //     "url": 'http://shanxi.tianditu.gov.cn/service/SX_DOM/wmts',
             //     "layer": 'WD_DOM',
@@ -126,7 +126,7 @@
             //     "crs": "4326",
             //     "visible": true,
             //     "proxy": "http://data.marsgis.cn/proxy/",  //代理服务，解决跨域问题
-            // }, viewer);
+            // });
 
 
 

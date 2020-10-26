@@ -63,9 +63,9 @@
         </div>
 
         <div>
-            <input type="button" class="btn btn-primary" value="贴地距离" onclick="measuerLength2()" />
-            <input type="button" class="btn btn-primary" value="贴地面积" onclick="measureArea2()" />
-            <input type="button" class="btn btn-primary" value="三角测量" onclick="measureHeight2()" />
+            <input type="button" class="btn btn-primary" value="贴地距离" onclick="measureSurfaceLength()" />
+            <input type="button" class="btn btn-primary" value="贴地面积" onclick="measureSurfaceeArea()" />
+            <input type="button" class="btn btn-primary" value="三角测量" onclick="measureTriangleHeight()" />
 
             <input type="button" class="btn btn-primary" value="方位角" onclick="measureAngle()" />
         </div>
@@ -119,12 +119,12 @@
             });
         }
 
-        var measureSurface;
+        var measure;
 
         //当前页面业务相关
         function initWork() {
 
-            measureSurface = new mars3d.analysi.Measure({
+            measure = new mars3d.analysi.Measure({
                 viewer: viewer,
                 removeScreenSpaceEvent: true,
                 label: {//可设置文本样式
@@ -134,8 +134,15 @@
                     "background": false,
                 }
             });
-
-            measureSurface.draw().on(mars3d.draw.event.Delete, function (e) {
+            measure.on(mars3d.analysi.Measure.event.start, function (e) {//开始分析前回调(异步)
+                haoutil.loading.show();
+            });
+            measure.on(mars3d.analysi.Measure.event.end, function (e) {//分析完成后回调(异步)
+                haoutil.loading.hide();
+                if (e.mtype == "areaSurface" && e.list)
+                    showInterResult(e.list);//在js/showPolygonInter.js
+            });
+            measure.on(mars3d.analysi.Measure.event.delete, function (e) {
                 clearInterResult();//在js/showPolygonInter.js          
             });
 
@@ -152,17 +159,16 @@
 
         //外部控制，完成绘制，比如手机端无法双击结束
         function endDraw() {
-            measureSurface.endDraw();
+            measure.endDraw();
         }
 
         function clearDraw() {
-            measureSurface.clearMeasure();
+            measure.clear();
             clearInterResult();//在js/showPolygonInter.js
         }
 
         function measureLength() {
-            measureSurface.measureLength({
-                terrain: false,
+            measure.length({
                 // style: {//可以自定义样式
                 //     "lineType": "solid",
                 //     "color": "#ffff00",
@@ -172,10 +178,9 @@
             });
         }
 
-        function measuerLength2() {
-            measureSurface.measureLength({
-                //unit:"m", //支持传入指定计量单位
-                terrain: true,
+        function measureSurfaceLength() {
+            measure.surfaceLength({
+                //unit:"m", //支持传入指定计量单位 
                 // style: {//可以自定义样式
                 //     "lineType": "solid",
                 //     "color": "#ffff00",
@@ -187,7 +192,7 @@
 
 
         function measureArea() {
-            measureSurface.measureArea({
+            measure.area({
                 style: {//可以自定义样式
                     color: "#00fff2",
                     opacity: 0.4,
@@ -200,38 +205,35 @@
         }
 
 
-        function measureArea2() {
-            measureSurface.measureArea({
+        function measureSurfaceeArea() {
+
+            measure.surfaceeArea({
                 // style: { //可以自定义样式
                 //     "color": "#ffff00", 
                 // }, 
-                terrain: true,
                 splitNum: 10,//step插值分割的个数
-                onStart: function () {//开始分析前回调(异步)
-                    haoutil.loading.show();
-                },
-                onEnd: function () {//分析完成后回调(异步)
-                    haoutil.loading.hide();
-                },
-                onInterEnd: function (resultInter) {//插值结果回调，测试用
-                    showInterResult(resultInter.list);//在js/showPolygonInter.js
-                },
             });
         }
 
         function measureHeight() {
-            measureSurface.measureHeight({ isSuper: false });
+            measure.height();
         }
-        function measureHeight2() {
-            measureSurface.measureHeight({ isSuper: true });
+        function measureTriangleHeight() {
+            measure.triangleHeight();
         }
 
         function measureAngle() {
-            measureSurface.measureAngle();
+            measure.angle({
+                // styleEx: {//正北线的样式
+                //     "lineType": "solid",
+                //     "color": "#ffff00",
+                //     "width": 3, 
+                // }
+            });
         }
 
         function measurePoint() {
-            measureSurface.measurePoint();
+            measure.point();
         }
 
 

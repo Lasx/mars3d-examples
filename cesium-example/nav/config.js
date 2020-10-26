@@ -45,7 +45,7 @@ var exampleConfig = {
                         fileName: "11_online_gaode"
                     },
                     {
-                        name: "百度",
+                        name: "百度Demo",
                         version: "1.7.6",
                         thumbnail: "11_online_baidu.jpg",
                         fileName: "11_online_baidu"
@@ -136,18 +136,24 @@ var exampleConfig = {
                 name: "线状对象",
                 content: [ 
                     {
-                        name: "动态效果线",
+                        name: "动态线",
                         version: "1.6.9",
-                        thumbnail: "23_animationLine3.gif",
-                        fileName: "23_animationLine3"
+                        thumbnail: "23_lineFlowMaterial.gif",
+                        fileName: "23_lineFlowMaterial"
                     },
                     
                     {
-                        name: "动态立体墙",
+                        name: "动态立体围墙",
                         version: "1.6.9",
                         thumbnail: "23_wall_animation.gif",
                         fileName: "23_wall_animation"
-                    }, 
+                    },
+                    {
+                        name: "围墙扩散动画",
+                        version: "2.2.0",
+                        thumbnail: "24_diffuseWallGlow.gif",
+                        fileName: "24_diffuseWallGlow",
+                    },
                 ]
             },
             
@@ -170,14 +176,14 @@ var exampleConfig = {
                     {
                         name: "GeoJson (地块)",
                         version: "2.0.5",
-                        thumbnail: "28_geojson.jpg",
-                        fileName: "28_geojson"
+                        thumbnail: "28_geojson_mars.jpg",
+                        fileName: "28_geojson_mars"
                     },
                     {
                         name: "GeoJson (行政区划)",
                         version: "1.2.0",
-                        thumbnail: "28_geojson2.jpg",
-                        fileName: "28_geojson2"
+                        thumbnail: "28_geojson_mars2.jpg",
+                        fileName: "28_geojson_mars2"
                     },
                     
                 ]
@@ -258,13 +264,19 @@ var exampleConfig = {
                         version: "1.8.9",
                         thumbnail: "43_roaming_air.gif",
                         fileName: "43_roaming_air"
-                    },
+                    }, 
                     {
                         name: "行人漫游",
                         version: "2.0.2",
                         thumbnail: "43_roaming_man.jpg",
                         fileName: "43_roaming_man"
                     },
+                    {
+                        name: "室内漫游",
+                        version: "2.2.0",
+                        thumbnail: "43_roaming_shinei.jpg",
+                        fileName: "43_roaming_shinei"
+                    },                    
                     {
                         name: "贴地表表面漫游",
                         version: "1.8.9",
@@ -278,7 +290,7 @@ var exampleConfig = {
                         fileName: "43_roaming_ground2 "
                     },
 
-                    
+                  
                     {
                         name: "飞行路线(复杂)",
                         version: "1.6.9",

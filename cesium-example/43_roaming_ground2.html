@@ -187,7 +187,7 @@
         //当前页面业务相关
         function initWork() {
 
-            var tileset = mars3d.layer.createLayer({
+            var tileset = mars3d.layer.createLayer(viewer,{
                 "type": "3dtiles",
                 "name": "厂房",
                 "url": serverURL_3dtiles + "/qx-changfang/tileset.json",    //定义在 config\marsUrl.js      
@@ -196,7 +196,7 @@
                 "offset": { "z": 90 },
                 "visible": true,
                 "flyTo": true
-            }, viewer);
+            });
 
 
 

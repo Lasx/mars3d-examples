@@ -95,17 +95,17 @@
 
 
             //国家天地图-wmts服务
-            var layer = mars3d.layer.createLayer({
+            var layer = mars3d.layer.createLayer(viewer,{
                 "name": "xyz图层",
                 "type": "tile",
                 "url": "http://t3.tianditu.gov.cn/img_c/wmts?service=WMTS&version=1.0.0&request=GetTile&tilematrix={z}&layer=img&style=default&tilerow={y}&tilecol={x}&tilematrixset=c&format=tiles&tk=6c99c7793f41fccc4bd595b03711913e",
                 "crs": "4490",
                 "visible": true
-            }, viewer);
+            });
 
  
             //山西卫星-wmts服务
-            // var layer = mars3d.layer.createLayer({
+            // var layer = mars3d.layer.createLayer(viewer,{
             //     "name": "xyz图层",
             //     "type": "tile",
             //     "url": "http://shanxi.tianditu.gov.cn/service/SX_DOM/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=WD_DOM&STYLE=WD_DOM&TILEMATRIXSET=Matrix_WD_DOM_0&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}&FORMAT=image%2Ftile",
@@ -115,12 +115,12 @@
             //     "maximumLevel": 18,
             //     "visible": true,
             //     "proxy": "http://data.marsgis.cn/proxy/",  //代理服务，解决跨域问题
-            // }, viewer);
+            // });
 
 
 
             //山东影像-仿WMTS
-            var layer = mars3d.layer.createLayer({
+            var layer = mars3d.layer.createLayer(viewer,{
                 "name": "山东影像",
                 "type": "tile",
                 "url": "http://www.sdmap.gov.cn/tileservice/SDPubMap?layer=SDPubMap&style=default&tilematrixset=default028mm&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fpng&TileMatrix={z}&TileCol={x}&TileRow={y}",
@@ -133,22 +133,22 @@
                     "token": "test",
                 },
                 "visible": true,
-            }, viewer);
+            });
 
 
 
             //某测试影像-geowebcache wmts
-            // var layer = mars3d.layer.createLayer({
+            // var layer = mars3d.layer.createLayer(viewer,{
             //     "type": "xyz",
             //     "crs": "EPSG:4490",
             //     "url": "http://47.106.133.145:20000/geowebcache/service/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetTile&LAYER=arcgis-China&STYLE=_null&FORMAT=image/jpeg&TILEMATRIXSET=EPSG:4326_arcgis-China&TILEMATRIX=EPSG:4326_arcgis-China:{z}&TILEROW={y}&TILECOL={x}",
             //     "proxy": "http://data.marsgis.cn/proxy/",  //代理服务，解决跨域问题
             //     "visible": true,
-            // }, viewer);
+            // });
 
 
             // //湖北卫星-arcgis服务
-            // var layer = mars3d.layer.createLayer({
+            // var layer = mars3d.layer.createLayer(viewer,{
             //     "name": "xyz图层",
             //     "type": "xyz",
             //     "crs": "EPSG:4490",
@@ -156,7 +156,7 @@
             //     "minimumLevel": 0,
             //     "maximumLevel": 18,
             //     "visible": true,
-            // }, viewer);
+            // });
  
 
 

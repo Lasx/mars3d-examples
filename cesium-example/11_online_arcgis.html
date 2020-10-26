@@ -33,7 +33,7 @@
     <div id="cesiumContainer" class="mars3d-container"></div>
 
     <!-- 涉及mars的在线服务地址统一配置入口 -->
-    <script type="text/javascript" src="config/marsUrl.js" ></script>
+    <script type="text/javascript" src="config/marsUrl.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -88,19 +88,22 @@
 
 
             //自定义格式显示下侧的提示栏信息。
-            viewer.mars.locationFormat = function (locationData) {
+            viewer.mars.location.format = function (locationData) {
                 var pitch
                 if (locationData.pitch < 0)
                     pitch = "俯视:" + (-locationData.pitch)
                 else
                     pitch = "仰视:" + locationData.pitch
 
+                var dfmX = mars3d.util.formatDegree(locationData.x);
+                var dfmY = mars3d.util.formatDegree(locationData.y);
+
                 return `<div>视高：${locationData.height}米</div>
                         <div>${pitch}度</div>
                         <div>方向：${locationData.heading}度</div>
                         <div>海拔：${locationData.z}米</div>
-                        <div>纬度:${locationData.y}</div>
-                        <div>经度:${locationData.x}</div>`;
+                        <div>纬度:${locationData.y} , ${dfmY}</div>
+                        <div>经度:${locationData.x} , ${dfmX}</div>`;
             }
 
 
@@ -230,23 +233,23 @@
 
             ];
         }
-   
-   
-   
+
+
+
         //附加：激活POI查询widget，用于在底图上叠加显示数据，【框架已自动纠偏处理】
         function activatePOIQuery(viewer) {
             mars3d.widget.activate({
                 viewer: viewer,
                 name: "POI查询",
-                uri: "widgets/queryBaiduPOI/widget.js", 
+                uri: "widgets/queryBaiduPOI/widget.js",
                 success: function (item) {
-                   
+
                 }
             });
         }
 
-   
-   
+
+
     </script>
 </body>
 

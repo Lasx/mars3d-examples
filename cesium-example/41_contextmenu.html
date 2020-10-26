@@ -97,7 +97,7 @@
                 {
                     text: '显示此处经纬度',
                     iconCls: 'fa fa-info-circle',
-                    calback: function (e) {
+                    callback: function (e) {
                         var mpt = mars3d.point.formatPosition(e.position);
 
                         var inhtml = "经度：" + mpt.x + " , 纬度：" + mpt.y + "<br/>高程：" + mpt.z;
@@ -110,7 +110,7 @@
                     visible: function () {
                         return !viewer.scene.globe.depthTestAgainstTerrain
                     },
-                    calback: function (e) {
+                    callback: function (e) {
                         viewer.scene.globe.depthTestAgainstTerrain = true;
                     }
                 },
@@ -120,7 +120,7 @@
                     visible: function () {
                         return viewer.scene.globe.depthTestAgainstTerrain
                     },
-                    calback: function (e) {
+                    callback: function (e) {
                         viewer.scene.globe.depthTestAgainstTerrain = false;
                     }
                 },
@@ -131,7 +131,7 @@
                         {
                             text: '第一视角站到此处',
                             iconCls: 'fa fa-street-view',
-                            calback: function (e) {
+                            callback: function (e) {
 
                                 viewer.camera.flyTo({
                                     destination: mars3d.point.addPositionsHeight(e.position, 10), //升高10米
@@ -149,7 +149,7 @@
                             visible: function (e) {
                                 return !viewer.mars.keyboardRoam.enable
                             },
-                            calback: function (e) {
+                            callback: function (e) {
                                 viewer.mars.keyboardRoam.enable = true;
                             }
                         },
@@ -159,7 +159,7 @@
                             visible: function (e) {
                                 return viewer.mars.keyboardRoam.enable
                             },
-                            calback: function (e) {
+                            callback: function (e) {
                                 viewer.mars.keyboardRoam.enable = false;
                             }
                         },
@@ -169,7 +169,7 @@
                             visible: function (e) {
                                 return viewer.trackedEntity != undefined
                             },
-                            calback: function (e) {
+                            callback: function (e) {
                                 viewer.trackedEntity = undefined;
                             }
                         },
@@ -188,7 +188,7 @@
                 {
                     text: '删除对象',
                     iconCls: 'fa fa-trash-o',
-                    calback: function (e) {
+                    callback: function (e) {
                         var entity = e.target;
                         if (entity)
                             viewer.entities.remove(entity);
@@ -246,29 +246,30 @@
 
 
 
-            var layerWork = mars3d.layer.createLayer({
+            var layerWork = mars3d.layer.createLayer(viewer,{
                 "name": "教学楼",
                 "type": "3dtiles",
-                "url": serverURL_3dtiles + "/bim-xuexiao/jz/tileset.json", //定义在 config\marsUrl.js
+                "url": serverURL_3dtiles + "/bim-daxue/tileset.json", //定义在 config\marsUrl.js 
+                "scale":3,
+                "offset": { "x":  117.228508 , "y": 31.82915, "z": 53, "heading": 1.9 },
                 "maximumScreenSpaceError": 16,
                 "maximumMemoryUsage": 1024,
                 "scenetree": "scenetree.json",
                 "showClickFeature": true,
                 "popup": "all",
-                "offset": { "x": 117.21964, "y": 31.833288, "z": 53, "heading": 1.9 },
                 "visible": true,
                 "contextmenuItems": [
                     {
                         text: '删除模型',
                         iconCls: 'fa fa-trash-o',
-                        calback: function (e) {
+                        callback: function (e) {
                             layerWork.remove();
                         }
                     }
                 ]
-            }, viewer);
+            });
 
-
+             
 
 
         }

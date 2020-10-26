@@ -85,7 +85,7 @@
 
 
             //增加其他底图 https://www.lightpollutionmap.info/geoserver/gwc/demo 
-            var layer = mars3d.layer.createLayer({
+            var layer = mars3d.layer.createLayer(viewer,{
                 "name": "光污染图层",
                 "type": "wms",
                 "url": "//www.lightpollutionmap.info/geoserver/gwc/service/wms",
@@ -98,22 +98,22 @@
                 "alpha": 0.6, //透明度
                 "proxy": "http://data.marsgis.cn/proxy/",  //代理服务，解决跨域问题
                 "visible": true,
-            }, viewer);
+            });
 
 
             //wms也可以换一种xyz的直接写法
-            // var layer = mars3d.layer.createLayer({
+            // var layer = mars3d.layer.createLayer(viewer,{
             //     "type": "tile",
             //     "url": "//www.lightpollutionmap.info/geoserver/gwc/service/wms?transparent=true&format=image%2Fpng&service=WMS&version=1.1.1&request=GetMap&styles=&layers=PostGIS%3AVIIRS_2019&bbox={westProjected},{southProjected},{eastProjected},{northProjected}&width={width}&height={height}&srs=EPSG%3A3857",
             //     "alpha": 0.6, //透明度
             //     "proxy": "http://data.marsgis.cn/proxy/",  //代理服务，解决跨域问题
             //     "visible": true,
-            // }, viewer);
+            // });
 
 
 
             //增加其他底图 
-            var layer = mars3d.layer.createLayer({
+            var layer = mars3d.layer.createLayer(viewer,{
                 "name": "合肥wms",
                 "type": "wms",
                 "url": "http://data.marsgis.cn/geoserver/mars/wms",
@@ -145,7 +145,7 @@
 
                 },
                 "visible": true,
-            }, viewer);
+            });
 
             // setTimeout(function () {
             //      layerWork.layer.imageryProvider.reinitialize({url:"https://mesonet.agron.iastate.edu/cgi-bin/wms/goes/conus_ir.cgi?"});
@@ -153,38 +153,14 @@
             // }, 3000)
 
 
-
-
-
-
+ 
 
         }
 
 
 
 
-
-
-
-
-
-            // var scene = viewer.scene;
-            // var handler = new Cesium.ScreenSpaceEventHandler(scene.canvas);
-            // handler.setInputAction(event => {
-            //     var pickRay = scene.camera.getPickRay(event.position); 
-            //     var imageryLayerFeaturePromise = scene.imageryLayers.pickImageryLayerFeatures(pickRay, scene);
-            //     if (!Cesium.defined(imageryLayerFeaturePromise)) {
-            //         return;
-            //     }
-            //     Cesium.when(imageryLayerFeaturePromise, function (features) {
-            //         if (!Cesium.defined(features) || features.length === 0) {
-            //             return;
-            //         }
-            //         //features是单击选中的要素对象
-            //     }, function (e) {
-            //         console.log(e);
-            //     }); 
-            // }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
+ 
 
     </script>
 </body>

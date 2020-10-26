@@ -82,7 +82,7 @@
         //当前页面业务相关
         function initWork() {
 
-            var layer = new mars3d.layer.GeoJsonLayer({
+            var layer = new mars3d.layer.GeoJsonLayer(viewer,{
                 "id": 1987,
                 "name": "安徽各市",
                 "url": serverURL_file + "/geojson/anhui.json",
@@ -95,6 +95,8 @@
                         "outlineColor": "#FED976",
                         "outlineWidth": 3,
                         "outlineOpacity": 1,
+                        // "lineType": "dash", //虚线
+                        // "dashLength":16,
                         "label": { //面中心点，显示文字的配置
                             "text": "{name}", //对应的属性名称
                             "opacity": 1,
@@ -145,7 +147,7 @@
                 },
                 "visible": true,
                 "flyTo": true
-            }, viewer);
+            });
             viewer.mars.addOperationalLayer(layer);
 
 
@@ -154,8 +156,8 @@
 
         }
 
-
-        //下面代码演示如果再cofnig.json中配置的图层，如何绑定额外事件方法
+ 
+        //下面代码演示如果再config.json中配置的图层，如何绑定额外事件方法
         function demoClick() {
 
             // 绑定config.json中对应图层配置的"id"值图层的单击事件（比如下面是id:1987对应图层）

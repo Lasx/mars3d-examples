@@ -107,7 +107,7 @@
 
 
             //增加其他底图：框架代码 
-            // var layer = mars3d.layer.createLayer({
+            // var layer = mars3d.layer.createLayer(viewer,{
             //     "name": "无人机影像",
             //     "type": "tile",
             //     "url": "http://data.marsgis.cn/maptile/test/{z}/{x}/{y}.png",
@@ -116,11 +116,11 @@
             //     "maximumLevel": 20,
             //     "alpha": 0.5,
             //     "visible": true,
-            // }, viewer);
+            // });
 
 
             // //增加图层 TMS、EPSG4326
-            // var layer = mars3d.layer.createLayer({
+            // var layer = mars3d.layer.createLayer(viewer,{
             //     "name": "4326坐标系TMS图层",
             //     "type": "tile",
             //     "url": "http://data.marsgis.cn/geoserver/gwc/service/tms/1.0.0/mars%3Ahfgh3857@EPSG%3A4326@png/{z}/{x}/{reverseY}.png",
@@ -129,11 +129,11 @@
             //     "minimumLevel": 0,
             //     "maximumLevel": 18, 
             //     "visible": true,
-            // }, viewer);
+            // });
 
 
             //增加图层 TMS、EPSG3857
-            var layer = mars3d.layer.createLayer({
+            var layer = mars3d.layer.createLayer(viewer,{
                 "name": "3857坐标系TMS图层",
                 "type": "tile",
                 "url": "http://data.marsgis.cn/geoserver/gwc/service/tms/1.0.0/mars%3Ahfgh3857@EPSG%3A3857@png/{z}/{x}/{reverseY}.png",
@@ -145,7 +145,7 @@
                 "minimumLevel": 0,
                 "maximumLevel": 18,
                 "visible": true,
-            }, viewer);
+            });
 
 
         }

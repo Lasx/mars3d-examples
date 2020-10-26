@@ -20,13 +20,13 @@ function centerAtModel() {
 
     //三维模型
     if (!modelTest) {
-        modelTest = mars3d.layer.createLayer({
+        modelTest = mars3d.layer.createLayer(viewer,{
             "type": "3dtiles",
             "url": serverURL_3dtiles + "/qx-simiao/tileset.json", //定义在 config\marsUrl.js
             "maximumScreenSpaceError": 1,
             "maximumMemoryUsage": 1024,
             "offset": { "z": 81.5 },
             "visible": true
-        }, viewer);
+        });
     }
 }

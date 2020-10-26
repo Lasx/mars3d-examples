@@ -68,7 +68,7 @@
             mars3d.createMap({
                 id: 'cesiumContainer',
                 url: configfile,
-                center: {"y":31.588498,"x":120.714274,"z":492.53,"heading":13.6,"pitch":-55.3,"roll":0.1},
+                center: { "y": 31.588498, "x": 120.714274, "z": 492.53, "heading": 13.6, "pitch": -55.3, "roll": 0.1 },
                 success: function (_viewer, jsondata) {//地图成功加载完成后执行
                     viewer = _viewer;
 
@@ -81,8 +81,8 @@
 
         //当前页面业务相关
         function initWork() {
-
-            var layer = new mars3d.layer.GeoJsonLayer({
+ 
+            var layer = new mars3d.layer.GeoJsonLayer(viewer,{
                 "name": "用地规划",
                 "url": serverURL_file + "/geojson/guihua.json",
                 "symbol": {
@@ -123,12 +123,12 @@
                 "popup": "类型:{类型}",
                 "visible": true,
                 // "flyTo": true
-            }, viewer);
-          
+            });
+
         }
 
 
- 
+
 
 
 

@@ -62,6 +62,7 @@
             <input type="button" class="btn btn-primary" value="图标点" onclick="drawMarker()" />
             <input type="button" class="btn btn-primary" value="文字" onclick="drawLabel()" />
             <input type="button" class="btn btn-primary" value="小模型" onclick="drawModel()" />
+            <input type="button" class="btn btn-primary" value="DIV点" onclick="drawDivPoint()" />
         </div>
 
         <div>
@@ -102,7 +103,7 @@
     <script type="text/javascript" src="js/center_terrain_3dtiles.js"></script>
 
     <!-- 导出KML数据 -->
-    <script type="text/javascript" src="http://cesium.marsgis.cn/lib/kml/tokml.js"></script>
+    <script type="text/javascript" src="../lib/kml/tokml.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -136,6 +137,7 @@
             mars3d.createMap({
                 id: 'cesiumContainer',
                 url: configfile,
+                center: { "y": 30.831262, "x": 116.342362, "z": 12364.89, "heading": 0, "pitch": -80, "roll": 0 },
                 success: function (_viewer, jsondata) {//地图成功加载完成后执行
                     viewer = _viewer;
 
@@ -150,9 +152,10 @@
 
         //当前页面业务相关
         function initWork() {
-            drawControl = new mars3d.Draw(viewer, {
+            drawControl = new mars3d.Draw({
+                viewer: viewer,
                 hasEdit: true,
-                isAutoEditing:true,//绘制完成后是否自动激活编辑
+                isAutoEditing: true,//绘制完成后是否自动激活编辑
                 // hasDel: function (e) {
                 //     //当需要判断该entity是否可以删除时，在该回调方法中处理，return false不可删除
                 //     var entity = e.target;
@@ -161,42 +164,42 @@
             });
 
             //事件监听(可以自行加相关代码实现业务需求，此处主要做示例)
-            drawControl.on(mars3d.draw.event.DrawStart, function (e) {
+            drawControl.on(mars3d.Draw.event.drawStart, function (e) {
                 console.log('开始绘制');
             });
-            drawControl.on(mars3d.draw.event.DrawAddPoint, function (e) {
+            drawControl.on(mars3d.Draw.event.drawAddPoint, function (e) {
                 console.log('绘制过程中增加了点');
             });
-            drawControl.on(mars3d.draw.event.DrawRemovePoint, function (e) {
+            drawControl.on(mars3d.Draw.event.drawRemovePoint, function (e) {
                 console.log('绘制过程中删除了点');
             });
 
 
-            drawControl.on(mars3d.draw.event.DrawCreated, function (e) {
-                
+            drawControl.on(mars3d.Draw.event.drawCreated, function (e) {
+
                 console.log('创建完成');
             });
-            drawControl.on(mars3d.draw.event.EditStart, function (e) {
-                
+            drawControl.on(mars3d.Draw.event.editStart, function (e) {
+
                 var entity = e.entity;
                 startEditing(entity);
                 console.log('开始编辑');
             });
-            drawControl.on(mars3d.draw.event.EditMovePoint, function (e) {
+            drawControl.on(mars3d.Draw.event.editMovePoint, function (e) {
                 var entity = e.entity;
                 startEditing(entity);
                 console.log('编辑修改了点');
             });
-            drawControl.on(mars3d.draw.event.EditRemovePoint, function (e) {
+            drawControl.on(mars3d.Draw.event.editRemovePoint, function (e) {
                 var entity = e.entity;
                 startEditing(entity);
                 console.log('编辑删除了点');
             });
-            drawControl.on(mars3d.draw.event.EditStop, function (e) {
+            drawControl.on(mars3d.Draw.event.editStop, function (e) {
                 stopEditing();
                 console.log('停止编辑');
             });
-            drawControl.on(mars3d.draw.event.Delete, function (e) {
+            drawControl.on(mars3d.Draw.event.delete, function (e) {
                 stopEditing();
                 console.log('删除了对象');
             });
@@ -296,7 +299,7 @@
 
 
             //[示例] 标绘生产的数据可以作为图层使用
-            // var layerWork = mars3d.layer.createLayer({ 
+            // var layerWork = mars3d.layer.createLayer(viewer,{ 
             //     "type": "geojson-draw", 
             //     "url": serverURL_file + "/geojson/draw-demo.json",
             //     "visible": true,
@@ -422,6 +425,18 @@
             });
         }
 
+        function drawDivPoint() {
+            drawControl.startDraw({
+                type: "div-point",
+                style: {
+                    html: '<img src="img/marker/tf.gif" style="width:100px;height:100px;pointer-events:none;" ></img>',
+                    horizontalOrigin: Cesium.HorizontalOrigin.CENTER,
+                    verticalOrigin: Cesium.VerticalOrigin.CENTER,
+                    heightReference: Cesium.HeightReference.CLAMP_TO_GROUND
+                },
+            });
+        }
+
         function drawMarker() {
             drawControl.startDraw({
                 type: "billboard",
@@ -518,8 +533,6 @@
                 style: {
                     color: "#ffff00",
                     opacity: 0.6,
-                    semiMinorAxis: 100,
-                    semiMajorAxis: 100,
                     clampToGround: clampToGround,
                 }
             });

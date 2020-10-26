@@ -76,7 +76,7 @@
         </div>
 
         <div>
-            Entity方式:&nbsp;&nbsp;&nbsp;&nbsp;
+            <!-- Entity方式:&nbsp;&nbsp;&nbsp;&nbsp; -->
             <input type="button" class="btn btn-primary" value="小汽车" onclick="drawModel('qiche.gltf',0.1)" />
             <input type="button" class="btn btn-primary" value="飞机" onclick="drawModel('feiji.glb')" />
             <input type="button" class="btn btn-primary" value="风力发电机" onclick="drawModel('fengche.gltf',10)" />
@@ -86,7 +86,7 @@
                 onclick="drawModel('firedrill/xiaofangyuan-run.gltf',10)" />
         </div>
 
-        <div>
+        <!-- <div>
             Primitive方式:
             <input type="button" class="btn btn-primary" value="小汽车" onclick="drawModel2('qiche.gltf',0.1)" />
             <input type="button" class="btn btn-primary" value="飞机" onclick="drawModel2('feiji.glb')" />
@@ -95,7 +95,7 @@
             <input type="button" class="btn btn-primary" value="围栏" onclick="drawModel2('weilan.gltf',3)" />
             <input type="button" class="btn btn-primary" value="消防员"
                 onclick="drawModel2('firedrill/xiaofangyuan-run.gltf',10)" />
-        </div>
+        </div> -->
     </div>
 
     <!-- 切换视角到模型或地形（山区）的快捷按钮 -->
@@ -171,52 +171,72 @@
             });
 
 
-            drawControl = new mars3d.Draw(viewer, {
+            drawControl = new mars3d.Draw({
+                viewer: viewer,
                 isContinued: false //是否连续标绘
             });
 
             //事件监听(可以自行加相关代码实现业务需求，此处主要做示例)
-            drawControl.on(mars3d.draw.event.DrawStart, function (e) {
+            drawControl.on(mars3d.Draw.event.drawStart, function (e) {
                 console.log('开始绘制');
             });
-            drawControl.on(mars3d.draw.event.DrawAddPoint, function (e) {
+            drawControl.on(mars3d.Draw.event.drawAddPoint, function (e) {
                 console.log('绘制过程中增加了点');
             });
-            drawControl.on(mars3d.draw.event.DrawRemovePoint, function (e) {
+            drawControl.on(mars3d.Draw.event.drawRemovePoint, function (e) {
                 console.log('绘制过程中删除了点');
             });
 
-            drawControl.on(mars3d.draw.event.DrawCreated, function (e) {
-                var entity = e.entity;
+            drawControl.on(mars3d.Draw.event.drawCreated, function (e) {
                 console.log('创建完成');
 
+                var entity = e.entity;
                 if (!drawControl.isContinued)
                     startEditing(entity);
+
+                entity.drawOk = true;
+                if (entity.loadOk && entity.drawOk) {
+                    console.log('gltf加载并绘制完成');
+                }
             });
-            drawControl.on(mars3d.draw.event.EditStart, function (e) {
+
+            //模型加载完成后事件
+            drawControl.on(mars3d.Draw.event.load, function (e) {
+                console.log('模型加载完成');
+                var entity = e.entity;
+
+                if (entity.loadOk && entity.drawOk) {
+                    console.log('gltf加载并绘制完成');
+                }
+            });
+
+            drawControl.on(mars3d.Draw.event.editStart, function (e) {
                 var entity = e.entity;
                 startEditing(entity);
                 console.log('开始编辑');
             });
-            drawControl.on(mars3d.draw.event.EditMovePoint, function (e) {
+            drawControl.on(mars3d.Draw.event.editMovePoint, function (e) {
                 var entity = e.entity;
                 startEditing(entity);
                 console.log('编辑修改了点');
             });
-            drawControl.on(mars3d.draw.event.EditRemovePoint, function (e) {
+            drawControl.on(mars3d.Draw.event.editRemovePoint, function (e) {
                 var entity = e.entity;
                 startEditing(entity);
                 console.log('编辑删除了点');
             });
-            drawControl.on(mars3d.draw.event.EditStop, function (e) {
+            drawControl.on(mars3d.Draw.event.editStop, function (e) {
                 stopEditing();
                 console.log('停止编辑');
             });
 
-            drawControl.on(mars3d.draw.event.Delete, function (e) {
+            drawControl.on(mars3d.Draw.event.delete, function (e) {
                 stopEditing();
                 console.log('删除了对象');
             });
+
+
+
 
             ////编辑时拖拽点颜色（修改内部默认值）
             //mars3d.draw.dragger.PointColor.Control = Cesium.Color.fromCssColorString("#1c197d");          //位置控制拖拽点
@@ -327,16 +347,16 @@
             });
         }
 
-        function drawModel2(url, scale) {
-            drawControl.startDraw({
-                type: "model-p",
-                drawShow: true, //绘制时，是否显示模型，可避免在3dtiles上拾取坐标存在问题。
-                style: {
-                    scale: scale || 1,
-                    modelUrl: serverURL_gltf + "/mars/" + url //serverURL_gltf定义在 config\marsUrl.js
-                }
-            });
-        }
+        // function drawModel2(url, scale) {
+        //     drawControl.startDraw({
+        //         type: "model-p",
+        //         drawShow: true, //绘制时，是否显示模型，可避免在3dtiles上拾取坐标存在问题。
+        //         style: {
+        //             scale: scale || 1,
+        //             modelUrl: serverURL_gltf + "/mars/" + url //serverURL_gltf定义在 config\marsUrl.js
+        //         }
+        //     });
+        // }
 
 
 

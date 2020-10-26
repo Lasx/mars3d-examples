@@ -45,11 +45,11 @@
     </div>
 
 
-    
-    <!-- 涉及mars的在线服务地址统一配置入口 -->
-    <script type="text/javascript" src="config/marsUrl.js" ></script>
 
-    
+    <!-- 涉及mars的在线服务地址统一配置入口 -->
+    <script type="text/javascript" src="config/marsUrl.js"></script>
+
+
     <script type="text/javascript">
         $(document).ready(function () {
             if (!mars3d.util.webglreport()) {
@@ -96,9 +96,9 @@
         //当前页面业务相关
         function initWork() {
             //单击地图空白（未单击到矢量或模型数据）时
-            viewer.mars.click = function (event) {
-                haoutil.msg('单击了地图空白处'); 
-            }
+            viewer.mars.on(mars3d.event.clickMap, function (event) {
+                haoutil.msg('单击了地图空白处');
+            });
 
             var pointEntity = viewer.entities.add({
                 name: "点",
@@ -185,19 +185,20 @@
 
 
 
-            mars3d.layer.createLayer({
+            mars3d.layer.createLayer(viewer, {
                 "name": "教学楼",
                 "type": "3dtiles",
-                "url":   serverURL_3dtiles + "/bim-xuexiao/jz/tileset.json", //定义在 config\marsUrl.js
-                "maximumScreenSpaceError": 16,        
+                "url": serverURL_3dtiles + "/bim-daxue/tileset.json", //定义在 config\marsUrl.js 
+                "scale": 3,
+                "offset": { "x": 117.228508, "y": 31.82915, "z": 53, "heading": 1.9 },
+                "maximumScreenSpaceError": 16,
                 "maximumMemoryUsage": 1024,
                 "scenetree": "scenetree.json",
                 "showClickFeature": true,
-                // "popup": "all",
-                "offset": { "x": 117.21964, "y": 31.833288, "z": 53, "heading": 1.9 },
+                // "popup": "all", 
                 "visible": true,
                 click: function (entity) {//单击                
-                    haoutil.alert('你单击了3dtiles：' + entity.attr.name);
+                    haoutil.alert('你单击了3dtiles：' + entity.attr.sid);
                 },
                 // mouseover: function (entity) {//移入
                 //     
@@ -206,7 +207,7 @@
                 // mouseout: function (entity) {//移出
                 //     haoutil.msg('你鼠标移出了3dtiles：' + entity.attr.name); 
                 // },
-            }, viewer);
+            });
 
 
 

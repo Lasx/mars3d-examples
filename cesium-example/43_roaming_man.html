@@ -181,11 +181,10 @@
 
 
             //该数据可以从 基础项目 飞行漫游功能界面操作后单个路线的 保存JSON
-            var flydata = {
+            var flydata = { 
                 "name": "步行路线",
                 "camera": { "type": "gs", "distance": 300 },
-                "points": [
-                    // [117.220904, 31.833797, 43.75],
+                "points": [ 
                     [117.220356, 31.833959, 43.67],
                     [117.220361, 31.835111, 44.36],
                     [117.213242, 31.835863, 42.31],
@@ -214,17 +213,19 @@
                     }
                 ],
                 "clockRange": Cesium.ClockRange.CLAMPED, //CLAMPED到达终点后停止
-                "pauseTime": 0.5, 
-                "onStep": function (currIndex, allCount) {
-                    console.log('已漫游过点：' + currIndex);
-
-
-
-                }
+                "pauseTime": 0.5,
             };
 
 
-            flyLine = new mars3d.FlyLine(viewer, flydata);
+            flyLine = new mars3d.FlyLine(viewer,flydata);
+            flyLine.on(mars3d.FlyLine.event.endItem, function (event) {
+                console.log('已漫游过点：' + event.index);
+
+            })
+            flyLine.on(mars3d.FlyLine.event.end, function (event) {
+                console.log('漫游结束');
+                
+            })
 
             //不贴地时，直接开始
             startFly()
