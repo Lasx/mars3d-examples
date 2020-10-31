@@ -86,6 +86,9 @@
 
         //当前页面业务相关
         function initWork() {
+            //解除在南北极区域鼠标操作限制
+            viewer.camera.constrainedAxis = undefined  
+
             //加日照
             viewer.scene.globe.enableLighting = true;
             viewer.shadows = true
@@ -157,28 +160,27 @@
                     //属性处理 
                     item.interval = false;
                     item.visible = this.visible;
-
                     item.model = item.model || {};
                     item.model.uri = item.model.uri || serverURL_gltf + '/mars/weixin.gltf';
                     item.path = item.path || {};
                     item.path.color = Cesium.defaultValue(item.path.color, "#e2e2e2");
                     item.path.closure = Cesium.defaultValue(item.path.closure, true)
-
                     //test data
                     item.cone = {
                         "areaType": (i % 2 == 1),
                         "angle1": haoutil.math.random(20, 50),
                         "angle2": haoutil.math.random(10, 30),
                     };
-
-                    item.popup = `名称：${item.name}<br/>英文名：${item.name_en}<br/>类型：${item.type}`;
-                    item.click = function (satellite, position) {
-                        highlightSatellite(satellite)
-                    }
-                    item.onChange = processInArea
+                    item.popup = `名称：${item.name}<br/>英文名：${item.name_en}<br/>类型：${item.type}`;               
                     //属性处理  END
 
                     var satelliteObj = new mars3d.space.Satellite(viewer, item);
+                    satelliteObj.on(mars3d.event.click, function (event) {//单击事件                        
+                        highlightSatellite(event.target)
+                    })
+                    satelliteObj.on(mars3d.event.change, function (event) {//位置变化事件                        
+                        processInArea(event.target)
+                    })
                     this.sat_map.set(norad, satelliteObj);
                 }
                 console.log('当前卫星数量: ' + arr.length);
@@ -205,7 +207,7 @@
         var lastSelectWX;
         function highlightSatellite(satelliteObj) {
             if (lastSelectWX) {//重置上次选中的轨道样式
-                lastSelectWX.updateConfig({
+                lastSelectWX.updateStyle({
                     path: {
                         "color": "#e2e2e2",
                         "opacity": 0.5,
@@ -218,7 +220,7 @@
 
             if (satelliteObj) {
                 //高亮选中的轨道样式
-                satelliteObj.updateConfig({
+                satelliteObj.updateStyle({
                     path: {
                         "color": "#ffff00",
                         "opacity": 1,

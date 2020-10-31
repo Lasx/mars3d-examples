@@ -85,7 +85,7 @@
 
 
             //增加其他底图 https://www.lightpollutionmap.info/geoserver/gwc/demo 
-            var layer = mars3d.layer.createLayer(viewer,{
+            var layer = mars3d.layer.createLayer(viewer, {
                 "name": "光污染图层",
                 "type": "wms",
                 "url": "//www.lightpollutionmap.info/geoserver/gwc/service/wms",
@@ -113,7 +113,7 @@
 
 
             //增加其他底图 
-            var layer = mars3d.layer.createLayer(viewer,{
+            var layer = mars3d.layer.createLayer(viewer, {
                 "name": "合肥wms",
                 "type": "wms",
                 "url": "http://data.marsgis.cn/geoserver/mars/wms",
@@ -139,13 +139,18 @@
                     "feature_count": 10
                 },
                 "popup": "all",
-                // "popupPosition":{"top":10,"left":10 }, //固定再左侧位置，不浮动 ，数值对应top/btoom、left/right
-                "click": function (features, viewerPoint) {
-                    console.log("单击了矢量数据，共" + features.length + "条")
-
-                },
+                // "popupPosition":{"top":10,"left":10 }, //固定再左侧位置，不浮动 ，数值对应top/btoom、left/right             
                 "visible": true,
             });
+
+
+            //单击事件
+            layer.on(mars3d.event.click, function (event) {//单击事件
+                console.log("单击了矢量数据，共" + event.features.length + "条")
+                console.log(event);//test
+
+            })
+
 
             // setTimeout(function () {
             //      layerWork.layer.imageryProvider.reinitialize({url:"https://mesonet.agron.iastate.edu/cgi-bin/wms/goes/conus_ir.cgi?"});
@@ -153,14 +158,14 @@
             // }, 3000)
 
 
- 
+
 
         }
 
 
 
 
- 
+
 
     </script>
 </body>

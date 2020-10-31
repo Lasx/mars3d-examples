@@ -38,8 +38,10 @@
     <!-- 面板 -->
     <div class="infoview">
         1、我们对Cesium本身的事件做了简化处理。<br />
-        2、可以直接在entity或primitive构造时绑定回调方法进行处理。<br />
-        3、目前支持绑定click 单击、mouseover 鼠标移入、mouseout 鼠标移出 。<br />
+        2、可以直接在Cesium原生的entity或primitive构造时绑定回调方法进行处理。<br />
+        3、在mars3d定义的图层或类中，是通过on方法绑定事件监听进行处理。<br />
+        
+        4、目前支持绑定click 单击、mouseover 鼠标移入、mouseout 鼠标移出 。<br />         
         另：框架的popup、tooltip也是基于此类似规则绑定的。<br />
 
     </div>
@@ -100,6 +102,7 @@
                 haoutil.msg('单击了地图空白处');
             });
 
+            //entity,primitive 等Cesium原生对象时，直接绑定回调方法
             var pointEntity = viewer.entities.add({
                 name: "点",
                 position: Cesium.Cartesian3.fromDegrees(117.22193, 31.823638, 43.48),
@@ -184,8 +187,8 @@
             });
 
 
-
-            mars3d.layer.createLayer(viewer, {
+            //mars3d定义的图层时，通过on方法绑定回调事件。
+            var layerWork = mars3d.layer.createLayer(viewer, {
                 "name": "教学楼",
                 "type": "3dtiles",
                 "url": serverURL_3dtiles + "/bim-daxue/tileset.json", //定义在 config\marsUrl.js 
@@ -197,17 +200,12 @@
                 "showClickFeature": true,
                 // "popup": "all", 
                 "visible": true,
-                click: function (entity) {//单击                
-                    haoutil.alert('你单击了3dtiles：' + entity.attr.sid);
-                },
-                // mouseover: function (entity) {//移入
-                //     
-                //     haoutil.msg('你鼠标移入到3dtiles：' + entity.attr.name); 
-                // },
-                // mouseout: function (entity) {//移出
-                //     haoutil.msg('你鼠标移出了3dtiles：' + entity.attr.name); 
-                // },
             });
+            layerWork.on(mars3d.event.click, function (event) {//单击事件
+                console.log(event);//test
+                haoutil.msg('你单击了模型构件：' + event.data.sid);
+            })
+
 
 
 
@@ -236,6 +234,8 @@
                 tooltip: "<span style='color:#ffffff;'>测试的tooltip</span>",
                 popup: "<span style='color:red;'>测试的popup</span>",
             });
+
+
 
         }
 

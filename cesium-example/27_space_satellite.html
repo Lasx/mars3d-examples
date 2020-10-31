@@ -216,6 +216,9 @@
 
         //当前页面功能
         function initWork() {
+            //解除在南北极区域鼠标操作限制
+            viewer.camera.constrainedAxis = undefined  
+            
             //移除2.5D视图
             var arr = $(".cesium-sceneModePicker-wrapper").children()
             if (arr.length > 3) {

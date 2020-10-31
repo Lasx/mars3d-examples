@@ -48,6 +48,9 @@
                     { "text": "否", "value": "normal" }
                 ]
             },
+            { "name": "pixelOffsetX", "label": "横向偏移像素", "type": "number", "defval": 0.0 },
+            { "name": "pixelOffsetY", "label": "纵向偏移像素", "type": "number", "defval": 0.0 },
+ 
             { "name": "scaleByDistance", "label": "是否按视距缩放", "type": "radio", "defval": false, "impact": [ "scaleByDistance_far", "scaleByDistance_farValue", "scaleByDistance_near", "scaleByDistance_nearValue" ] },
             { "name": "scaleByDistance_far", "label": "上限", "type": "number", "defval": 1000000.0 },
             { "name": "scaleByDistance_farValue", "label": "比例值", "type": "number", "defval": 0.1 },
@@ -55,7 +58,7 @@
             { "name": "scaleByDistance_nearValue", "label": "比例值", "type": "number", "defval": 1.0 },
 
             { "name": "distanceDisplayCondition", "label": "是否按视距显示", "type": "radio", "defval": false, "impact": [ "distanceDisplayCondition_far", "distanceDisplayCondition_near" ] },
-            { "name": "distanceDisplayCondition_far", "label": "最大距离", "type": "number", "defval": 10000.0 },
+            { "name": "distanceDisplayCondition_far", "label": "最大距离", "type": "number", "defval": 100000.0 },
             { "name": "distanceDisplayCondition_near", "label": "最小距离", "type": "number", "defval": 0.0 },
             { "name": "clampToGround", "label": "是否贴地", "type": "radio", "defval": false },
             { "name":"visibleDepth", "label": "是否被遮挡", "type": "radio", "defval": true}
@@ -135,6 +138,48 @@
         ]
     },
 
+    "div-point": {
+        "name": "DIV点标记",
+        "style": [
+            { "name": "html", "label": "Html文本", "type": "hidden", "defval": "" },
+            {
+                "name": "horizontalOrigin",
+                "label": "横向定位",
+                "type": "combobox",
+                "defval": "CENTER",
+                "data": [
+                    { "text": "左边", "value": "LEFT" },
+                    { "text": "居中", "value": "CENTER" },
+                    { "text": "右边", "value": "RIGHT" }
+                ]
+            }, 
+            {
+                "name": "verticalOrigin",
+                "label": "垂直定位",
+                "type": "combobox",
+                "defval": "CENTER",
+                "data": [
+                    { "text": "顶部", "value": "TOP" },
+                    { "text": "居中", "value": "CENTER" },
+                    { "text": "底部", "value": "BOTTOM" }
+                ]
+            },  
+
+            { "name": "scaleByDistance", "label": "是否按视距缩放", "type": "radio", "defval": false, "impact": [ "scaleByDistance_far", "scaleByDistance_farValue", "scaleByDistance_near", "scaleByDistance_nearValue" ] },
+            { "name": "scaleByDistance_far", "label": "上限", "type": "number", "defval": 1000000.0 },
+            { "name": "scaleByDistance_farValue", "label": "比例值", "type": "number", "defval": 0.1 },
+            { "name": "scaleByDistance_near", "label": "下限", "type": "number", "defval": 1000.0 },
+            { "name": "scaleByDistance_nearValue", "label": "比例值", "type": "number", "defval": 1 },
+
+            { "name": "distanceDisplayCondition", "label": "是否按视距显示", "type": "radio", "defval": false, "impact": [ "distanceDisplayCondition_far", "distanceDisplayCondition_near" ] },
+            { "name": "distanceDisplayCondition_far", "label": "最大距离", "type": "number", "defval": 10000.0 },
+            { "name": "distanceDisplayCondition_near", "label": "最小距离", "type": "number", "defval": 0.0 },
+            { "name": "clampToGround", "label": "是否贴地", "type": "radio", "defval": false },
+            { "name":"depthTest", "label": "是否被遮挡", "type": "radio", "defval": true}
+
+
+        ]
+    },
     "font-point": {
         "name": "字体点标记",
         "style": [
@@ -201,6 +246,13 @@
             { "name": "silhouetteColor", "label": "轮廓颜色", "type": "color", "defval": "#ffffff" },
             { "name": "silhouetteSize", "label": "轮廓宽度", "type": "number", "defval": 2.0 },
             { "name": "silhouetteAlpha", "label": "轮廓透明度", "type": "slider", "defval": 0.8 },
+            
+            { "name": "distanceDisplayCondition", "label": "是否按视距显示", "type": "radio", "defval": false, "impact": [ "distanceDisplayCondition_far", "distanceDisplayCondition_near" ] },
+            { "name": "distanceDisplayCondition_far", "label": "最大距离", "type": "number", "defval": 100000.0 },
+            { "name": "distanceDisplayCondition_near", "label": "最小距离", "type": "number", "defval": 0.0 },
+            
+            
+            { "name": "hasShadows", "label": "是否阴影", "type": "radio", "defval": true},
             { "name": "clampToGround", "label": "是否贴地", "type": "radio", "defval": false }
         ]
     },
@@ -218,7 +270,7 @@
                 "defval": "solid",
                 "data": [
                     { "text": "实线", "value": "solid" },
-                    { "text": "虚线", "value": "dash" },
+                    { "text": "虚线", "value": "dash", "impact": [ "dashLength" ] },
                     { "text": "光晕", "value": "glow" },
                     { "text": "箭头", "value": "arrow" },
                     { "text": "动画", "value": "animation", "impact": [ "animationDuration", "animationImage" ] }
@@ -232,16 +284,22 @@
 
             { "name": "clampToGround", "label": "是否贴地", "type": "radio", "defval": false },
 
+            { "name": "dashLength", "label": "虚线长度", "type": "number", "defval": 16.0 },
+
             { "name": "outline", "label": "是否衬色", "type": "radio", "defval": false, "impact": [ "outlineColor", "outlineWidth" ] },
             { "name": "outlineColor", "label": "衬色颜色", "type": "color", "defval": "#ffffff" },
             { "name": "outlineWidth", "label": "衬色宽度", "type": "number", "defval": 2.0 },
 
             { "name": "depthFail", "label": "是否显示遮挡", "type": "radio", "defval": false, "impact": [ "depthFailColor", "depthFailOpacity" ] },
             { "name": "depthFailColor", "label": "遮挡处颜色", "type": "color", "defval": "#ff0000" },
-            { "name": "depthFailOpacity", "label": "遮挡处透明度", "type": "slider", "defval": 0.2 },
-      
+            { "name": "depthFailOpacity", "label": "遮挡处透明度", "type": "slider", "defval": 0.2 },      
 
             { "name": "opacity", "label": "透明度", "type": "slider", "defval": 1.0 },
+            
+            { "name": "distanceDisplayCondition", "label": "是否按视距显示", "type": "radio", "defval": false, "impact": [ "distanceDisplayCondition_far", "distanceDisplayCondition_near" ] },
+            { "name": "distanceDisplayCondition_far", "label": "最大距离", "type": "number", "defval": 100000.0 },
+            { "name": "distanceDisplayCondition_near", "label": "最小距离", "type": "number", "defval": 0.0 },
+
             { "name": "zIndex", "label": "层级顺序", "type": "number", "defval": 0.0 }            
         ]
     },
@@ -264,7 +322,11 @@
             },
             { "name": "outline", "label": "是否衬色", "type": "radio", "defval": false, "impact": [ "outlineColor" ] },
             { "name": "outlineColor", "label": "衬色颜色", "type": "color", "defval": "#ffffff" },
-            { "name": "opacity", "label": "透明度", "type": "slider", "defval": 1.0 }
+            { "name": "opacity", "label": "透明度", "type": "slider", "defval": 1.0 },
+            
+            { "name": "distanceDisplayCondition", "label": "是否按视距显示", "type": "radio", "defval": false, "impact": [ "distanceDisplayCondition_far", "distanceDisplayCondition_near" ] },
+            { "name": "distanceDisplayCondition_far", "label": "最大距离", "type": "number", "defval": 100000.0 },
+            { "name": "distanceDisplayCondition_near", "label": "最小距离", "type": "number", "defval": 0.0 }
         ]
     },
 
@@ -306,7 +368,13 @@
             { "name": "outline", "label": "是否边框", "type": "radio", "defval": true, "impact": [ "outlineWidth", "outlineColor", "outlineOpacity" ] },
             { "name": "outlineWidth", "label": "边框宽度", "type": "hidden", "defval": 1.0 },
             { "name": "outlineColor", "label": "边框颜色", "type": "color", "defval": "#ffffff" },
-            { "name": "outlineOpacity", "label": "边框透明度", "type": "slider", "defval": 0.6 }
+            { "name": "outlineOpacity", "label": "边框透明度", "type": "slider", "defval": 0.6 },
+            
+            { "name": "distanceDisplayCondition", "label": "是否按视距显示", "type": "radio", "defval": false, "impact": [ "distanceDisplayCondition_far", "distanceDisplayCondition_near" ] },
+            { "name": "distanceDisplayCondition_far", "label": "最大距离", "type": "number", "defval": 100000.0 },
+            { "name": "distanceDisplayCondition_near", "label": "最小距离", "type": "number", "defval": 0.0 },
+            
+            { "name": "hasShadows", "label": "是否阴影", "type": "radio", "defval": false}
         ]
     },
  
@@ -349,6 +417,11 @@
             { "name": "color", "label": "颜色", "type": "color", "defval": "#3388ff" },            
             { "name": "opacity", "label": "透明度", "type": "slider", "defval": 0.6 }, 
  
+            
+            { "name": "distanceDisplayCondition", "label": "是否按视距显示", "type": "radio", "defval": false, "impact": [ "distanceDisplayCondition_far", "distanceDisplayCondition_near" ] },
+            { "name": "distanceDisplayCondition_far", "label": "最大距离", "type": "number", "defval": 100000.0 },
+            { "name": "distanceDisplayCondition_near", "label": "最小距离", "type": "number", "defval": 0.0 },
+
             { "name": "clampToGround", "label": "是否贴地", "type": "hidden", "defval": false },
             { "name": "zIndex", "label": "层级顺序", "type": "number", "defval": 0.0 }            
         ]
@@ -396,6 +469,10 @@
             { "name": "color", "label": "颜色", "type": "color", "defval": "#00FF00" },            
             { "name": "opacity", "label": "透明度", "type": "slider", "defval": 0.6 }, 
  
+            { "name": "distanceDisplayCondition", "label": "是否按视距显示", "type": "radio", "defval": false, "impact": [ "distanceDisplayCondition_far", "distanceDisplayCondition_near" ] },
+            { "name": "distanceDisplayCondition_far", "label": "最大距离", "type": "number", "defval": 100000.0 },
+            { "name": "distanceDisplayCondition_near", "label": "最小距离", "type": "number", "defval": 0.0 },
+
             { "name": "clampToGround", "label": "是否贴地", "type": "radio", "defval": false },
             { "name": "zIndex", "label": "层级顺序", "type": "number", "defval": 0.0 }            
         ]
@@ -439,6 +516,11 @@
             { "name": "outlineColor", "label": "边框颜色", "type": "color", "defval": "#ffffff" },
             { "name": "outlineOpacity", "label": "边框透明度", "type": "slider", "defval": 0.6 },
 
+            { "name": "distanceDisplayCondition", "label": "是否按视距显示", "type": "radio", "defval": false, "impact": [ "distanceDisplayCondition_far", "distanceDisplayCondition_near" ] },
+            { "name": "distanceDisplayCondition_far", "label": "最大距离", "type": "number", "defval": 100000.0 },
+            { "name": "distanceDisplayCondition_near", "label": "最小距离", "type": "number", "defval": 0.0 },
+
+     
             { "name": "clampToGround", "label": "是否贴地", "type": "hidden", "defval": false },
             { "name": "zIndex", "label": "层级顺序", "type": "number", "defval": 0.0 } 
         ]
@@ -473,6 +555,7 @@
             { "name": "opacity", "label": "透明度", "type": "slider", "defval": 0.6 },
             { "name": "stRotation", "label": "填充方向", "type": "number", "defval": 0.0 },
 
+            
             { "name": "clampToGround", "label": "是否贴地", "type": "hidden", "defval": true },
             { "name": "zIndex", "label": "层级顺序", "type": "number", "defval": 0.0 } 
         ]
@@ -510,6 +593,12 @@
             { "name": "outlineColor", "label": "边框颜色", "type": "color", "defval": "#ffffff" },
             { "name": "outlineOpacity", "label": "边框透明度", "type": "slider", "defval": 0.6 },
 
+            
+            { "name": "distanceDisplayCondition", "label": "是否按视距显示", "type": "radio", "defval": false, "impact": [ "distanceDisplayCondition_far", "distanceDisplayCondition_near" ] },
+            { "name": "distanceDisplayCondition_far", "label": "最大距离", "type": "number", "defval": 100000.0 },
+            { "name": "distanceDisplayCondition_near", "label": "最小距离", "type": "number", "defval": 0.0 },
+
+            { "name": "hasShadows", "label": "是否阴影", "type": "radio", "defval": false},
             { "name": "perPositionHeight", "label": "是否高度", "type": "hidden", "defval": true },
             { "name": "zIndex", "label": "层级顺序", "type": "number", "defval": 0.0 } 
         ]
@@ -555,6 +644,12 @@
 
             { "name": "rotation", "label": "旋转角度", "type": "number", "defval": 0.0 },
             { "name": "stRotation", "label": "材质角度", "type": "number", "defval": 0.0 },
+
+            
+            { "name": "distanceDisplayCondition", "label": "是否按视距显示", "type": "radio", "defval": false, "impact": [ "distanceDisplayCondition_far", "distanceDisplayCondition_near" ] },
+            { "name": "distanceDisplayCondition_far", "label": "最大距离", "type": "number", "defval": 100000.0 },
+            { "name": "distanceDisplayCondition_near", "label": "最小距离", "type": "number", "defval": 0.0 },
+
             { "name": "clampToGround", "label": "是否贴地", "type": "hidden", "defval": false },
             { "name": "zIndex", "label": "层级顺序", "type": "number", "defval": 0.0 } 
         ]
@@ -569,6 +664,7 @@
             { "name": "opacity", "label": "透明度", "type": "slider", "defval": 1.0 },
 
             { "name": "rotation", "label": "旋转角度", "type": "number", "defval": 0.0 },
+
             { "name": "clampToGround", "label": "是否贴地", "type": "hidden", "defval": true },
             { "name": "zIndex", "label": "层级顺序", "type": "number", "defval": 0.0 } 
         ]
@@ -614,6 +710,13 @@
 
             { "name": "rotation", "label": "旋转角度", "type": "number", "defval": 0.0 },
             { "name": "stRotation", "label": "材质角度", "type": "number", "defval": 0.0 },
+
+            
+            { "name": "distanceDisplayCondition", "label": "是否按视距显示", "type": "radio", "defval": false, "impact": [ "distanceDisplayCondition_far", "distanceDisplayCondition_near" ] },
+            { "name": "distanceDisplayCondition_far", "label": "最大距离", "type": "number", "defval": 100000.0 },
+            { "name": "distanceDisplayCondition_near", "label": "最小距离", "type": "number", "defval": 0.0 },
+
+            { "name": "hasShadows", "label": "是否阴影", "type": "radio", "defval": false},
             { "name": "zIndex", "label": "层级顺序", "type": "number", "defval": 0.0 } 
         ]
     },
@@ -669,6 +772,12 @@
             { "name": "outlineOpacity", "label": "边框透明度", "type": "slider", "defval": 0.6 },
 
             { "name": "rotation", "label": "旋转角度", "type": "number", "defval": 0.0 },
+
+            
+            { "name": "distanceDisplayCondition", "label": "是否按视距显示", "type": "radio", "defval": false, "impact": [ "distanceDisplayCondition_far", "distanceDisplayCondition_near" ] },
+            { "name": "distanceDisplayCondition_far", "label": "最大距离", "type": "number", "defval": 100000.0 },
+            { "name": "distanceDisplayCondition_near", "label": "最小距离", "type": "number", "defval": 0.0 },
+
             { "name": "clampToGround", "label": "是否贴地", "type": "hidden", "defval": false },
             { "name": "zIndex", "label": "层级顺序", "type": "number", "defval": 0.0 } 
         ]
@@ -710,6 +819,7 @@
             { "name": "stRotation", "label": "填充方向", "type": "number", "defval": 0.0 },
 
             { "name": "rotation", "label": "旋转角度", "type": "number", "defval": 0.0 },
+            
             { "name": "clampToGround", "label": "是否贴地", "type": "hidden", "defval": true },
             { "name": "zIndex", "label": "层级顺序", "type": "number", "defval": 0.0 } 
         ]
@@ -759,6 +869,13 @@
             { "name": "outlineOpacity", "label": "边框透明度", "type": "slider", "defval": 0.6 },
 
             { "name": "rotation", "label": "旋转角度", "type": "number", "defval": 0.0},
+
+            
+            { "name": "distanceDisplayCondition", "label": "是否按视距显示", "type": "radio", "defval": false, "impact": [ "distanceDisplayCondition_far", "distanceDisplayCondition_near" ] },
+            { "name": "distanceDisplayCondition_far", "label": "最大距离", "type": "number", "defval": 100000.0 },
+            { "name": "distanceDisplayCondition_near", "label": "最小距离", "type": "number", "defval": 0.0 },
+
+            { "name": "hasShadows", "label": "是否阴影", "type": "radio", "defval": false},
             { "name": "zIndex", "label": "层级顺序", "type": "number", "defval": 0.0 } 
         ]
     },
@@ -810,6 +927,12 @@
 
             { "name": "rotation", "label": "旋转角度", "type": "number", "defval": 0.0 },
             { "name": "clampToGround", "label": "是否贴地", "type": "hidden", "defval": false },
+
+            
+            { "name": "distanceDisplayCondition", "label": "是否按视距显示", "type": "radio", "defval": false, "impact": [ "distanceDisplayCondition_far", "distanceDisplayCondition_near" ] },
+            { "name": "distanceDisplayCondition_far", "label": "最大距离", "type": "number", "defval": 100000.0 },
+            { "name": "distanceDisplayCondition_near", "label": "最小距离", "type": "number", "defval": 0.0 },
+
             { "name": "zIndex", "label": "层级顺序", "type": "number", "defval": 0.0 } 
         ]
     },
@@ -852,6 +975,8 @@
 
             { "name": "rotation", "label": "旋转角度", "type": "number", "defval": 0.0 },
             { "name": "clampToGround", "label": "是否贴地", "type": "hidden", "defval": true },
+
+            
             { "name": "zIndex", "label": "层级顺序", "type": "number", "defval": 0.0 } 
         ]
     },
@@ -901,6 +1026,13 @@
             { "name": "outlineOpacity", "label": "边框透明度", "type": "slider", "defval": 0.6 },
 
             { "name": "rotation", "label": "旋转角度", "type": "number", "defval": 0.0 },
+
+            
+            { "name": "distanceDisplayCondition", "label": "是否按视距显示", "type": "radio", "defval": false, "impact": [ "distanceDisplayCondition_far", "distanceDisplayCondition_near" ] },
+            { "name": "distanceDisplayCondition_far", "label": "最大距离", "type": "number", "defval": 100000.0 },
+            { "name": "distanceDisplayCondition_near", "label": "最小距离", "type": "number", "defval": 0.0 },
+            
+            { "name": "hasShadows", "label": "是否阴影", "type": "radio", "defval": false},
             { "name": "zIndex", "label": "层级顺序", "type": "number", "defval": 0.0 } 
         ]
     },
@@ -934,7 +1066,14 @@
             { "name": "outline", "label": "是否边框", "type": "radio", "defval": false, "impact": [ "outlineWidth", "outlineColor", "outlineOpacity" ] },
             { "name": "outlineWidth", "label": "边框宽度", "type": "hidden", "defval": 1 },
             { "name": "outlineColor", "label": "边框颜色", "type": "color", "defval": "#ffffff" },
-            { "name": "outlineOpacity", "label": "边框透明度", "type": "slider", "defval": 0.6 }
+            { "name": "outlineOpacity", "label": "边框透明度", "type": "slider", "defval": 0.6 },
+
+            
+            { "name": "distanceDisplayCondition", "label": "是否按视距显示", "type": "radio", "defval": false, "impact": [ "distanceDisplayCondition_far", "distanceDisplayCondition_near" ] },
+            { "name": "distanceDisplayCondition_far", "label": "最大距离", "type": "number", "defval": 100000.0 },
+            { "name": "distanceDisplayCondition_near", "label": "最小距离", "type": "number", "defval": 0.0 },
+            
+            { "name": "hasShadows", "label": "是否阴影", "type": "radio", "defval": false}
         ]
     },
 
@@ -1027,8 +1166,10 @@
             { "name": "outlineOpacity", "label": "边框透明度", "type": "slider", "defval": 0.6 },
 
             { "name": "distanceDisplayCondition", "label": "是否按视距显示", "type": "radio", "defval": false, "impact": [ "distanceDisplayCondition_far", "distanceDisplayCondition_near" ] },
-            { "name": "distanceDisplayCondition_far", "label": "最大距离", "type": "number", "defval": 10000.0 },
-            { "name": "distanceDisplayCondition_near", "label": "最小距离", "type": "number", "defval": 0.0 }
+            { "name": "distanceDisplayCondition_far", "label": "最大距离", "type": "number", "defval": 100000.0 },
+            { "name": "distanceDisplayCondition_near", "label": "最小距离", "type": "number", "defval": 0.0 },
+
+            { "name": "hasShadows", "label": "是否阴影", "type": "radio", "defval": false}
         ]
     },
 
@@ -1069,9 +1210,9 @@
             { "name": "outlineOpacity", "label": "边框透明度", "type": "slider", "defval": 0.6 },
 
             { "name": "distanceDisplayCondition", "label": "是否按视距显示", "type": "radio", "defval": false, "impact": [ "distanceDisplayCondition_far", "distanceDisplayCondition_near" ] },
-            { "name": "distanceDisplayCondition_far", "label": "最大距离", "type": "number", "defval": 10000.0 },
+            { "name": "distanceDisplayCondition_far", "label": "最大距离", "type": "number", "defval": 100000.0 },
             { "name": "distanceDisplayCondition_near", "label": "最小距离", "type": "number", "defval": 0.0 },
-
+            
             { "name": "clampToGround", "label": "是否贴地", "type": "radio", "defval": false }
         ]
     }

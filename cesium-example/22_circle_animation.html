@@ -1,0 +1,172 @@
+﻿<!-- 2017-12-7 14:56:03 | 修改 木遥（微信:  http://marsgis.cn/weixin.html ） -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,user-scalable=0,minimum-scale=1.0,maximum-scale=1.0" />
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="x5-fullscreen" content="true">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+
+
+    <!-- 标题及搜索关键字 -->
+    <meta name="keywords" content="火星科技,cesium,3D,GIS,marsgis,三维,地球,地图,开发,框架,系统,示例,资料,模型,离线,外包,合肥,安徽,中国" />
+    <meta name="description"
+        content="火星科技 合肥火星 合肥火星科技 合肥火星科技有限公司 leaflet leaflet框架 leaflet开发 cesium cesium开发 cesium框架 三维 地球 模型  gis marsgis 地图离线 地图开发 地图框架 地图外包 框架 开发 外包  地图离线 二维地图 三维地图 全景漫游 地理信息系统 云GIS 三维GIS GIS平台 WebGIS" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="http://cesium.marsgis.cn/favicon.ico">
+    <title>动态波纹效果 示例 |Mars3D ( MarsGIS for Cesium )|三维地图| 火星科技|合肥火星科技|合肥火星科技有限公司</title>
+
+
+
+    <script type="text/javascript" src="../lib/include-lib.js" libpath="../lib/"
+        include="jquery,font-awesome,bootstrap,layer,haoutil,turf,mars3d"></script>
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+
+<body class="dark">
+    <!--加载前进行操作提示，优化用户体验-->
+    <div id="mask" class="signmask" onclick="removeMask()"></div>
+
+    <div id="cesiumContainer" class="mars3d-container"></div>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!mars3d.util.webglreport()) {
+                alert('系统检测到您使用的浏览器不支持WebGL功能');
+                layer.open({
+                    type: 1,
+                    title: "当前浏览器不支持WebGL功能",
+                    closeBtn: 0,
+                    shadeClose: false,
+                    resize: false,
+                    area: ['600px', '200px'], //宽高
+                    content: '<div style="margin: 20px;"><h3>系统检测到您使用的浏览器不支持WebGL功能！</h3>  <p>1、请您检查浏览器版本，安装使用最新版chrome、火狐或IE11以上浏览器！</p> <p>2、WebGL支持取决于GPU支持，请保证客户端电脑已安装显卡驱动程序！</p></div>'
+                });
+            }
+
+            initMap();
+        });
+
+        function removeMask() {
+            $("#mask").remove();
+        }
+
+
+        var viewer;
+        //初始化地图
+        function initMap() {
+            //url传参，一个系统动态使用不同配置
+            var configfile = haoutil.system.getRequestByName("config", "config/blue.json");
+
+            mars3d.createMap({
+                id: 'cesiumContainer',
+                url: configfile,  
+                center: { "y": 31.746206, "x": 117.229251, "z": 18225.61, "heading": 356.5, "pitch": -67, "roll": 360 },
+                success: function (_viewer, jsondata) {//地图成功加载完成后执行
+                    viewer = _viewer;
+
+                    setTimeout(removeMask, 3000);
+                    initWork();
+                }
+            });
+        }
+
+        //取区域内的随机点
+        function randomPoint(height) {
+            var jd = haoutil.math.random(117.1 * 1000, 117.3 * 1000) / 1000;
+            var wd = haoutil.math.random(31.75 * 1000, 31.9 * 1000) / 1000;
+
+            return Cesium.Cartesian3.fromDegrees(jd, wd, height);
+        }
+
+
+        //当前页面业务相关
+        function initWork() {
+
+
+
+            //单个圆圈 
+            for (var i = 0; i < 20; i++) {
+                var position = randomPoint();
+
+                viewer.entities.add({
+                    position: position,
+                    ellipse: {
+                        height: 0.0,
+                        semiMinorAxis: 600.0,
+                        semiMajorAxis: 600.0,
+                        material: new mars3d.CircleFadeMaterial({//单个圆圈
+                            duration: 1500,//动画时长，单位：毫秒
+                            color: Cesium.Color.fromCssColorString("#ff0000"),
+                        }),
+                    }
+                });
+            }
+
+            //支持多个圆圈
+            for (var i = 0; i < 20; i++) {
+                var position = randomPoint();
+
+                viewer.entities.add({
+                    position: position,
+                    ellipse: {
+                        height: 0.0,
+                        semiMinorAxis: 600.0,
+                        semiMajorAxis: 600.0,
+                        material: new mars3d.CircleWaveMaterial({//多个圆圈
+                            duration: 2000,//动画时长，单位：毫秒
+                            color: Cesium.Color.fromCssColorString("#00ff00"),
+                            gradient: 0,
+                            count: 3
+                        }),
+                    }
+                });
+            }
+
+
+            //扫描效果 
+            for (var i = 0; i < 20; i++) {
+                var position = randomPoint();
+                addCircleScan(position);
+            }
+
+
+
+        }
+
+
+
+        function addCircleScan(position) {
+            var _rotation = Math.random();
+
+            var entitie = viewer.entities.add({
+                position: position,
+                ellipse: {
+                    semiMinorAxis: 600.0,
+                    semiMajorAxis: 600.0,
+                    material: new mars3d.CircleScanMaterial({//扫描材质
+                        url: "img/textures/circleScan.png",
+                        color: Cesium.Color.fromCssColorString("#5fc4ee")
+                    }),
+                    stRotation: new Cesium.CallbackProperty(function (e) {
+                        _rotation -= 0.1;
+                        return _rotation;
+                    }, false),
+                    classificationType: Cesium.ClassificationType.BOTH
+                },
+            });
+        }
+
+
+
+    </script>
+</body>
+
+</html>

@@ -68,7 +68,7 @@
             mars3d.createMap({
                 id: 'cesiumContainer',
                 url: configfile,
-                center:{"y":27.765116,"x":116.584617,"z":526984.02,"heading":7.3,"pitch":-52,"roll":0},
+                center: { "y": 27.765116, "x": 116.584617, "z": 526984.02, "heading": 7.3, "pitch": -52, "roll": 0 },
                 success: function (_viewer, jsondata) {//地图成功加载完成后执行
                     viewer = _viewer;
 
@@ -82,8 +82,7 @@
         //当前页面业务相关
         function initWork() {
 
-            var layer = new mars3d.layer.GeoJsonLayer(viewer,{
-                "id": 1987,
+            var layerWork = new mars3d.layer.GeoJsonLayer(viewer, {
                 "name": "安徽各市",
                 "url": serverURL_file + "/geojson/anhui.json",
                 "symbol": {
@@ -129,45 +128,39 @@
                 },
                 "popup": "{name}",
                 // "tooltip": "{name}",
-                "click": function (entity) {//单击 
-                    console.log('你单击了：' + entity.properties.name._value);
-
-                },
-                "mouseover": function (entity) {//移入
-                    console.log('你鼠标移入到：' + entity.properties.name._value);
-
-                    if (entity && entity.polygon)
-                        highlightedEntity(entity);
-                },
-                "mouseout": function (entity) {//移出
-                    console.log('你鼠标移出了：' + entity.properties.name._value);
-
-                    if (entity && entity.polygon)
-                        clearLastHighlightedEntity();
-                },
                 "visible": true,
                 "flyTo": true
             });
-            viewer.mars.addOperationalLayer(layer);
 
 
 
-            demoClick()
+            //绑定事件，  mars3d.layer.GeoJsonLayer.event 或mars3d.event均可
+            layerWork.on(mars3d.event.click, function (event) {//单击事件
+                var entity = event.sourceTarget
+                console.log('你单击了：' + entity.properties.name._value);
+
+            })
+            layerWork.on(mars3d.event.mouseOver, function (event) {//单击事件
+                var entity = event.sourceTarget
+
+                console.log('你鼠标移入到：' + entity.properties.name._value);
+
+                if (entity && entity.polygon)
+                    highlightedEntity(entity);
+            })
+            layerWork.on(mars3d.event.mouseOut, function (event) {//单击事件
+                var entity = event.sourceTarget
+                console.log('你鼠标移出了：' + entity.properties.name._value);
+
+                if (entity && entity.polygon)
+                    clearLastHighlightedEntity();
+            })
+
 
         }
 
- 
-        //下面代码演示如果再config.json中配置的图层，如何绑定额外事件方法
-        function demoClick() {
 
-            // 绑定config.json中对应图层配置的"id"值图层的单击事件（比如下面是id:1987对应图层）
-            var layerWork = viewer.mars.getLayer(1987, 'id');
-            layerWork.config.click = function (entity, position) {
-                console.log(entity);//test
 
-            }
-
-        }
 
 
 

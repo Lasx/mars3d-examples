@@ -45,6 +45,13 @@ var exampleConfig = {
                         fileName: "11_online_gaode"
                     },
                     {
+                        name: "腾讯",
+                        version: "2.1.1",
+                        thumbnail: "11_online_tentect.jpg",
+                        fileName: "11_online_tentect"
+                    },
+
+                    {
                         name: "百度Demo",
                         version: "1.7.6",
                         thumbnail: "11_online_baidu.jpg",
@@ -61,8 +68,12 @@ var exampleConfig = {
                         version: "1.1.0",
                         thumbnail: "12_layer_xyz.jpg",
                         fileName: "12_layer_xyz"
-                    }, 
-                      {
+                    }, {
+                        name: "arcgis格式瓦片",
+                        version: "1.4.0",
+                        thumbnail: "12_layer_arcgis_cache.jpg",
+                        fileName: "12_layer_arcgis_cache"
+                    }, {
                         name: "OGC WMS服务",
                         version: "1.1.0",
                         thumbnail: "12_layer_wms.jpg",
@@ -129,7 +140,18 @@ var exampleConfig = {
                         thumbnail: "22_point_animation.gif",
                         fileName: "22_point_animation"
                     },
-                   
+                    {
+                        name: "动态扩散效果",
+                        version: "1.8.9",
+                        thumbnail: "22_circle_animation.gif",
+                        fileName: "22_circle_animation"
+                    },
+                    {
+                        name: "光柱椎体",
+                        version: "2.2.0",
+                        thumbnail: "22_coneglow.gif",
+                        fileName: "22_coneglow"
+                    },
                 ]
             },
             "feature-polyline": {
@@ -142,6 +164,17 @@ var exampleConfig = {
                         fileName: "23_lineFlowMaterial"
                     },
                     
+                    {
+                        name: "光晕线",
+                        version: "1.2.0",
+                        thumbnail: "23_glowline.jpg",
+                        fileName: "23_glowline"
+                    },
+                ]
+            },
+            "feature-polygon": {
+                name: "面状对象",
+                content: [
                     {
                         name: "动态立体围墙",
                         version: "1.6.9",
@@ -156,11 +189,31 @@ var exampleConfig = {
                     },
                 ]
             },
-            
             "feature-other": {
                 name: "其他立体状",
                 content: [
                    
+                    {
+                        name: "单目标雷达范围",
+                        version: "1.8.9",
+                        thumbnail: "27_space_radar.jpg",
+                        fileName: "27_space_radar",
+                        plugins: "space",
+                    },
+                    {
+                        name: "雷达追踪圆椎体",
+                        version: "1.8.9",
+                        thumbnail: "27_space_follow.jpg",
+                        fileName: "27_space_follow",
+                        plugins: "space",
+                    },
+                    {
+                        name: "雷达追踪四棱椎体",
+                        version: "1.8.9",
+                        thumbnail: "27_space_fourPrism.jpg",
+                        fileName: "27_space_fourPrism",
+                        plugins: "space",
+                    },
                     {
                         name: "卫星视锥体",
                         version: "1.8.9",
@@ -328,21 +381,97 @@ var exampleConfig = {
                         thumbnail: "61_measure.jpg",
                         fileName: "61_measure"
                     },
-                    
                 ]
             },
-            
-           
+            "analysi-terrain": {
+                name: "地形相关",
+                content: [
+                    {
+                        name: "地形开挖(planes)",
+                        version: "1.6.9",
+                        thumbnail: "62_terrainClipPlan.jpg",
+                        fileName: "62_terrainClipPlan"
+                    },
+                    {
+                        name: "地形开挖(材质)",
+                        version: "1.8.9",
+                        thumbnail: "62_terrainClip.jpg",
+                        fileName: "62_terrainClip",
+                    },
+                    {
+                        name: "等高线",
+                        version: "1.6.9",
+                        thumbnail: "62_contour.jpg",
+                        fileName: "62_contour"
+                    },
+                    {
+                        name: "坡度坡向",
+                        version: "2.0.3",
+                        thumbnail: "62_slope.jpg",
+                        fileName: "62_slope"
+                    },
+                  
+
+                ]
+            },
+            "analysi-3dtiles": {
+                name: "模型相关",
+                content: [
+                    {
+                        name: "模型剖切(planes)",
+                        version: "1.8.9",
+                        thumbnail: "63_clip.jpg",
+                        fileName: "63_clip",
+                    },
+                    {
+                        name: "模型压平",
+                        version: "2.0.1",
+                        thumbnail: "63_tiles_flat.jpg",
+                        fileName: "63_tiles_flat",
+                    },
+                    {
+                        name: "模型剪裁",
+                        version: "2.0.1",
+                        thumbnail: "63_tiles_clip.jpg",
+                        fileName: "63_tiles_clip",
+                    },
+                    {
+                        name: "模型剪裁(planes)",
+                        version: "2.0.3",
+                        thumbnail: "63_tiles_clip_plan.jpg",
+                        fileName: "63_tiles_clip_plan",
+                    },
+                    {
+                        name: "模型着色(淹没分析)",
+                        version: "2.0.1",
+                        thumbnail: "63_tiles_flood.jpg",
+                        fileName: "63_tiles_flood",
+                    },
+
+                ]
+            },
         }
     },
     "hangye": {
         name: "行业应用",
         content: {
-             
             "hangye-sapce": {
                 name: "航天卫星",
                 content: [
-                   
+                    {
+                        name: "TLE实时展示",
+                        version: "1.9.0",
+                        thumbnail: "73_satellite1.jpg",
+                        fileName: "73_satellite1",
+                        plugins: "space",
+                    },
+                    {
+                        name: "TLE实时展示(多相机)",
+                        version: "1.9.0",
+                        thumbnail: "73_satellite2.jpg",
+                        fileName: "73_satellite2",
+                        plugins: "space",
+                    },
                     {
                         name: "多卫星实时展示",
                         version: "2.0.2",
