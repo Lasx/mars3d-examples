@@ -139,11 +139,11 @@
             });
             measure.on(mars3d.analysi.Measure.event.end, function (e) {//分析完成后回调(异步)
                 haoutil.loading.hide();
-                if (e.mtype == "areaSurface" && e.list)
-                    showInterResult(e.list);//在js/showPolygonInter.js
+                // if (e.mtype == "areaSurface" && e.list)
+                //     showInterResult(e.list);//在js/showPolygonInter.js
             });
             measure.on(mars3d.analysi.Measure.event.delete, function (e) {
-                clearInterResult();//在js/showPolygonInter.js          
+                // clearInterResult();//在js/showPolygonInter.js          
             });
 
 
@@ -164,7 +164,7 @@
 
         function clearDraw() {
             measure.clear();
-            clearInterResult();//在js/showPolygonInter.js
+            // clearInterResult();//在js/showPolygonInter.js
         }
 
         function measureLength() {

@@ -38,12 +38,9 @@
     <!-- 面板 -->
     <div class="infoview">
         1、我们对Cesium本身的事件做了简化处理。<br />
-        2、可以直接在Cesium原生的entity或primitive构造时绑定回调方法进行处理。<br />
-        3、在mars3d定义的图层或类中，是通过on方法绑定事件监听进行处理。<br />
-        
-        4、目前支持绑定click 单击、mouseover 鼠标移入、mouseout 鼠标移出 。<br />         
-        另：框架的popup、tooltip也是基于此类似规则绑定的。<br />
-
+        2、可以直接在Cesium原生的entity或primitive构造时赋值回调方法进行处理。<br />
+        3、或者可以通过on方法绑定事件监听进行处理，off方法解绑。<br />
+        4、目前支持绑定click 单击、mouseover 鼠标移入、mouseout 鼠标移出 。
     </div>
 
 
@@ -113,19 +110,32 @@
                     verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
                     heightReference: Cesium.HeightReference.CLAMP_TO_GROUND,
                 },
-                click: function (entity) {//单击
-                    haoutil.alert('你单击了billboard：' + entity._name);
-
-                },
-                mouseover: function (entity) {//移入
-                    haoutil.msg('你鼠标移入到billboard：' + entity._name);
-
-                },
-                mouseout: function (entity) {//移出
-                    haoutil.msg('你鼠标移出了billboard：' + entity._name);
-
-                },
+                //方式一：简单直接，一次性监听
+                // click: function (entity) {//单击
+                //     haoutil.msg('你单击了billboard：' + entity._name);
+                // },
+                // mouseover: function (entity) {//移入
+                //     haoutil.msg('你鼠标移入到billboard：' + entity._name);
+                // },
+                // mouseout: function (entity) {//移出
+                //     haoutil.msg('你鼠标移出了billboard：' + entity._name);
+                // },
             });
+
+            //方式二（推荐）：可以多次监听，并可以off解除监听
+            pointEntity.on(Cesium.Entity.event.click, function (e) {
+                console.log('你单击了', e);
+                haoutil.msg('你单击了billboard');
+            })
+            pointEntity.on(Cesium.Entity.event.mouseOver, function (e) {
+                console.log('你鼠标移入到', e);
+                haoutil.msg('你鼠标移入到billboard');
+            })
+            pointEntity.on(Cesium.Entity.event.mouseOut, function (e) {
+                console.log('你鼠标移出了', e);
+                haoutil.msg('你鼠标移出了billboard');
+            })
+
 
             var lineEntity = viewer.entities.add({
                 name: "线",
@@ -141,19 +151,19 @@
                     material: Cesium.Color.YELLOW.withAlpha(0.5),
                     clampToGround: true
                 },
-                click: function (entity) {//单击
-                    haoutil.alert('你单击了polyline：' + entity._name);
-
-                },
-                mouseover: function (entity) {//移入
-                    haoutil.msg('你鼠标移入到polyline：' + entity._name);
-
-                },
-                mouseout: function (entity) {//移出
-                    haoutil.msg('你鼠标移出了polyline：' + entity._name);
-
-                },
             });
+            lineEntity.on(Cesium.Entity.event.click, function (e) {
+                console.log('你单击了', e);
+                haoutil.msg('你单击了polyline');
+            })
+            lineEntity.on(Cesium.Entity.event.mouseOver, function (e) {
+                console.log('你鼠标移入到', e);
+                haoutil.msg('你鼠标移入到polyline');
+            })
+            lineEntity.on(Cesium.Entity.event.mouseOut, function (e) {
+                console.log('你鼠标移出了', e);
+                haoutil.msg('你鼠标移出了polyline');
+            })
 
 
             var polyEntity = viewer.entities.add({
@@ -170,21 +180,47 @@
                     material: Cesium.Color.YELLOW.withAlpha(0.3),
                     classificationType: Cesium.ClassificationType.BOTH
                 },
-                click: function (entity) {//单击
-                    haoutil.alert('你单击了polygon：' + entity._name);
-
-                },
-                mouseover: function (entity) {//移入
-                    haoutil.msg('你鼠标移入到polygon：' + entity._name);
-
-                    highlightedEntity(entity, 1)
-                },
-                mouseout: function (entity) {//移出
-                    haoutil.msg('你鼠标移出了polygon：' + entity._name);
-
-                    highlightedEntity(entity, 0.3)
-                },
             });
+            polyEntity.on(Cesium.Entity.event.click, function (e) {
+                console.log('你单击了', e);
+
+                haoutil.msg('你单击了polygon');
+            })
+            polyEntity.on(Cesium.Entity.event.mouseOver, function (e) {
+                console.log('你鼠标移入到', e);
+
+                haoutil.msg('你鼠标移入到polygon');
+
+                var entity = e.sourceTarget
+                highlightedEntity(entity, 1)
+            })
+            polyEntity.on(Cesium.Entity.event.mouseOut, function (e) {
+                console.log('你鼠标移出了', e);
+
+                haoutil.msg('你鼠标移出了polygon');
+
+                var entity = e.sourceTarget
+                highlightedEntity(entity, 0.3)
+            })
+
+
+            var tileset = new Cesium.Cesium3DTileset({
+                url: serverURL_3dtiles + "/max-shihua/tileset.json",
+                maximumScreenSpaceError: 16,
+            });
+            tileset.readyPromise.then(function (tileset) {
+                mars3d.tileset.updateMatrix(tileset, { "x": 117.230432, "y": 31.823476, "z": 37.71, "scale": 10 });
+            }).otherwise(function (error) {
+                haoutil.alert(error, "加载数据出错");
+            });
+            viewer.scene.primitives.add(tileset);
+
+            tileset.on(Cesium.Cesium3DTileset.event.click, function (e) {
+                console.log('你单击了', e);
+                haoutil.msg('你单击了3DTileset');
+            }) 
+
+
 
 
             //mars3d定义的图层时，通过on方法绑定回调事件。
@@ -207,33 +243,6 @@
             })
 
 
-
-
-            //示例popup和tooltip
-            var pointEntity = viewer.entities.add({
-                name: "示例点",
-                position: Cesium.Cartesian3.fromDegrees(117.23593, 31.824638, 43.48),
-                billboard: {
-                    image: 'img/marker/mark1.png',
-                    scale: 1,
-                    horizontalOrigin: Cesium.HorizontalOrigin.CENTER,
-                    verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
-                    heightReference: Cesium.HeightReference.CLAMP_TO_GROUND,
-                },
-                label: {
-                    text: "popup和tooltip示例",
-                    font: 'normal small-caps normal 19px 楷体',
-                    style: Cesium.LabelStyle.FILL_AND_OUTLINE,
-                    fillColor: Cesium.Color.AZURE,
-                    outlineColor: Cesium.Color.BLACK,
-                    outlineWidth: 2,
-                    horizontalOrigin: Cesium.HorizontalOrigin.CENTER,
-                    verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
-                    pixelOffset: new Cesium.Cartesian2(0, -50),   //偏移量   
-                },
-                tooltip: "<span style='color:#ffffff;'>测试的tooltip</span>",
-                popup: "<span style='color:red;'>测试的popup</span>",
-            });
 
 
 

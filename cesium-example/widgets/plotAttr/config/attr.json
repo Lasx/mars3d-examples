@@ -282,8 +282,9 @@
             { "name": "color", "label": "颜色", "type": "color", "defval": "#3388ff" },
             { "name": "width", "label": "线宽", "type": "number", "defval": 4.0 },
 
+            { "name": "closure", "label": "是否闭合", "type": "radio", "defval": false },
             { "name": "clampToGround", "label": "是否贴地", "type": "radio", "defval": false },
-
+ 
             { "name": "dashLength", "label": "虚线长度", "type": "number", "defval": 16.0 },
 
             { "name": "outline", "label": "是否衬色", "type": "radio", "defval": false, "impact": [ "outlineColor", "outlineWidth" ] },
@@ -365,6 +366,7 @@
             { "name": "color", "label": "颜色", "type": "color", "defval": "#00FF00" },
             { "name": "opacity", "label": "透明度", "type": "slider", "defval": 0.6 },
 
+            { "name": "closure", "label": "是否闭合", "type": "radio", "defval": false },
             { "name": "outline", "label": "是否边框", "type": "radio", "defval": true, "impact": [ "outlineWidth", "outlineColor", "outlineOpacity" ] },
             { "name": "outlineWidth", "label": "边框宽度", "type": "hidden", "defval": 1.0 },
             { "name": "outlineColor", "label": "边框颜色", "type": "color", "defval": "#ffffff" },
@@ -1080,10 +1082,18 @@
     "ellipsoid": {
         "name": "球体",
         "style": [
-            { "name": "extentRadii", "label": "长半径", "type": "number", "defval": 100.0 },
-            { "name": "widthRadii", "label": "宽半径", "type": "number", "defval": 100.0 },
-            { "name": "heightRadii", "label": "高半径", "type": "number", "defval": 100.0 },
+            { "name": "radii_x", "label": "X半径", "type": "number", "defval": 100.0 },
+            { "name": "radii_y", "label": "Y半径", "type": "number", "defval": 100.0 },
+            { "name": "radii_z", "label": "Z半径", "type": "number", "defval": 100.0 },
 
+            { "name": "innerRadii_x", "label": "内部X半径", "type": "number", "defval": 0.0 },
+            { "name": "innerRadii_y", "label": "内部Y半径", "type": "number", "defval": 0.0 },
+            { "name": "innerRadii_z", "label": "内部Z半径", "type": "number", "defval": 0.0 },
+ 
+            { "name": "minimumClock", "label": "最小时钟角度", "type": "number", "defval": 0.0 },
+            { "name": "maximumClock", "label": "最大时钟角度", "type": "number", "defval": 360.0 },
+            { "name": "minimumCone", "label": "最小锥角", "type": "number", "defval": 0.0 },
+            { "name": "maximumCone", "label": "最大圆锥角", "type": "number", "defval": 180.0 },
 
             { "name": "fill", "label": "是否填充", "type": "radio", "defval": true, "impact": [ "color", "opacity" ] },
             {

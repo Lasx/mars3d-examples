@@ -145,6 +145,35 @@
                 }
             });
 
+
+            //圆形时  
+            var positions = mars3d.polygon.getEllipseOuterPositions({
+                position: Cesium.Cartesian3.fromDegrees(117.103707, 31.863181, 0),
+                radius: 1000, //半径
+                count: 50 //共返回(count*4)个点
+            });
+            var minimumHeights = [];
+            var maximumHeights = [];
+            positions.forEach(function (key) {
+                minimumHeights.push(45);
+                maximumHeights.push(2000);
+            });
+
+            dataSource.entities.add({
+                name: '动态立体墙2',
+                wall: {
+                    positions: positions,
+                    minimumHeights: minimumHeights,
+                    maximumHeights: maximumHeights,
+                    material: new mars3d.LineFlowMaterial({//动画线材质
+                        color: Cesium.Color.fromCssColorString("#00ffff"),
+                        duration: 3000, //时长，控制速度
+                        url: 'img/textures/fence.png',
+                        axisY: true
+                    }),
+                }
+            });
+
             //示例 
             dataSource.entities.add({
                 name: '红色感叹号墙',
@@ -228,12 +257,15 @@
             ]);
             var scrollWallGlow = new mars3d.ScrollWallGlow(viewer, {
                 positions: positions,
-                color: Cesium.Color.fromCssColorString("#f2fa19"), 
+                color: Cesium.Color.fromCssColorString("#f2fa19"),
                 height: 500,    //高度
                 direction: 1,   //方向：1往上、-1往下
                 speed: 100
             });
-
+            //单击事件
+            scrollWallGlow.on(mars3d.ConeGlow.event.click, function (event) {
+                console.log("单击了对象", event);
+            });
 
             //走马灯围墙效果2
             var positions = mars3d.pointconvert.lonlats2cartesians([
@@ -244,13 +276,15 @@
             ]);
             var scrollWallGlow = new mars3d.ScrollWallGlow(viewer, {
                 positions: positions,
-                color: Cesium.Color.fromCssColorString("#f33349"), 
+                color: Cesium.Color.fromCssColorString("#f33349"),
                 height: 500,    //高度
                 direction: 1,   //方向：1往上、-1往下
                 speed: 200,
                 style: 2
             });
-
+            scrollWallGlow.on(mars3d.ConeGlow.event.click, function (event) {
+                console.log("单击了对象", event);
+            });
 
 
 

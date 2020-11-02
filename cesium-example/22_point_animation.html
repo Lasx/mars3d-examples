@@ -120,10 +120,9 @@
                     data: item,
                     popup: html,
                     // depthTest:false,
-                    click: function (entity) {//单击后的回调
-                        var item = entity.data;
+                    click: function (e) {//单击后的回调 
+                        var item = e.data.data;
                         haoutil.msg('单击了：' + item["高校名称"]);
-
                     }
                 });
             }

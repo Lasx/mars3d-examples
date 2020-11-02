@@ -1,2 +1,552 @@
-/* 2020-10-26 08:58:11 | 版权所有 火星科技 http://marsgis.cn */
-var _0x131c=['rgXWsee=','zwjOquu=','pgrPDIbJBgfZCZ0ICxvLCNLIyxiTCgfNzsi+pgrPDIbJBgfZCZ0ICxvLCNLIyxiTzMWIpUAYOEACIEAjVUwiSci8C3rYB25NpG==','i3f1zxj5yMfYx3vSx2f1Dg90Axa=','vxnhD1O=','rKDQA0S=','AgLKzufSBff1zxj5qMfYvMLLDW==','EuvUDKq=','DhLWzq==','Aw5KzxG=','vNzSvNK=','pc9WpIa8l2rPDJ4Gpc9KAxy+','BxjUsK0=','pgrPDIbJBgfZCZ0ICxvLCNLIyxiTC2L0zsiGB25JBgLJAZ0ID2LKz2v0x3f1zxj5qMfPzhvqt0KUC2HVD0rLDgfPBcGN','yxjYsgLZDg9YEq==','r21xDfO=','6Ag1ica8ysbOCMvMpsjQyxzHC2nYAxb0oNDPzgDLDf9XDwvYEujHAwr1ue9jlNnOB3DgAxjZDfbHz2uOksi+6AAw6Ag1pc9HpIa8ysbOCMvMpsjQyxzHC2nYAxb0oNDPzgDLDf9XDwvYEujHAwr1ue9jlNnOB3DqCMv0ugfNzsGPiJ4MBhq7pc9HpIaGpgeGAhjLzJ0IAMf2yxnJCMLWDdP3AwrNzxrFCxvLCNLcywLKDvbpss5ZAg93tMv4DfbHz2uOksi+jMD0oZWVyt4Gpc9KAxy+','ywXSCgfNzq==','zgvS','B0HZtNe=','wKf3z04=','sMnTA2e=','pc9KAxy+','DMfS','zwfJAa==','BwfTBKe=','t0XkD04=','B2jQuMvZDwX0rgf0yq==','zM1Izge=','A01Rv2K=','A2v5zg93BG==','BgLZDa==','wKnPy1a=','pc9HpG==','CxvLCNLFCMfKAxvZ','sLbrrxi=','A3f2Afe=','zKDgExC=','C2zTyNm=','sePYzKe=','vKnlDhm=','5B2t5yMn5BEY5PIV56YS5lIa6Ag15lQg','yxv0B0v4vgLWtgLZDa==','vMvYDgLJywXpCMLNAw4=','BuzXvNG=','q3vZDg9Trgf0yvnVDxjJzq==','DgvPt08=','pc9KAxy+icaGicaGicaGicaGicaGicaGicaGidWVzgL2pG==','Aw5WDxqGChjVCgvYDhLJAgfUz2u=','sNzSAxi=','ywXSy291BNq=','zxHxAwrNzxq=','DhjPz2DLCG==','BvL5Dfy=','s2XWDe0=','u3ngy2W=','txjzBuW=','y29VA2LLtMfTzq==','zgv0ywLSx3vYBa==','Cg9ZAxrPB25dyxj0B2DYyxbOAwm=','i21HCc1XDwvYEwjHCIbPBwC=','CuzzB2G=','pc9KAxy+icaGicaGicaGicaGicaGicaGicaGicaGpgrPDJ48BgfIzwW+57QS5BQMpc9SywjLBd4=','C2HVD0HPC3rVCNLmAxn0','tezXEfy=','DMLLDY5JC3m=','vgzPy0q=','Bw5uyuO=','t2TrBxG=','y2XPy2S=','DhjPBq==','ExLHvKu=','jYK7iJ4=','rgLZDgfUy2veAxnWBgf5q29UzgL0Aw9U','q2fYDgvZAwfUmW==','D3jrCKu=','C3rYyxj0uxvLCNLqt0K=','AgLKzq==','uKXfD0e=','iZmZodHMzG==','rNHnEwC=','tfzosxO=','AgTrv3O=','C1r5vNm=','t1f1twW=','A3roAee=','zxjLELu=','B2zM','y291BNrZ','yMLUzenSyxnZ','EvjYv3O=','zKrmBeu=','AenhrxK=','pgrPDJ48BgfIzwW+5zYW5z2apc9SywjLBd4=','txLvuve=','tvfJChy=','C2fPwve=','i2zMzMzMzG==','CM9Uy0S=','CxvLCNLWB2LFz2LZ','CMXRwvi=','uhD1AM4=','i3f1zxj5yMfYx2rLDgfPBf92Awv3','yMLUza==','CgfNzvnPEMu=','z2v0','Bw5QzvC=','BufeuLC=','pc9ZDhjVBMC+iUEBUowfS+E7K+AENdWVzgL2pJWVzgL2pG==','r0TKEM4=','pgeGAhjLzJ0I','x2vUDgL0Eq==','CxvLCNLfEfbpsq==','yxjYzgf0yq==','vhLuy2O=','uK52CwK=','quTlyva=','BeHYvMS=','wK1jAK0=','BMfTzq==','sgvPz2H0uMvMzxjLBMnL','uMD6uLm=','A255zNq=','D2fYBMLUzW==','v3Pvtxu=','zfvZuuW=','AMDpquC=','D2LKz2v0','zuHgA0e=','DMLLD2vY','pc9HpJWVBgK+','uvrNEfy=','pc9ZDhjVBMC+5P2H57Ut5P6Cpc9KAxy+','q29SB3i=','BgvUz3rO','wKPwq1e=','CxvLCNLcyxjxAwrNzxq=','D0DNBw0=','ru52ENm=','vwDvBfC=','t09gDuW=','pgrPDJ48BgfIzwW+57g75yIRpc9SywjLBd4=','BLfQrMO=','qunzu1C=','CxvLCNLqt0K=','DMLLDY5ODg1S','i3f1zxj5yMfYx2f1Dg90AxbFDMLLDW==','z2v0v29YA0XHEwvY','CxvLCNLFBg9JyxrPB24=','yMfPzhvqt0K=','Afb1zge=','Berdteu=','A2v5q29Kzq==','5B2t5yMn5BEY5PIV5PYa5zco5lIa6Ag15lQg','zgf0yvnVDxjJzq==','sg9YAxPVBNrHBe9YAwDPBG==','y29UzMLN','ANnSwMi=','i3r4Df9XDwvYExbVAq==','i3f1zxj5yMfYx2HPC3rYB3LFDMLLDW==','DgfN','DgHPC3bHz2u=','i2j0BL9XDwvYExbVAq==','C3bSAxq=','DKPMCLG=','uLHlshu=','DMX3CNC=','BwfYCW==','DgvS','rfnssNG=','DgvZDa==','y2XVC2u=','A0HxtfO=','DxPotwG=','pgrPDIbJBgfZCZ0IBwfYCY1WB3b1Cc10AxrPBguIpG==','qK9uve9n','pgXPpJXPignSyxnZpsDMysbMys1ZzwfYy2GNpJWVAt48ysbOCMvMpsjQyxzHC2nYAxb0oNDPzgDLDf9XDwvYEujHAwr1ue9jlMf1Dg9tzwfYy2GOjW==','pc9OmZ4Gpha+','zgf0yvnVDxjJzxm=','ChvZAa==','CgfMBve=','pgXPpJXPignSyxnZpsDMysbMys1OAxn0B3j5jY8+pgeGAhjLzJ0IAMf2yxnJCMLWDdP3AwrNzxrFCxvLCNLcywLKDvbpss5HDxrVu2vHCMnOkcC=','vxfZu2i=','ywrK','C2HVDW==','AxnmB25myxq=','uw5bBfm=','tMvHCKzHCLnJywXHCG==','Ee5grLe=','pgrPDIbJBgfZCZ0IBwfYCY1WB3b1Cc10AxrPBguIpUwDKoAGH+wUMUs9JtWVzgL2pIaGicaGicaGicaGicaGicaGicaGica8zgL2ignSyxnZpsjTyxjZlxbVChvWlwnVBNrLBNqIid4GicaGicaGicaGicaGicaGicaGicaGica8zgL2pJXSywjLBd7NU4/LUQy8l2XHyMvSpG==','yMX1CG==','y2vUDgvYqxrmB25myxq=','C2HVD0rLDgfPBa==','zhn2y3e=','zxH0zw5K','zgHHsfa=','A21dB3q=','sxvmB0S=','svv6r0S=','tNPKwNq=','qvPvuKu=','C2HVD1bpsvbHz2u=','q0vovevs','sgP5vLu=','zuTfwMC=','i3f1zxj5yMfYx3vSx2HPC3rVCNK=','AhrTBa==','t1fgsuC=','zxzLBNq=','q0XbtvbFve9Fr1jpvu5e','wxDts2W=','mJbWEcdMPBFKVzm=','BNHVtey=','y3nZ','tgfIzwXtDhLSzq==','vuzwEem=','r1bpC3C=','rM5dCKO=','CxvLCNLuzxH0','t0T3Dwq=','DuTABwu=','y29VA2LL','Cg9WDxa=','C2HVD1bpsufYCG==','u2LHz24=','yLjeDwS=','ioAxOoE7J+E6Row6PUwDKoAGH+s/OEAbR++8Gq==','D0Lnr0K=','iIaGDgfYz2v0psjFyMXHy2SIihn0EwXLpsjJB2XVCJOGi2zMzMzMzJSGiJ4=','CMjABei=','ALvNrKC=','vhbyzfi=','AgDYAxq=','ugfgvha=','t0XXDeS=','yxv0B1rPCeXPC3q=','zw50AxrPzxm=','i3f1zxj5yMfYx3jLC3vSDgXPC3rFDMLLDW==','r0n0q0O=','A0DHDgi=','C3jJ','ue9tsvrjvKvFsu5gsu5jvfK=','rvbqshe=','y2vUDgvYqxq=','ywrKsgLZDg9YEq==','pgrPDIbJBgfZCZ0ICxvLCNLIyxiTEwuGCxvLCNLIyxiTzNiIpG==','Cg9ZAxrPB24=','pgrPDJ48BgfIzwW+55s16k+Dpc9SywjLBd4=','ywrKCMvZCW==','zNjVBunZC0nVBg9Yu3rYAw5N','vLjKuuK=','vhjZEe8=','CMvTB3zLqwXS','C3r5Bgu=','CffzvvC=','Dgzkuxu=','AgvPz2H0','A2jrzM8=','ChHZrhm=','EMntA1C=','jYKIpIa8zgL2ignSyxnZpsjXDwvYEwjHCI1ZAxrLAMOIpIa8Adm+','z2v0q2vUDgvY','zgv0ywLSx2LUzM8=','t29RuwC=','BM9OwgO=','qKXbq0S=','zKDdv2S=','yM9KEq==','u3PVsLG=','Axnby3rPDMf0zq==','yxbWzw5K','vLjbAKq=','rNzUAeW=','C3bSAwnL'];(function(_0x3f87c2,_0x131c32){var _0x5510c0=function(_0x25ac5e){while(--_0x25ac5e){_0x3f87c2['push'](_0x3f87c2['shift']());}};_0x5510c0(++_0x131c32);}(_0x131c,0x137));var _0x5510=function(_0x3f87c2,_0x131c32){_0x3f87c2=_0x3f87c2-0x0;var _0x5510c0=_0x131c[_0x3f87c2];if(_0x5510['HBPyaH']===undefined){var _0x25ac5e=function(_0x3d8836){var _0x275917='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=',_0x558c9a=String(_0x3d8836)['replace'](/=+$/,'');var _0x19a326='';for(var _0x2eefb4=0x0,_0xc49a18,_0x3363ea,_0x1e18ef=0x0;_0x3363ea=_0x558c9a['charAt'](_0x1e18ef++);~_0x3363ea&&(_0xc49a18=_0x2eefb4%0x4?_0xc49a18*0x40+_0x3363ea:_0x3363ea,_0x2eefb4++%0x4)?_0x19a326+=String['fromCharCode'](0xff&_0xc49a18>>(-0x2*_0x2eefb4&0x6)):0x0){_0x3363ea=_0x275917['indexOf'](_0x3363ea);}return _0x19a326;};_0x5510['WWZtQA']=function(_0x123531){var _0x13e8f1=_0x25ac5e(_0x123531);var _0x759234=[];for(var _0x1b0aeb=0x0,_0x211b25=_0x13e8f1['length'];_0x1b0aeb<_0x211b25;_0x1b0aeb++){_0x759234+='%'+('00'+_0x13e8f1['charCodeAt'](_0x1b0aeb)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x759234);},_0x5510['rwiDrX']={},_0x5510['HBPyaH']=!![];}var _0x346b6d=_0x5510['rwiDrX'][_0x3f87c2];return _0x346b6d===undefined?(_0x5510c0=_0x5510['WWZtQA'](_0x5510c0),_0x5510['rwiDrX'][_0x3f87c2]=_0x5510c0):_0x5510c0=_0x346b6d,_0x5510c0;};var _0x891171=_0x5510,widget_queryBaiduPOI=mars3d['widget'][_0x891171('0x34')](mars3d[_0x891171('0x5a')]['BaseWidget'][_0x891171('0x9d')]({'options':{'resources':[_0x891171('0x1c'),'../lib/cesiumjs/plugins/class/BaiduPOI.js'],'view':{'type':_0x891171('0xe9'),'url':_0x891171('0x6c'),'parent':_0x891171('0xe6')}},'create':function(){var _0x33cde7=_0x891171;this[_0x33cde7('0x70')]=new BaiduPOI();},'winCreateOK':function(_0x4c3e08){var _0x31debb=_0x891171,_0xaa8bc8={'OOFuL':_0x31debb('0x7a'),'nxoLF':function(_0x4f1755,_0x47d53c){return _0x4f1755(_0x47d53c);},'awaJi':_0x31debb('0x6d'),'BtPDD':_0x31debb('0x41'),'wrQrE':function(_0x183a0e,_0x1f670e){return _0x183a0e===_0x1f670e;},'ktNhA':'Ubpdj','RLEwA':_0x31debb('0xcb'),'tZdao':function(_0x1009a5,_0x20e3fb){return _0x1009a5+_0x20e3fb;},'wGgmm':function(_0x54e27a,_0x9c23c8){return _0x54e27a(_0x9c23c8);},'ZCicP':function(_0x4fa6d1,_0x43b11b){return _0x4fa6d1==_0x43b11b;},'UqsSb':function(_0x506f3d,_0x5bc72d){return _0x506f3d(_0x5bc72d);},'RNcQh':function(_0x423152,_0x385936,_0x134e2c){return _0x423152(_0x385936,_0x134e2c);},'OokQg':function(_0x6f89b5,_0x2ea7e8){return _0x6f89b5!==_0x2ea7e8;},'vJfrX':'sNVdL','lHrVk':_0x31debb('0x79'),'Jvlir':function(_0x22e55d,_0x3d62c3){return _0x22e55d*_0x3d62c3;},'itMHu':function(_0x4e568f,_0x3f30c5){return _0x4e568f-_0x3f30c5;},'hgrit':function(_0x48600f,_0x3e7983){return _0x48600f+_0x3e7983;},'MQcpv':_0x31debb('0x49'),'AIGgS':_0x31debb('0xbf'),'HJrfA':_0x31debb('0x10e'),'NZuxC':function(_0x297800,_0x4fb7c1){return _0x297800+_0x4fb7c1;},'fGCWk':function(_0x95aa30,_0x3b362b){return _0x95aa30+_0x3b362b;},'CrmHG':function(_0x2ee9d9,_0x2c1f52){return _0x2ee9d9+_0x2c1f52;},'CbXyT':function(_0x3c2151,_0x44ae22){return _0x3c2151+_0x44ae22;},'RXKHu':_0x31debb('0xdf'),'KlptM':'</h3>\x20<p>','nQjFj':_0x31debb('0x109'),'OQuMl':_0x31debb('0x7d'),'pafmQ':_0x31debb('0xe9'),'mFqVx':function(_0x16a55c,_0x16eae1){return _0x16a55c(_0x16eae1);},'DSRJx':'#map-querybar','eKEZg':function(_0x3c0951,_0x21992d){return _0x3c0951(_0x21992d);},'SsFcl':function(_0x126db2,_0x3cb834){return _0x126db2(_0x3cb834);},'rbZlB':_0x31debb('0xb'),'GCtCJ':_0x31debb('0x10b'),'fGFyw':'#querybar_detail_back'},_0xb050fd,_0x5cccf1;_0xaa8bc8[_0x31debb('0x8f')]==_0x4c3e08[_0x31debb('0xf5')]&&(_0xb050fd=this,$(_0x31debb('0x17'))[_0x31debb('0x105')](function(_0x45b853,_0x264d8e){var _0x4a6246=_0x31debb;if(_0xaa8bc8[_0x4a6246('0x26')](_0xaa8bc8[_0x4a6246('0x30')],'Ubpdj'))_0xaa8bc8[_0x4a6246('0xaf')]($,_0x264d8e)['attr'](_0xaa8bc8[_0x4a6246('0x29')],_0xaa8bc8['tZdao'](_0xb050fd['path'],_0xaa8bc8[_0x4a6246('0x64')]($,_0x264d8e)['attr'](_0x4a6246('0xcb'))));else{function _0xda4832(){var _0x2763eb=_0x4a6246;_0x5d1484(_0xaa8bc8[_0x2763eb('0x67')])[_0x2763eb('0x28')](),_0xaa8bc8['nxoLF'](_0x30d72b,_0xaa8bc8['awaJi'])[_0x2763eb('0x28')](),_0xaa8bc8[_0x2763eb('0xaf')](_0x1413c5,_0xaa8bc8['BtPDD'])[_0x2763eb('0x28')](),_0xaa8bc8[_0x2763eb('0xaf')](_0x420724,_0x2763eb('0xc8'))[_0x2763eb('0x28')]();}}}),_0xb050fd[_0x31debb('0x77')]['position']&&_0xaa8bc8[_0x31debb('0x7')]($,_0xaa8bc8[_0x31debb('0x84')])[_0x31debb('0xb0')](_0xb050fd[_0x31debb('0x77')][_0x31debb('0xd1')]),_0xb050fd[_0x31debb('0x77')][_0x31debb('0xd8')]&&_0xaa8bc8[_0x31debb('0xa7')]($,_0xaa8bc8[_0x31debb('0x84')])[_0x31debb('0xb0')](_0xb050fd['config'][_0x31debb('0xd8')]),$(_0xaa8bc8['lHrVk'])['click'](function(){var _0x117d75=_0x31debb;_0xaa8bc8[_0x117d75('0x10d')](0x0,$['trim'](_0xaa8bc8[_0x117d75('0x91')]($,this)[_0x117d75('0x104')]())[_0x117d75('0x61')])&&(_0xb050fd['hideAllQueryBarView'](),_0xb050fd['showHistoryList']());}),_0x5cccf1=0x0,_0xaa8bc8['SsFcl']($,'#txt_querypoi')[_0x31debb('0x42')](_0xaa8bc8[_0x31debb('0xc0')],function(){var _0x1f6b56=_0x31debb,_0x243632={'fDLlE':function(_0x3b825f,_0x4af162){return _0x3b825f(_0x4af162);},'HjyVU':function(_0x4e4a77,_0xd55070){return _0x4e4a77==_0xd55070;}};_0xaa8bc8[_0x1f6b56('0x91')](clearTimeout,_0x5cccf1),_0x5cccf1=_0xaa8bc8['RNcQh'](setTimeout,function(){var _0x18f185=_0x1f6b56;_0xb050fd['hideAllQueryBarView'](),_0xb050fd['clearLayers']();var _0x1fb316=$[_0x18f185('0x21')](_0x243632[_0x18f185('0x36')]($,_0x18f185('0x79'))[_0x18f185('0x104')]());_0x243632[_0x18f185('0xa6')](0x0,_0x1fb316[_0x18f185('0x61')])?_0xb050fd[_0x18f185('0x1a')]():_0xb050fd['autoTipList'](_0x1fb316,!0x0);},0x1f4);}),_0xaa8bc8[_0x31debb('0x12')]($,_0x31debb('0x7d'))[_0x31debb('0x20')](function(){var _0x20af16=_0x31debb;if(_0xaa8bc8[_0x20af16('0xe2')](_0x20af16('0xc5'),_0xaa8bc8[_0x20af16('0x7f')])){_0xaa8bc8[_0x20af16('0x91')](clearTimeout,_0x5cccf1),_0xb050fd['hideAllQueryBarView']();var _0x2d5d2d=$[_0x20af16('0x21')]($(_0xaa8bc8[_0x20af16('0x50')])['val']());_0xb050fd['strartQueryPOI'](_0x2d5d2d,!0x0);}else{function _0x26797d(){var _0x5ed5a7=_0x20af16,_0x3969b9=this[_0x5ed5a7('0x6e')](),_0x56d3f9=this;this[_0x5ed5a7('0xe')][_0x5ed5a7('0x27')](_0x2f8942,_0x3969b9,function(){_0x56d3f9['strartQueryPOI'](_0x481b6a,!0x1);});}}}),$(_0xaa8bc8[_0x31debb('0x50')])['bind'](_0xaa8bc8[_0x31debb('0xc9')],function(_0x1b6b67){var _0x3a333f=_0x31debb;if(_0xaa8bc8[_0x3a333f('0x26')](_0xaa8bc8[_0x3a333f('0x69')],_0x3a333f('0x88'))){function _0x70df93(){var _0x2cc376=_0x3a333f,_0x1268fe=this['arrdata'][_0x3af84d],_0x172546=_0xaa8bc8[_0x2cc376('0xc')](_0xaa8bc8['itMHu'](this[_0x2cc376('0x7c')],0x1),this[_0x2cc376('0x43')]);_0x1268fe[_0x2cc376('0xf6')]=_0x172546+_0xaa8bc8[_0x2cc376('0xc3')](_0x59d102,0x1);var _0x524f4a=_0x1268fe[_0x2cc376('0xe1')]&&_0x1268fe[_0x2cc376('0xe1')][_0x2cc376('0x15')]?_0xaa8bc8['hgrit'](_0xaa8bc8['hgrit'](_0xaa8bc8[_0x2cc376('0xc3')](_0xaa8bc8[_0x2cc376('0x3a')]+_0x1268fe[_0x2cc376('0xe1')]['detail_url'],_0xaa8bc8['AIGgS']),_0x1268fe[_0x2cc376('0x52')]),_0xaa8bc8[_0x2cc376('0x2')]):_0x1268fe[_0x2cc376('0x52')];_0x4dd86c+=_0xaa8bc8['NZuxC'](_0xaa8bc8[_0x2cc376('0xe5')](_0xaa8bc8[_0x2cc376('0xe5')](_0xaa8bc8['CrmHG'](_0xaa8bc8['CbXyT'](_0xaa8bc8['CbXyT'](_0x2cc376('0xfa'),_0x11971a),_0xaa8bc8[_0x2cc376('0x80')]),_0x1268fe['index']),'、')+_0x524f4a,_0xaa8bc8[_0x2cc376('0x11')])+(_0x1268fe[_0x2cc376('0xd3')]||''),_0x2cc376('0xf8')),this[_0x2cc376('0x108')][_0x59aa81]=_0x1268fe;}}else'13'==_0x1b6b67[_0x3a333f('0x73')]&&$(_0xaa8bc8[_0x3a333f('0x2f')])[_0x3a333f('0x20')]();}),_0xaa8bc8[_0x31debb('0x12')]($,_0xaa8bc8[_0x31debb('0x0')])['click'](function(){var _0x344ca8=_0x31debb;_0xb050fd[_0x344ca8('0xf3')](),$(_0x344ca8('0xc8'))['show']();}));},'activate':function(){var _0x270e6f=_0x891171;this[_0x270e6f('0x5c')]['mars']['on'](mars3d['event'][_0x270e6f('0x20')],this['onMapClick'],this);},'disable':function(){var _0x59cc6d=_0x891171;this[_0x59cc6d('0x5c')][_0x59cc6d('0x82')][_0x59cc6d('0x32')](mars3d[_0x59cc6d('0xab')][_0x59cc6d('0x20')],this['onMapClick'],this),this['hideAllQueryBarView'](),this['clearLayers']();},'onMapClick':function(){var _0x1eeb3c=_0x891171,_0x3550b5={'QTgxV':function(_0x4b8e92,_0x5bc0ad){return _0x4b8e92==_0x5bc0ad;},'mYytV':function(_0x5c7d11,_0x4aa58e){return _0x5c7d11(_0x4aa58e);},'JPQEr':_0x1eeb3c('0x79')};_0x3550b5[_0x1eeb3c('0x5e')](0x0,$[_0x1eeb3c('0x21')](_0x3550b5[_0x1eeb3c('0x10')]($,_0x3550b5[_0x1eeb3c('0x110')])[_0x1eeb3c('0x104')]())[_0x1eeb3c('0x61')])&&(this[_0x1eeb3c('0xf3')](),_0x3550b5['mYytV']($,_0x3550b5['JPQEr'])[_0x1eeb3c('0x99')]());},'hideAllQueryBarView':function(){var _0x3288f0=_0x891171,_0x5d4ece={'wIMGI':'#querybar_histroy_view','AKKaP':function(_0x33b839,_0x4c37a4){return _0x33b839(_0x4c37a4);},'NzdZt':'#querybar_autotip_view','MrYmL':function(_0x257ae1,_0xf41727){return _0x257ae1(_0xf41727);},'PvRGR':'#querybar_resultlist_view'};$(_0x5d4ece[_0x3288f0('0xbe')])[_0x3288f0('0x28')](),_0x5d4ece[_0x3288f0('0x4f')]($,_0x5d4ece[_0x3288f0('0xa2')])[_0x3288f0('0x28')](),_0x5d4ece[_0x3288f0('0x4f')]($,_0x3288f0('0x41'))['hide'](),_0x5d4ece[_0x3288f0('0x13')]($,_0x5d4ece['PvRGR'])[_0x3288f0('0x28')]();},'autoSearch':function(_0x388f4b){var _0x36ba8c=_0x891171,_0x35d2c7={'hPuda':function(_0x1173cf,_0x2b34fb){return _0x1173cf(_0x2b34fb);},'pQYUW':_0x36ba8c('0x7d'),'GPOsw':_0x36ba8c('0x20')};_0x35d2c7[_0x36ba8c('0x71')]($,_0x36ba8c('0x79'))['val'](_0x388f4b),$(_0x35d2c7[_0x36ba8c('0xd9')])[_0x36ba8c('0xf')](_0x35d2c7[_0x36ba8c('0xb3')]);},'autoTipList':function(_0x4a29f8,_0x2d516d){var _0x1c575c=_0x891171,_0xfd2ac5={'dXBiJ':_0x1c575c('0x97'),'SzoJX':_0x1c575c('0x2c'),'yEnvD':function(_0x5198ae,_0x3736a9){return _0x5198ae<_0x3736a9;},'TyTcj':function(_0x3ae12f,_0x30bf97){return _0x3ae12f+_0x30bf97;},'GKdzn':_0x1c575c('0x8b'),'jgOAG':_0x1c575c('0x23'),'vlwrw':'</a></li>','kbQfo':function(_0x373b03,_0x3b8a3c){return _0x373b03<_0x3b8a3c;},'ENvzs':function(_0x3914de,_0x3ea042){return _0x3914de(_0x3ea042);},'WzUMu':_0x1c575c('0xf0'),'zcSkW':_0x1c575c('0x6d')};this[_0x1c575c('0x94')](_0x4a29f8)||(this['hasExWidget']()&&_0x2d516d?this[_0x1c575c('0x5')](_0x4a29f8):this[_0x1c575c('0x70')]['autoTip']({'text':_0x4a29f8,'location':this[_0x1c575c('0x5c')][_0x1c575c('0x82')]['getCenter'](),'success':function(_0x324c96){var _0x373d75=_0x1c575c;if(_0xfd2ac5['dXBiJ']===_0xfd2ac5[_0x373d75('0xe7')]){function _0x147429(){var _0xc84c00=_0x373d75;return null==this['dataSource']&&(this[_0xc84c00('0x75')]=new _0x5a8468['CustomDataSource'](),this[_0xc84c00('0x5c')][_0xc84c00('0x8d')][_0xc84c00('0x92')](this[_0xc84c00('0x75')])),this[_0xc84c00('0x75')];}}else{for(var _0x3fa974='',_0x47a861=_0x324c96[_0x373d75('0x10c')],_0x3d03bd=0x0;_0xfd2ac5[_0x373d75('0xf4')](_0x3d03bd,_0x47a861[_0x373d75('0x61')]);_0x3d03bd++){var _0x3dc5db=_0x47a861[_0x3d03bd]['name'];_0x3fa974+=_0xfd2ac5[_0x373d75('0x4d')](_0xfd2ac5[_0x373d75('0x48')]+_0x3dc5db+_0xfd2ac5[_0x373d75('0x59')],_0x3dc5db)+_0xfd2ac5[_0x373d75('0x81')];}_0xfd2ac5[_0x373d75('0xdc')](0x0,_0x3fa974['length'])&&(_0xfd2ac5[_0x373d75('0x65')]($,_0xfd2ac5[_0x373d75('0x57')])[_0x373d75('0xa9')](_0x3fa974),$(_0xfd2ac5[_0x373d75('0xde')])['show']());}}}));},'queryText':null,'strartQueryPOI':function(_0x1e85d3,_0x142834){var _0x4570d6=_0x891171,_0x287d84={'IuLoK':'请输入搜索关键字！'};0x0!=_0x1e85d3[_0x4570d6('0x61')]?(this[_0x4570d6('0xcf')](_0x1e85d3),this[_0x4570d6('0xf3')](),this[_0x4570d6('0x94')](_0x1e85d3)?this[_0x4570d6('0x9a')](_0x1e85d3):this['hasExWidget']()&&_0x142834?this[_0x4570d6('0x4b')](_0x1e85d3):(this['thispage']=0x1,this['queryText']=_0x1e85d3,this[_0x4570d6('0x6f')]=this[_0x4570d6('0x5c')]['mars'][_0x4570d6('0xe0')](),this[_0x4570d6('0x10f')]=this[_0x4570d6('0x5c')]['camera'][_0x4570d6('0x16')][_0x4570d6('0xdb')],this[_0x4570d6('0x6b')]())):toastr[_0x4570d6('0x56')](_0x287d84[_0x4570d6('0xa0')]);},'queryPOI':function(){var _0x528d90=_0x891171,_0x1acca8={'MyUQQ':function(_0x359277,_0x267b43){return _0x359277<_0x267b43;},'dsvcq':function(_0x1bb71c,_0x23ba81){return _0x1bb71c+_0x23ba81;},'FxMyg':'<li><i\x20class=\x27fa\x20fa-search\x27></i><a\x20href=\x22javascript:widget_queryBaiduPOI.autoSearch(\x27','ZAwgN':function(_0x4ea09c,_0x449394){return _0x4ea09c(_0x449394);},'HfCvk':'#querybar_ul_autotip','ebhAE':function(_0x3ddc7f,_0x1b8f70){return _0x3ddc7f===_0x1b8f70;},'QnAlS':'QWWkS'},_0x2c9cfe=this;this[_0x528d90('0x70')][_0x528d90('0xb5')]({'text':this[_0x528d90('0xb5')],'count':this[_0x528d90('0x43')],'page':this[_0x528d90('0x7c')]-0x1,'location':this[_0x528d90('0x6f')],'radius':this[_0x528d90('0x10f')],'success':function(_0x35914b){var _0x409dfd=_0x528d90,_0x4f9e2b={'DPkNM':function(_0x5ebd19,_0x3b8ae6){var _0x315c13=_0x5510;return _0x1acca8[_0x315c13('0x39')](_0x5ebd19,_0x3b8ae6);},'VvlVy':function(_0x54565b,_0x12623d){var _0x3fba9d=_0x5510;return _0x1acca8[_0x3fba9d('0x9c')](_0x54565b,_0x12623d);},'erezU':function(_0x19c064,_0x923a0b){return _0x19c064+_0x923a0b;},'UhbiX':_0x1acca8[_0x409dfd('0x2b')],'OKwud':_0x409dfd('0x5d'),'OMJPK':function(_0x4c6d0d,_0x23e2ea){var _0x474479=_0x409dfd;return _0x1acca8[_0x474479('0x101')](_0x4c6d0d,_0x23e2ea);},'EPPHq':_0x1acca8['HfCvk'],'yQqwB':function(_0x17010f,_0x2b07b9){return _0x1acca8['ZAwgN'](_0x17010f,_0x2b07b9);}};if(_0x1acca8[_0x409dfd('0xee')](_0x409dfd('0xd5'),_0x1acca8[_0x409dfd('0x95')])){function _0x364ebd(){var _0x3eebac=_0x409dfd;for(var _0x2f7058='',_0x48cb94=_0x2222ff[_0x3eebac('0x10c')],_0xc03843=0x0;_0x4f9e2b['DPkNM'](_0xc03843,_0x48cb94[_0x3eebac('0x61')]);_0xc03843++){var _0x2d3b35=_0x48cb94[_0xc03843][_0x3eebac('0x52')];_0x2f7058+=_0x4f9e2b[_0x3eebac('0xf7')](_0x4f9e2b['VvlVy'](_0x4f9e2b[_0x3eebac('0xf7')](_0x4f9e2b[_0x3eebac('0x31')](_0x4f9e2b['UhbiX'],_0x2d3b35),'\x27);\x22>'),_0x2d3b35),_0x4f9e2b[_0x3eebac('0xb6')]);}0x0<_0x2f7058[_0x3eebac('0x61')]&&(_0x4f9e2b['OMJPK'](_0x5a2be0,_0x4f9e2b[_0x3eebac('0xcd')])[_0x3eebac('0xa9')](_0x2f7058),_0x4f9e2b['yQqwB'](_0x50888d,_0x3eebac('0x6d'))['show']());}}else _0x2c9cfe[_0x409dfd('0xe8')]&&_0x2c9cfe[_0x409dfd('0xa4')](_0x35914b[_0x409dfd('0x10c')],_0x35914b[_0x409dfd('0xd')]);}});},'pageSize':0x6,'arrdata':[],'counts':0x0,'allpage':0x0,'thispage':0x0,'showPOIPage':function(_0x3ecf91,_0x1aeb11){var _0x321ce7=_0x891171,_0x2c2394={'FGjkK':function(_0x4a7c3a,_0x4e4b97){return _0x4a7c3a<_0x4e4b97;},'cvpZA':function(_0x29c460,_0x22d0d9){return _0x29c460/_0x22d0d9;},'VRAjD':function(_0x1d1ee2,_0x59a580){return _0x1d1ee2==_0x59a580;},'OLJwN':_0x321ce7('0xef'),'saiYQ':function(_0x44eb00,_0x4ef5ce){return _0x44eb00*_0x4ef5ce;},'yyaVE':function(_0x1658dd,_0x4c306a){return _0x1658dd+_0x4c306a;},'kGatb':function(_0x3b3c05,_0x26bccb){return _0x3b3c05+_0x26bccb;},'bRDuk':_0x321ce7('0x49'),'ZMIjM':_0x321ce7('0x10e'),'kHWLZ':function(_0x56f545,_0x488bdb){return _0x56f545+_0x488bdb;},'VCKts':function(_0x359d85,_0x593cb8){return _0x359d85+_0x593cb8;},'kmCot':'\x27)\x22>\x20<div\x20class=\x22querybar-sitejj\x22>\x20<h3>','qFYoh':_0x321ce7('0x8c'),'ycfmr':_0x321ce7('0xf8'),'UgUlW':function(_0x4241e0,_0x3f9280){return _0x4241e0+_0x3f9280;},'yRrWz':function(_0x71cd0b,_0x3123d1){return _0x71cd0b+_0x3123d1;},'sTyVs':_0x321ce7('0xd0'),'Pwujn':function(_0x2cf8b8,_0x43f6e0){return _0x2cf8b8+_0x43f6e0;},'ACYSW':function(_0x361124,_0x5d2fe0){return _0x361124+_0x5d2fe0;},'hkQWz':'<div\x20class=\x22querybar-page\x22><div\x20class=\x22querybar-fl\x22>找到<strong>','mnjeW':_0x321ce7('0x5f'),'XCnOS':_0x321ce7('0x103'),'knyft':function(_0x43d690,_0x994525){return _0x43d690(_0x994525);},'Siagn':'#querybar_resultlist_view','LFqxV':function(_0x1a203e,_0x57f5bb){return _0x1a203e==_0x57f5bb;}};this[_0x321ce7('0x4c')]=_0x3ecf91,this[_0x321ce7('0x33')]=_0x1aeb11,_0x2c2394['FGjkK'](this[_0x321ce7('0x33')],_0x3ecf91['length'])&&(this[_0x321ce7('0x33')]=_0x3ecf91[_0x321ce7('0x61')]),this[_0x321ce7('0xfe')]=Math['ceil'](_0x2c2394['cvpZA'](this['counts'],this['pageSize']));var _0x4089c8='';if(_0x2c2394[_0x321ce7('0xea')](0x0,this['counts']))_0x4089c8+=_0x2c2394[_0x321ce7('0x107')]+this[_0x321ce7('0xb5')]+_0x321ce7('0x47');else{for(var _0x1e6f31,_0x4e84f0=0x0;_0x2c2394['FGjkK'](_0x4e84f0,this[_0x321ce7('0x4c')][_0x321ce7('0x61')]);_0x4e84f0++){var _0x4d79fa=this[_0x321ce7('0x4c')][_0x4e84f0],_0x2b304d=_0x2c2394[_0x321ce7('0x3b')](this[_0x321ce7('0x7c')]-0x1,this[_0x321ce7('0x43')]);_0x4d79fa[_0x321ce7('0xf6')]=_0x2b304d+_0x2c2394[_0x321ce7('0x22')](_0x4e84f0,0x1);var _0x2da47f=_0x4d79fa[_0x321ce7('0xe1')]&&_0x4d79fa[_0x321ce7('0xe1')][_0x321ce7('0x15')]?_0x2c2394[_0x321ce7('0xca')](_0x2c2394[_0x321ce7('0xca')](_0x2c2394[_0x321ce7('0xbc')]+_0x4d79fa[_0x321ce7('0xe1')]['detail_url'],'\x22\x20\x20target=\x22_black\x22\x20style=\x22color:\x20#ffffff;\x20\x22>')+_0x4d79fa[_0x321ce7('0x52')],_0x2c2394[_0x321ce7('0x51')]):_0x4d79fa[_0x321ce7('0x52')];_0x4089c8+=_0x2c2394[_0x321ce7('0xca')](_0x2c2394[_0x321ce7('0x87')](_0x2c2394['kHWLZ'](_0x2c2394[_0x321ce7('0x3')](_0x321ce7('0xfa')+_0x4e84f0+_0x2c2394[_0x321ce7('0x9f')],_0x4d79fa[_0x321ce7('0xf6')]),'、'),_0x2da47f)+_0x2c2394[_0x321ce7('0x18')],_0x4d79fa[_0x321ce7('0xd3')]||'')+_0x2c2394['ycfmr'],this[_0x321ce7('0x108')][_0x4e84f0]=_0x4d79fa;}_0x1e6f31=_0x2c2394[_0x321ce7('0xf2')](0x1,this['allpage'])?_0x2c2394['UgUlW'](_0x2c2394[_0x321ce7('0x66')](_0x2c2394[_0x321ce7('0x35')](_0x2c2394[_0x321ce7('0x2e')],this[_0x321ce7('0x7c')])+'/',this[_0x321ce7('0xfe')]),_0x321ce7('0xfd')):'',_0x4089c8+=_0x2c2394[_0x321ce7('0x40')](_0x2c2394['ACYSW'](_0x2c2394[_0x321ce7('0x6a')](_0x2c2394[_0x321ce7('0x2d')],this['counts']),_0x2c2394[_0x321ce7('0x45')])+_0x1e6f31,_0x2c2394['XCnOS']);}_0x2c2394[_0x321ce7('0x55')]($,_0x2c2394['Siagn'])[_0x321ce7('0xa9')](_0x4089c8),_0x2c2394[_0x321ce7('0x55')]($,_0x2c2394[_0x321ce7('0xbb')])['show'](),this[_0x321ce7('0xba')](this[_0x321ce7('0x4c')]),_0x2c2394[_0x321ce7('0x1b')](0x1,this['counts'])&&this[_0x321ce7('0x9b')]('0');},'showFirstPage':function(){var _0x4b91a7=_0x891171;this[_0x4b91a7('0x7c')]=0x1,this[_0x4b91a7('0x6b')]();},'showNextPage':function(){var _0x7b5eca=_0x891171,_0x3572fa={'FnCrJ':function(_0x4d7616,_0x3f600f){return _0x4d7616+_0x3f600f;}};if(this['thispage']=_0x3572fa[_0x7b5eca('0xb4')](this[_0x7b5eca('0x7c')],0x1),this[_0x7b5eca('0x7c')]>this[_0x7b5eca('0xfe')])return this[_0x7b5eca('0x7c')]=this[_0x7b5eca('0xfe')],void toastr[_0x7b5eca('0x56')](_0x7b5eca('0x74'));this[_0x7b5eca('0x6b')]();},'showPretPage':function(){var _0x3d81bc=_0x891171,_0x34012d={'USmSP':function(_0x46e2a8,_0x3be6ea){return _0x46e2a8<_0x3be6ea;}};if(this[_0x3d81bc('0x7c')]=this['thispage']-0x1,_0x34012d['USmSP'](this[_0x3d81bc('0x7c')],0x1))return this[_0x3d81bc('0x7c')]=0x1,void toastr['warning'](_0x3d81bc('0x4'));this['queryPOI']();},'objResultData':{},'showDetail':function(_0x51b41f){var _0x1ab2ed=_0x891171,_0xa2b609=this[_0x1ab2ed('0x108')][_0x51b41f];this[_0x1ab2ed('0xce')](_0xa2b609);},'dataSource':null,'getWorkLayer':function(){var _0x51ec00=_0x891171,_0x45a7dc={'gdrMg':function(_0x59944a,_0x5879f4){return _0x59944a==_0x5879f4;}};return _0x45a7dc['gdrMg'](null,this[_0x51ec00('0x75')])&&(this[_0x51ec00('0x75')]=new Cesium[(_0x51ec00('0x8'))](),this[_0x51ec00('0x5c')]['dataSources'][_0x51ec00('0x92')](this[_0x51ec00('0x75')])),this[_0x51ec00('0x75')];},'clearLayers':function(){var _0x43a1d4=_0x891171;null!=this[_0x43a1d4('0x75')]&&(this[_0x43a1d4('0x75')]['entities'][_0x43a1d4('0xd7')](),this['viewer'][_0x43a1d4('0x82')]['popup'][_0x43a1d4('0x86')]());},'showPOIArr':function(_0x12e5cb){var _0x26deab=_0x891171,_0x1521a3={'kteqg':function(_0x345afb,_0x5587d0){return _0x345afb(_0x5587d0);},'roncK':function(_0x30fddf,_0x14d579){return _0x30fddf(_0x14d579);},'mrnJM':function(_0x460d6c,_0x440065){return _0x460d6c+_0x440065;},'DlpHA':function(_0x3d1882,_0x48ecff){return _0x3d1882+_0x48ecff;},'hCGEy':function(_0x33af67,_0x1ef940){return _0x33af67+_0x1ef940;},'XHQJg':function(_0x311fbf,_0x52f3c3){return _0x311fbf+_0x52f3c3;},'mnTaJ':_0x26deab('0x49'),'jslZb':_0x26deab('0x10e'),'IUzGK':function(_0x174da4,_0x50e45f){return _0x174da4!=_0x50e45f;},'Jcmka':function(_0x2fd7f3,_0x41e90a){return _0x2fd7f3+_0x41e90a;},'mamnA':function(_0x3ba79f,_0xfb8806){return _0x3ba79f+_0xfb8806;},'teiOO':_0x26deab('0xd2'),'OQFIG':_0x26deab('0x103'),'ZJVCQ':function(_0x3e89b7,_0x4de0fd){return _0x3e89b7!=_0x4de0fd;},'sfmbs':function(_0x1bde34,_0x4f2cf0){return _0x1bde34+_0x4f2cf0;},'pxsDs':_0x26deab('0x68'),'rlkYR':_0x26deab('0x2a'),'tIiKa':_0x26deab('0xae')};this['clearLayers']();var _0x1b8779=this['getWorkLayer']();$(_0x12e5cb)[_0x26deab('0x105')](function(_0x5e8d8a,_0xa56c11){var _0x3c97ec=_0x26deab,_0x56df3c,_0x1e0993,_0x5324eb,_0x532c69,_0x4f5406,_0x3596e9,_0x44ac9e=_0x1521a3['kteqg'](Number,_0xa56c11['x']),_0x209866=_0x1521a3['roncK'](Number,_0xa56c11['y']);_0x1521a3[_0x3c97ec('0x3d')](isNaN,_0x44ac9e)||_0x1521a3[_0x3c97ec('0x3d')](isNaN,_0x209866)||(_0x44ac9e=(_0x56df3c=viewer[_0x3c97ec('0x82')]['point2map']({'x':_0x44ac9e,'y':_0x209866}))['x'],_0x209866=_0x56df3c['y'],_0xa56c11['x']=_0x44ac9e,_0xa56c11['y']=_0x209866,_0x1e0993=_0x1521a3[_0x3c97ec('0xf9')](_0x1521a3['DlpHA'](_0x3c97ec('0x89'),_0xa56c11[_0x3c97ec('0xe1')]&&_0xa56c11[_0x3c97ec('0xe1')]['detail_url']?_0x1521a3[_0x3c97ec('0xed')](_0x1521a3[_0x3c97ec('0x37')](_0x1521a3['XHQJg'](_0x1521a3[_0x3c97ec('0x1e')]+_0xa56c11[_0x3c97ec('0xe1')][_0x3c97ec('0x15')],_0x3c97ec('0xbf')),_0xa56c11['name']),_0x1521a3[_0x3c97ec('0x78')]):_0xa56c11['name']),'</div><div\x20class=\x22mars-popup-content\x22\x20>'),_0x1521a3[_0x3c97ec('0xa1')]('',_0x5324eb=$[_0x3c97ec('0x21')](_0xa56c11[_0x3c97ec('0x83')]))&&(_0x1e0993+=_0x1521a3[_0x3c97ec('0x102')](_0x1521a3[_0x3c97ec('0x106')](_0x1521a3[_0x3c97ec('0x9')],_0x5324eb),_0x1521a3['OQFIG'])),_0x1521a3[_0x3c97ec('0x62')]('',_0x532c69=$[_0x3c97ec('0x21')](_0xa56c11[_0x3c97ec('0xd3')]))&&(_0x1e0993+=_0x1521a3['mamnA'](_0x1521a3['sfmbs'](_0x3c97ec('0x38'),_0x532c69),_0x1521a3[_0x3c97ec('0xaa')])),!_0xa56c11[_0x3c97ec('0xe1')]||_0x1521a3[_0x3c97ec('0x62')]('',_0x4f5406=$[_0x3c97ec('0x21')](_0xa56c11[_0x3c97ec('0xe1')][_0x3c97ec('0x7b')]))&&(_0x1e0993+=_0x1521a3[_0x3c97ec('0x1')](_0x1521a3[_0x3c97ec('0x1')](_0x1521a3[_0x3c97ec('0xdd')],_0x4f5406),_0x1521a3['OQFIG'])),_0x1e0993+='</div>',_0x3596e9=_0x1b8779[_0x3c97ec('0xc7')][_0x3c97ec('0x92')]({'name':_0xa56c11['name'],'position':Cesium[_0x3c97ec('0x25')]['fromDegrees'](_0x44ac9e,_0x209866),'point':{'color':Cesium[_0x3c97ec('0x60')][_0x3c97ec('0xd4')](_0x1521a3[_0x3c97ec('0x3f')]),'pixelSize':0xa,'outlineColor':Cesium[_0x3c97ec('0x60')][_0x3c97ec('0xd4')](_0x3c97ec('0x3c')),'outlineWidth':0x2,'heightReference':Cesium[_0x3c97ec('0x53')][_0x3c97ec('0xac')],'scaleByDistance':new Cesium[(_0x3c97ec('0x96'))](0x3e8,0x1,0xf4240,0.1),'disableDepthTestDistance':Number[_0x3c97ec('0xcc')]},'label':{'text':_0xa56c11[_0x3c97ec('0x52')],'font':_0x1521a3['tIiKa'],'style':Cesium[_0x3c97ec('0xb1')]['FILL_AND_OUTLINE'],'fillColor':Cesium[_0x3c97ec('0x60')][_0x3c97ec('0xa3')],'outlineColor':Cesium[_0x3c97ec('0x60')][_0x3c97ec('0xe4')],'outlineWidth':0x2,'horizontalOrigin':Cesium[_0x3c97ec('0x76')][_0x3c97ec('0xa5')],'verticalOrigin':Cesium[_0x3c97ec('0x6')][_0x3c97ec('0x8a')],'pixelOffset':new Cesium['Cartesian2'](0x0,-0xa),'heightReference':Cesium['HeightReference']['CLAMP_TO_GROUND'],'distanceDisplayCondition':new Cesium[(_0x3c97ec('0x24'))](0x0,0x30d40),'disableDepthTestDistance':Number[_0x3c97ec('0xcc')]},'data':_0xa56c11,'popup':{'html':_0x1e0993,'anchor':[0x0,-0xc]}}),_0xa56c11[_0x3c97ec('0x4a')]=_0x3596e9);}),0x1<_0x12e5cb[_0x26deab('0x61')]&&this[_0x26deab('0x5c')]['flyTo'](this[_0x26deab('0x75')][_0x26deab('0xc7')],{'duration':0x3});},'centerAt':function(_0x1ad394){var _0x5b87c1=_0x891171,_0x5cfb60={'nohXj':function(_0x23b200,_0x2d57af,_0x2c30fe){return _0x23b200(_0x2d57af,_0x2c30fe);},'rvMsC':function(_0x4945e3,_0xeea562){return _0x4945e3+_0xeea562;}},_0x486e87,_0x2154b4=_0x1ad394[_0x5b87c1('0x4a')];null!=_0x2154b4?(this[_0x5b87c1('0x5c')][_0x5b87c1('0x82')][_0x5b87c1('0xce')]({'x':_0x1ad394['x'],'y':_0x1ad394['y'],'minz':0x9c4}),_0x486e87=this,_0x5cfb60[_0x5b87c1('0xe3')](setTimeout,function(){var _0x5b3226=_0x5b87c1;_0x486e87['viewer']['mars'][_0x5b3226('0xb9')][_0x5b3226('0x93')](_0x2154b4);},0xbb8)):toastr[_0x5b87c1('0x56')](_0x5cfb60['rvMsC'](_0x1ad394[_0x5b87c1('0x52')],_0x5b87c1('0xbd')));},'isLonLat':function(_0x506087){var _0x342d13=_0x891171;return/^-?((0|1?[0-7]?[0-9]?)(([.][0-9]*)?)|180(([.][0]*)?)),-?((0|[1-8]?[0-9]?)(([.][0-9]*)?)|90(([.][0]*)?))$/[_0x342d13('0x85')](_0x506087);},'centerAtLonLat':function(_0x5bd0f6){var _0x35c08c=_0x891171,_0x49fdd5={'dhaHP':function(_0x11ae73,_0x2a50e9){return _0x11ae73==_0x2a50e9;},'IQymj':function(_0x49374c,_0xcccdec){return _0x49374c(_0xcccdec);},'RgzRS':function(_0x59012a,_0x376bb6){return _0x59012a(_0x376bb6);},'tfJQu':function(_0x172813,_0x2a165b){return _0x172813+_0x2a165b;},'RNvqi':function(_0x3ce211,_0x4bb1aa){return _0x3ce211+_0x4bb1aa;},'GmWtZ':_0x35c08c('0x98'),'OkQmx':_0x35c08c('0x19'),'TrsxO':_0x35c08c('0xa'),'UsGwZ':_0x35c08c('0x3c')},_0x3f2f4d,_0x521858,_0x26f3ee,_0x3822c4,_0x127e4e,_0x527abd=_0x5bd0f6[_0x35c08c('0x7e')](',');_0x49fdd5[_0x35c08c('0x9e')](0x2,_0x527abd[_0x35c08c('0x61')])&&(_0x3f2f4d=_0x49fdd5['IQymj'](Number,_0x527abd[0x0]),_0x521858=_0x49fdd5['RgzRS'](Number,_0x527abd[0x1]),isNaN(_0x3f2f4d)||_0x49fdd5[_0x35c08c('0x54')](isNaN,_0x521858)||(this[_0x35c08c('0x5c')][_0x35c08c('0x82')]['centerAt']({'x':_0x3f2f4d,'y':_0x521858,'minz':0x9c4}),_0x26f3ee=_0x49fdd5[_0x35c08c('0xda')](_0x49fdd5[_0x35c08c('0x4e')](_0x49fdd5[_0x35c08c('0xfc')],_0x3f2f4d)+_0x49fdd5[_0x35c08c('0x1f')],_0x521858)+_0x49fdd5[_0x35c08c('0xd6')],_0x3822c4=this[_0x35c08c('0x6e')]()['entities'][_0x35c08c('0x92')]({'name':'坐标定位','position':Cesium[_0x35c08c('0x25')]['fromDegrees'](_0x3f2f4d,_0x521858),'point':{'color':Cesium['Color'][_0x35c08c('0xd4')](_0x35c08c('0x2a')),'pixelSize':0xa,'outlineColor':Cesium[_0x35c08c('0x60')][_0x35c08c('0xd4')](_0x49fdd5[_0x35c08c('0xf1')]),'outlineWidth':0x2,'heightReference':Cesium[_0x35c08c('0x53')][_0x35c08c('0xac')],'scaleByDistance':new Cesium[(_0x35c08c('0x96'))](0x3e8,0x1,0xf4240,0.1),'disableDepthTestDistance':Number[_0x35c08c('0xcc')]},'popup':{'html':_0x26f3ee,'anchor':[0x0,-0xc]}}),_0x127e4e=this,setTimeout(function(){var _0x2c2bb3=_0x35c08c;_0x127e4e[_0x2c2bb3('0x5c')]['mars'][_0x2c2bb3('0xb9')]['show'](_0x3822c4);},0xbb8)));},'cookieName':_0x891171('0x3e'),'arrHistory':[],'showHistoryList':function showHistoryList(){var _0x9f4d62=_0x891171,_0xdeca02={'TficD':function(_0x368aa0,_0x146eef){return _0x368aa0==_0x146eef;},'oHsNq':function(_0xa60722,_0x4a4f30){return _0xa60722(_0x4a4f30);},'YwSKl':function(_0x597aee,_0x4a836f){return _0x597aee(_0x4a836f);},'FvnhL':function(_0x3c1cb7,_0x22b341){return _0x3c1cb7!=_0x22b341;},'gBcrT':function(_0x1d5e22,_0x519cd3){return _0x1d5e22!==_0x519cd3;},'lDCLE':_0x9f4d62('0x58'),'kqvhQ':function(_0xe20d8,_0x40161b){return _0xe20d8<=_0x40161b;},'jUgFG':function(_0x74b04,_0x1a464b){return _0x74b04+_0x1a464b;},'TpXdR':_0x9f4d62('0x23'),'ExdOZ':_0x9f4d62('0xa8'),'eHFkA':function(_0x22988a,_0x5cc197){return _0x22988a(_0x5cc197);}};_0xdeca02[_0x9f4d62('0xad')]($,'#querybar_histroy_view')[_0x9f4d62('0x28')]();var _0x1a510f=haoutil[_0x9f4d62('0xb8')][_0x9f4d62('0x44')](this['cookieName']);if(_0xdeca02[_0x9f4d62('0xeb')](null,_0x1a510f)&&(this[_0x9f4d62('0xfb')]=_0xdeca02[_0x9f4d62('0xad')](eval,_0x1a510f),_0xdeca02[_0x9f4d62('0xeb')](null,this[_0x9f4d62('0xfb')])&&_0xdeca02['FvnhL'](0x0,this[_0x9f4d62('0xfb')][_0x9f4d62('0x61')]))){if(_0xdeca02['gBcrT'](_0xdeca02[_0x9f4d62('0x72')],_0xdeca02['lDCLE'])){function _0xb413b3(){var _0x1f9986=_0x9f4d62;_0xdeca02[_0x1f9986('0x1d')](0x0,_0xce4108[_0x1f9986('0x21')](_0xdeca02[_0x1f9986('0x100')](_0x3398c5,this)[_0x1f9986('0x104')]())[_0x1f9986('0x61')])&&(_0x39f009[_0x1f9986('0xf3')](),_0x213da5[_0x1f9986('0x1a')]());}}else{for(var _0x5587fd='',_0x4150b8=this[_0x9f4d62('0xfb')][_0x9f4d62('0x61')]-0x1;_0xdeca02[_0x9f4d62('0x111')](0x0,_0x4150b8);_0x4150b8--){var _0x3925d5=this[_0x9f4d62('0xfb')][_0x4150b8];_0x5587fd+=_0xdeca02[_0x9f4d62('0xc1')](_0xdeca02[_0x9f4d62('0xc1')](_0x9f4d62('0x90'),_0x3925d5),_0xdeca02[_0x9f4d62('0xc2')])+_0x3925d5+'</a></li>';}$(_0xdeca02['ExdOZ'])[_0x9f4d62('0xa9')](_0x5587fd),_0xdeca02[_0x9f4d62('0x5b')]($,'#querybar_histroy_view')[_0x9f4d62('0x93')]();}}},'clearHistory':function(){var _0x4f1945=_0x891171,_0x23ba67={'UFVxC':function(_0x2d240a,_0xaf072d){return _0x2d240a(_0xaf072d);},'aljrz':'#querybar_ul_history','RbAdl':_0x4f1945('0x7a')};this[_0x4f1945('0xfb')]=[],haoutil[_0x4f1945('0xb8')][_0x4f1945('0xff')](this[_0x4f1945('0x14')]),_0x23ba67[_0x4f1945('0xb2')]($,_0x23ba67['aljrz'])[_0x4f1945('0xa9')](''),$(_0x23ba67['RbAdl'])[_0x4f1945('0x28')]();},'addHistory':function addHistory(_0x3cf3f5){var _0x2a6a84=_0x891171;this['arrHistory']=[];var _0x55f9eb=haoutil[_0x2a6a84('0xb8')][_0x2a6a84('0x44')](this['cookieName']);null!=_0x55f9eb&&(this[_0x2a6a84('0xfb')]=eval(_0x55f9eb)),this[_0x2a6a84('0xfb')]['remove'](_0x3cf3f5),this[_0x2a6a84('0xfb')][_0x2a6a84('0x8e')](_0x3cf3f5),0xa<this[_0x2a6a84('0xfb')][_0x2a6a84('0x61')]&&this[_0x2a6a84('0xfb')][_0x2a6a84('0xec')](0x0,0x1),_0x55f9eb=JSON['stringify'](this[_0x2a6a84('0xfb')]),haoutil[_0x2a6a84('0xb8')]['add'](this[_0x2a6a84('0x14')],_0x55f9eb);},'exWidget':null,'hasExWidget':function(){var _0xac3da3=_0x891171,_0x1285be={'IhaTT':function(_0x2c0668,_0x3d7faa){return _0x2c0668!=_0x3d7faa;}};return _0x1285be['IhaTT'](null,window[_0xac3da3('0x63')])&&(this[_0xac3da3('0xe')]=queryBarWidget,!0x0);},'autoExTipList':function(_0x568795){var _0x1158b8=_0x891171,_0x1bde1c=this;this[_0x1158b8('0xe')][_0x1158b8('0xc6')](_0x568795,function(){_0x1bde1c['autoTipList'](_0x568795,!0x1);});},'queryExPOI':function(_0x5dd7f2){var _0x4f46ed=_0x891171,_0x193750={'mADRW':function(_0x307cf8,_0x5dc162){return _0x307cf8!=_0x5dc162;},'kMkWi':_0x4f46ed('0xc4'),'VCzcb':_0x4f46ed('0xb7')},_0x434eab=this[_0x4f46ed('0x6e')](),_0x300623=this;this[_0x4f46ed('0xe')]['strartQueryPOI'](_0x5dd7f2,_0x434eab,function(){var _0x4547f6=_0x4f46ed;if(_0x193750[_0x4547f6('0x10a')]!==_0x193750['VCzcb'])_0x300623['strartQueryPOI'](_0x5dd7f2,!0x1);else{function _0x48b8b1(){var _0x4c1759=_0x4547f6;_0x193750[_0x4c1759('0x46')](null,this[_0x4c1759('0x75')])&&(this['dataSource'][_0x4c1759('0xc7')][_0x4c1759('0xd7')](),this[_0x4c1759('0x5c')][_0x4c1759('0x82')][_0x4c1759('0xb9')][_0x4c1759('0x86')]());}}});}}));
+(function (window, mars3d) {
+    //创建widget类，需要继承BaseWidget
+    class MyWidget extends mars3d.widget.BaseWidget {
+        //外部资源配置
+        get resources() {
+            return [
+                'view.css',
+                "../lib/cesiumjs/plugins/class/BaiduPOI.js" //百度poi查询
+            ]
+        }
+
+        //弹窗配置
+        get view() {
+            return {
+                type: "append",
+                url: 'view.html',
+                parent: 'body'
+            }
+        }
+
+
+        //初始化[仅执行1次]
+        create() {
+            this.cookieName = 'querypoi_gis'
+            this.pageSize = 6
+            this.arrdata = []
+            this.counts = 0
+            this.allpage = 0
+            this.thispage = 0
+
+            this.baiduPOI = new BaiduPOI();
+
+        }
+        //每个窗口创建完成后调用
+        winCreateOK(opt, result) {
+            if (opt.type != "append") return;
+
+            var that = this;
+
+            var img = $('#map-querybar img');
+            img.each(function (index, item) {
+                $(item).attr('src', that.path + $(item).attr('src'));
+            });
+
+            if (that.config.position)
+                $("#map-querybar").css(that.config.position);
+            if (that.config.style)
+                $("#map-querybar").css(that.config.style);
+
+            // 搜索框
+            $("#txt_querypoi").click(function () {
+
+                // 文本框内容为空
+                if ($.trim($(this).val()).length == 0) {
+                    that.hideAllQueryBarView();
+                    that.showHistoryList(); // 显示历史记录
+                }
+            });
+
+
+            var timetik = 0;
+
+            // 搜索框绑定文本框值发生变化,隐藏默认搜索信息栏,显示匹配结果列表
+            $("#txt_querypoi").bind("input propertychange", function () {
+                clearTimeout(timetik);
+                timetik = setTimeout(function () {
+                    that.hideAllQueryBarView();
+                    that.clearLayers();
+
+                    var queryVal = $.trim($("#txt_querypoi").val());
+                    if (queryVal.length == 0) {
+                        // 文本框内容为空,显示历史记录
+                        that.showHistoryList();
+                    } else {
+                        that.autoTipList(queryVal, true);
+                    }
+
+                }, 500);
+            });
+
+            // 点击搜索查询按钮
+            $("#btn_querypoi").click(function () {
+                clearTimeout(timetik);
+                that.hideAllQueryBarView();
+
+                var queryVal = $.trim($("#txt_querypoi").val());
+                that.strartQueryPOI(queryVal, true);
+            });
+            //绑定回车键  
+            $("#txt_querypoi").bind('keydown', function (event) {
+                if (event.keyCode == "13") {
+                    $("#btn_querypoi").click();
+                }
+            });
+
+            // 返回查询结果面板界面 
+            $("#querybar_detail_back").click(function () {
+                that.hideAllQueryBarView();
+                $("#querybar_resultlist_view").show();
+            });
+        }
+        //打开激活
+        activate() {
+            //单击地图事件
+            this.viewer.mars.on(mars3d.event.click, this.onMapClick, this);
+        }
+        //关闭释放
+        disable() {
+            //释放单击地图事件
+            this.viewer.mars.off(mars3d.event.click, this.onMapClick, this);
+
+            this.hideAllQueryBarView();
+            this.clearLayers();
+        }
+        onMapClick(event) {
+            // 点击地图区域,隐藏所有弹出框
+            if ($.trim($("#txt_querypoi").val()).length == 0) {
+                this.hideAllQueryBarView();
+                $("#txt_querypoi").blur();
+            }
+        }
+        hideAllQueryBarView() {
+            $("#querybar_histroy_view").hide();
+            $("#querybar_autotip_view").hide();
+            $("#querybar_detail_view").hide();
+            $("#querybar_resultlist_view").hide();
+        }
+
+        // 点击面板条目,自动填充搜索框,并展示搜索结果面板
+        autoSearch(name) {
+            $("#txt_querypoi").val(name);
+            $("#btn_querypoi").trigger("click");
+        }
+
+        //===================与后台交互======================== 
+
+        //显示智能提示搜索结果
+
+        autoTipList(text, queryEx) {
+            //输入经纬度数字时
+            if (this.isLonLat(text)) return;
+
+            //查询外部widget
+            if (this.hasExWidget() && queryEx) {
+                var qylist = this.autoExTipList(text);
+                return;
+            }
+            //查询外部widget
+
+            this.baiduPOI.autoTip({
+                text: text,
+                location: this.viewer.mars.getCenter(),
+                success: function (result) {
+                    var inhtml = "";
+                    var pois = result.list;
+                    for (var index = 0; index < pois.length; index++) {
+                        var name = pois[index].name;
+                        // var num = pois[index].num;
+                        // if (num > 0) continue;
+
+                        inhtml += "<li><i class='fa fa-search'></i><a href=\"javascript:widget_queryBaiduPOI.autoSearch('" + name + "');\">" + name + "</a></li>";
+                    }
+
+                    if (inhtml.length > 0) {
+                        $("#querybar_ul_autotip").html(inhtml);
+                        $("#querybar_autotip_view").show();
+                    }
+
+                }
+            });
+
+        }
+
+        // 根据输入框内容，查询显示列表  
+        strartQueryPOI(text, queryEx) {
+            if (text.length == 0) {
+                toastr.warning('请输入搜索关键字！');
+                return;
+            }
+
+            // TODO:根据文本框输入内容,从数据库模糊查询到所有匹配结果（分页显示）
+            this.addHistory(text);
+
+            this.hideAllQueryBarView();
+
+            //输入经纬度数字时
+            if (this.isLonLat(text)) {
+                this.centerAtLonLat(text);
+                return;
+            }
+
+            //查询外部widget
+            if (this.hasExWidget() && queryEx) {
+                var qylist = this.queryExPOI(text);
+                return;
+            }
+            //查询外部widget
+
+
+            this.thispage = 1;
+            this.queryText = text;
+            this.query_location = this.viewer.mars.getCenter()
+            this.query_radius = this.viewer.camera.positionCartographic.height; //单位：米
+
+            this.queryPOI();
+        }
+        queryPOI() {
+            var that = this;
+
+            //查询获取数据
+            this.baiduPOI.queryText({
+                text: this.queryText,
+                count: this.pageSize,
+                page: (this.thispage - 1),
+                location: this.query_location,
+                radius: this.query_radius,
+                success: function (result) {
+                    if (!that.isActivate) return;
+                    that.showPOIPage(result.list, result.allcount);
+                }
+            });
+        }
+
+        //===================显示查询结果处理========================  
+        showPOIPage(data, counts) {
+            this.arrdata = data;
+            this.counts = counts;
+            if (this.counts < data.length) this.counts = data.length;
+            this.allpage = Math.ceil(this.counts / this.pageSize);
+
+            var inhtml = "";
+            if (this.counts == 0) {
+                inhtml += '<div class="querybar-page"><div class="querybar-fl">没有找到"<strong>' + this.queryText + '</strong>"相关结果</div></div>';
+            }
+            else {
+                this.objResultData = this.objResultData || {}
+                for (var index = 0; index < this.arrdata.length; index++) {
+                    var item = this.arrdata[index];
+                    var startIdx = (this.thispage - 1) * this.pageSize;
+                    item.index = startIdx + (index + 1);
+
+                    var _id = index;
+                    var _mc;
+                    if (item.detail_info && item.detail_info.detail_url) {
+                        _mc = '<a href="' + item.detail_info.detail_url + '"  target="_black" style="color: #ffffff; ">' + item.name + '</a>';
+                    }
+                    else {
+                        _mc = item.name;
+                    }
+
+
+                    inhtml += '<div class="querybar-site" onclick="widget_queryBaiduPOI.showDetail(\'' + _id + '\')"> <div class="querybar-sitejj"> <h3>'
+                        + item.index + '、' + _mc + '</h3> <p>' + (item.address || '') + '</p> </div> </div>';
+
+                    this.objResultData[_id] = item;
+                };
+
+
+
+
+                //分页信息
+                var _fyhtml;
+                if (this.allpage > 1)
+                    _fyhtml = '<div class="querybar-ye querybar-fr">' + this.thispage + '/' + this.allpage + '页  <a href="javascript:widget_queryBaiduPOI.showFirstPage()">首页</a> <a href="javascript:widget_queryBaiduPOI.showPretPage()">&lt;</a>  <a href="javascript:widget_queryBaiduPOI.showNextPage()">&gt;</a> </div>';
+                else
+                    _fyhtml = '';
+
+                //底部信息
+                inhtml += '<div class="querybar-page"><div class="querybar-fl">找到<strong>' + this.counts + '</strong>条结果</div>' + _fyhtml + '</div>';
+            }
+            $("#querybar_resultlist_view").html(inhtml);
+            $("#querybar_resultlist_view").show();
+
+
+            this.showPOIArr(this.arrdata);
+            if (this.counts == 1) {
+                this.showDetail('0');
+            }
+        }
+        showFirstPage() {
+            this.thispage = 1;
+            this.queryPOI();
+        }
+        showNextPage() {
+            this.thispage = this.thispage + 1;
+            if (this.thispage > this.allpage) {
+                this.thispage = this.allpage;
+                toastr.warning('当前已是最后一页了');
+                return;
+            }
+            this.queryPOI();
+        }
+
+        showPretPage() {
+            this.thispage = this.thispage - 1;
+            if (this.thispage < 1) {
+                this.thispage = 1;
+                toastr.warning('当前已是第一页了');
+                return;
+            }
+            this.queryPOI();
+        }
+        //点击单个结果,显示详细 
+        showDetail(id) {
+            var item = this.objResultData[id];
+            this.centerAt(item);
+        }
+        getWorkLayer() {
+            if (this.dataSource == null) {
+                this.dataSource = new Cesium.CustomDataSource();
+                this.viewer.dataSources.add(this.dataSource);
+            }
+            return this.dataSource;
+        }
+        clearLayers() {
+            if (this.dataSource == null) return;
+            this.dataSource.entities.removeAll();
+            this.viewer.mars.popup.close();
+        }
+        showPOIArr(arr) {
+            var that = this;
+            this.clearLayers();
+
+            var dataSource = this.getWorkLayer();
+            $(arr).each(function (i, item) {
+                var jd = Number(item.x);
+                var wd = Number(item.y);
+                if (isNaN(jd) || isNaN(wd)) return;
+
+                var pt = viewer.mars.point2map({ x: jd, y: wd })
+                jd = pt.x
+                wd = pt.y
+
+                item.x = jd
+                item.y = wd
+
+                //==================构建图上目标单击后显示div=================  
+                var name;
+                if (item.detail_info && item.detail_info.detail_url) {
+                    name = '<a href="' + item.detail_info.detail_url + '"  target="_black" style="color: #ffffff; ">' + item.name + '</a>';
+                }
+                else {
+                    name = item.name;
+                }
+
+                var inHtml = '<div class="mars-popup-titile">' + name + '</div><div class="mars-popup-content" >';
+
+                var phone = $.trim(item.tel);
+                if (phone != '') inHtml += '<div><label>电话</label>' + phone + '</div>';
+
+                var dz = $.trim(item.address);
+                if (dz != '') inHtml += '<div><label>地址</label>' + dz + '</div>';
+
+                if (item.detail_info) {
+                    var fl = $.trim(item.detail_info.tag);
+                    if (fl != '') inHtml += '<div><label>类别</label>' + fl + '</div>';
+
+                }
+                inHtml += '</div>';
+                //==============================================================
+
+                //添加实体
+                var entity = dataSource.entities.add({
+                    name: item.name,
+                    position: Cesium.Cartesian3.fromDegrees(jd, wd),
+                    point: {
+                        color: Cesium.Color.fromCssColorString("#3388ff"),
+                        pixelSize: 10,
+                        outlineColor: Cesium.Color.fromCssColorString("#ffffff"),
+                        outlineWidth: 2,
+                        heightReference: Cesium.HeightReference.CLAMP_TO_GROUND,     //贴地
+                        scaleByDistance: new Cesium.NearFarScalar(1000, 1, 1000000, 0.1),
+                        disableDepthTestDistance: Number.POSITIVE_INFINITY //不被遮挡
+                    },
+                    label: {
+                        text: item.name,
+                        font: '20px 楷体',
+                        style: Cesium.LabelStyle.FILL_AND_OUTLINE,
+                        fillColor: Cesium.Color.AZURE,
+                        outlineColor: Cesium.Color.BLACK,
+                        outlineWidth: 2,
+                        horizontalOrigin: Cesium.HorizontalOrigin.CENTER,
+                        verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+                        pixelOffset: new Cesium.Cartesian2(0, -10),   //偏移量  
+                        heightReference: Cesium.HeightReference.CLAMP_TO_GROUND, //是地形上方的高度 
+                        distanceDisplayCondition: new Cesium.DistanceDisplayCondition(0.0, 200000),
+                        disableDepthTestDistance: Number.POSITIVE_INFINITY //不被遮挡
+                    },
+                    data: item,
+                    popup: {
+                        html: inHtml,
+                        anchor: [0, -12],
+                    },
+                    // click: function (entity) {//单击回调
+                    //     var data = entity.data;
+
+                    // }
+                });
+
+                item._entity = entity;
+            });
+
+            if (arr.length > 1)
+                that.viewer.flyTo(that.dataSource.entities, { duration: 3 });
+
+        }
+        centerAt(item) {
+            var entity = item._entity;
+            if (entity == null) {
+                toastr.warning(item.name + " 无经纬度坐标信息！");
+                return;
+            }
+
+
+            this.viewer.mars.centerAt({ x: item.x, y: item.y, minz: 2500 });
+
+            var that = this;
+            setTimeout(function () {
+                that.viewer.mars.popup.show(entity);
+            }, 3000);
+        }
+
+        //===================坐标定位处理========================
+        isLonLat(text) {
+            var reg = /^-?((0|1?[0-7]?[0-9]?)(([.][0-9]*)?)|180(([.][0]*)?)),-?((0|[1-8]?[0-9]?)(([.][0-9]*)?)|90(([.][0]*)?))$/;   /*定义验证表达式*/
+            return reg.test(text);     /*进行验证*/
+        }
+        centerAtLonLat(text) {
+            var arr = text.split(",");
+            if (arr.length != 2) return;
+
+            var jd = Number(arr[0]);
+            var wd = Number(arr[1]);
+            if (isNaN(jd) || isNaN(wd)) return;
+
+            this.viewer.mars.centerAt({ x: jd, y: wd, minz: 2500 });
+
+            var dataSource = this.getWorkLayer();
+
+            var inHtml = '<div class="mars-popup-titile">坐标定位</div>\
+                      <div class="mars-popup-content" >\
+                        <div><label>经度</label>' + jd + '</div>\
+                        <div><label>纬度</label>' + wd + '</div>\
+                      </div>';
+
+            //添加实体
+            var entity = dataSource.entities.add({
+                name: "坐标定位",
+                position: Cesium.Cartesian3.fromDegrees(jd, wd),
+                point: {
+                    color: Cesium.Color.fromCssColorString("#3388ff"),
+                    pixelSize: 10,
+                    outlineColor: Cesium.Color.fromCssColorString("#ffffff"),
+                    outlineWidth: 2,
+                    heightReference: Cesium.HeightReference.CLAMP_TO_GROUND,     //贴地
+                    scaleByDistance: new Cesium.NearFarScalar(1000, 1, 1000000, 0.1),
+                    disableDepthTestDistance: Number.POSITIVE_INFINITY //不被遮挡
+                },
+                popup: {
+                    html: inHtml,
+                    anchor: [0, -12],
+                }
+            });
+
+            var that = this;
+            setTimeout(function () {
+                that.viewer.mars.popup.show(entity);
+            }, 3000);
+        }
+
+        //===================历史记录相关========================
+        showHistoryList() {
+            $("#querybar_histroy_view").hide();
+
+            var lastcookie = haoutil.cookie.get(this.cookieName); //读取cookie值  
+            if (lastcookie == null) return;
+
+            this.arrHistory = eval(lastcookie);
+            if (this.arrHistory == null || this.arrHistory.length == 0) return;
+
+            var inhtml = "";
+            for (var index = this.arrHistory.length - 1; index >= 0; index--) {
+                var item = this.arrHistory[index];
+                inhtml += "<li><i class='fa fa-history'/><a href=\"javascript:widget_queryBaiduPOI.autoSearch('" + item + "');\">" + item + "</a></li>";
+            }
+            $("#querybar_ul_history").html(inhtml);
+            $("#querybar_histroy_view").show();
+        }
+
+        clearHistory() {
+            this.arrHistory = [];
+            haoutil.cookie.del(this.cookieName);
+
+            $("#querybar_ul_history").html("");
+            $("#querybar_histroy_view").hide();
+        }
+
+        //记录历史值 
+        addHistory(data) {
+            this.arrHistory = [];
+            var lastcookie = haoutil.cookie.get(this.cookieName); //读取cookie值  
+            if (lastcookie != null) {
+                this.arrHistory = eval(lastcookie);
+            }
+            //先删除之前相同记录
+            this.arrHistory.remove(data);
+
+            this.arrHistory.push(data);
+
+            if (this.arrHistory.length > 10)
+                this.arrHistory.splice(0, 1);
+
+            lastcookie = JSON.stringify(this.arrHistory);
+            haoutil.cookie.add(this.cookieName, lastcookie);
+        }
+
+
+        //======================查询非百度poi，联合查询处理=================
+        //外部widget是否存在或启用 
+        hasExWidget() {
+            if (window["queryBarWidget"] == null)
+                return false;
+            else {
+                this.exWidget = queryBarWidget;
+                return true;
+            }
+        }
+        autoExTipList(text) {
+            var that = this;
+            this.exWidget.autoTipList(text, function () {
+                that.autoTipList(text, false);
+            });
+        }
+        //调用外部widget进行查询
+        queryExPOI(text) {
+            var layer = this.getWorkLayer();
+
+            var that = this;
+            this.exWidget.strartQueryPOI(text, layer, function () {
+                that.strartQueryPOI(text, false);
+            });
+        }
+
+
+    }
+
+
+    //注册到widget管理器中。
+    window.widget_queryBaiduPOI = mars3d.widget.bindClass(MyWidget);
+
+    //每个widet之间都是直接引入到index.html中，会存在彼此命名冲突，所以闭包处理下。
+})(window, mars3d) 

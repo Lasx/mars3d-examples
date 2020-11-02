@@ -89,7 +89,8 @@
 
         <div>
             三维空间：
-            <input type="button" class="btn btn-primary" value="墙" onclick="draWall()" />
+            <input type="button" class="btn btn-primary" value="墙" onclick="draWall(false)" />
+            <input type="button" class="btn btn-primary" value="闭合墙" onclick="draWall(true)" />
             <input type="button" class="btn btn-primary" value="面立体" onclick="drawExtrudedPolygon()" />
             <input type="button" class="btn btn-primary" value="矩形立体" onclick="drawExtrudedRectangle()" />
             <input type="button" class="btn btn-primary" value="盒子" onclick="drawBox()" />
@@ -163,6 +164,7 @@
                 // }
             });
 
+
             //事件监听(可以自行加相关代码实现业务需求，此处主要做示例)
             drawControl.on(mars3d.Draw.event.drawStart, function (e) {
                 console.log('开始绘制');
@@ -203,6 +205,14 @@
                 stopEditing();
                 console.log('删除了对象');
             });
+
+
+            //事件监听 单击对象(与draw编辑无关，在绑定业务处理时可用)
+            drawControl.on(mars3d.Draw.event.click, function (e) {
+                console.log('单击了对象', e);
+            });
+
+
 
             ////编辑时拖拽点颜色（修改内部默认值）
             //mars3d.draw.dragger.PointColor.Control = Cesium.Color.fromCssColorString("#1c197d");          //位置控制拖拽点
@@ -564,13 +574,14 @@
         }
 
 
-        function draWall() {
+        function draWall(closure) {
             drawControl.startDraw({
                 type: "wall",
                 style: {
                     color: "#00ff00",
                     opacity: 0.8,
                     extrudedHeight: 400,
+                    closure: closure //是否闭合
                 }
             });
         }

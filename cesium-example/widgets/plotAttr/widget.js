@@ -1,2 +1,185 @@
-/* 2020-10-26 08:58:12 | 版权所有 火星科技 http://marsgis.cn */
-var _0x5454=['x21HEfbVAw50tNvT','cIaGicb9cN0k','zgvSzxrLrw50Axr5','y3vYDMu=','zxH0zw5K','Axn1DgLS','y29UzMLNl2f0DhiUANnVBG==','C3r5Bgu=','DxbKyxrLqxr0CG==','zg93BMXVywrgAwXL','BMfTzq==','zM9YrwfJAa==','EfLcr3G=','zw50Axr5','uwv5ENe=','zhjHDW==','r2Ptv2m=','yxr0CKXPC3q=','zgfYAW==','Dg1dDLa=','zgLZywjSzujHC2u=','iJOG','C3rYAw5NAwz5','y29Uy2f0','z1DAr2m=','zNjVBurLz3jLzxm=','zgf0yq==','DMLLD1DPBMrVDW==','EWOGicaGiNr5CguIoIaI','Bg9UBgf0CW==','zwH4yu4=','CMvTyxjR','yMLUzenSyxnZ','ufDjt3G=','svbuD2e=','yxr0CG==','Dgv4Da==','DhLWzq==','zwrPDgLUzW==','D2LUzg93','Cg9SEwXPBMu=','BgvUz3rO','A1DowwK=','zhrRB0q=','D2LKz2v0','AxntDhjPBMC=','lcaGicaGic8V','pt09pt09pt09pt3MOiFLJ7FPU5JORQtMOlFLVi89pt09pt09pt09pt09pt09pq==','y29UzMLN','Bgf5zxiTBwfYCY1KAwfSB2CGyw5PBwf0Aw9UlxnJywXLlxvW','BgfIzwW=','B2jir1K=','C3rHCNrfzgL0Aw5N','DxbKyxrLr2vV','q2fYDgvZAwfUmW==','y29TyM9IB3G=','y2vUDgvYqxq=','zgvMDMfS','z2v0sLnptG==','qK5tB20=','ywzMsvC=','yxr0CKnVBMzPzW==','Dg9hzw9ku09o','zNDMwK8=','AKHRwfa=','iIWGcIaGicaIC3r5BguIoIb7cG==','Bg9N','Dgv4DgfYzwe='];(function(_0x47f81e,_0x54546e){var _0x4f2bd2=function(_0x37d95e){while(--_0x37d95e){_0x47f81e['push'](_0x47f81e['shift']());}};_0x4f2bd2(++_0x54546e);}(_0x5454,0x1a4));var _0x4f2b=function(_0x47f81e,_0x54546e){_0x47f81e=_0x47f81e-0x0;var _0x4f2bd2=_0x5454[_0x47f81e];if(_0x4f2b['MmlmUW']===undefined){var _0x37d95e=function(_0x37bbe5){var _0xcbc3d8='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=',_0x344f63=String(_0x37bbe5)['replace'](/=+$/,'');var _0x2e087e='';for(var _0x2da022=0x0,_0x124460,_0x59e926,_0x40efec=0x0;_0x59e926=_0x344f63['charAt'](_0x40efec++);~_0x59e926&&(_0x124460=_0x2da022%0x4?_0x124460*0x40+_0x59e926:_0x59e926,_0x2da022++%0x4)?_0x2e087e+=String['fromCharCode'](0xff&_0x124460>>(-0x2*_0x2da022&0x6)):0x0){_0x59e926=_0xcbc3d8['indexOf'](_0x59e926);}return _0x2e087e;};_0x4f2b['SDaVrd']=function(_0x5df243){var _0x10a434=_0x37d95e(_0x5df243);var _0x51f32f=[];for(var _0xfaac2b=0x0,_0x5d858c=_0x10a434['length'];_0xfaac2b<_0x5d858c;_0xfaac2b++){_0x51f32f+='%'+('00'+_0x10a434['charCodeAt'](_0xfaac2b)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x51f32f);},_0x4f2b['pDbtyi']={},_0x4f2b['MmlmUW']=!![];}var _0x3d2d5e=_0x4f2b['pDbtyi'][_0x47f81e];return _0x3d2d5e===undefined?(_0x4f2bd2=_0x4f2b['SDaVrd'](_0x4f2bd2),_0x4f2b['pDbtyi'][_0x47f81e]=_0x4f2bd2):_0x4f2bd2=_0x3d2d5e,_0x4f2bd2;};var _0x206adb=_0x4f2b;mars3d[_0x206adb('0x20')][_0x206adb('0x14')](mars3d[_0x206adb('0x20')]['BaseWidget'][_0x206adb('0x3c')]({'options':{'view':{'type':_0x206adb('0x1b'),'url':'view.html','style':_0x206adb('0x6'),'windowOptions':{'skin':_0x206adb('0x25'),'width':0xfa,'position':{'top':0xa,'right':0x5,'bottom':0x1e}}}},'create':function(){var _0x3524f2=_0x206adb,_0x174cc4={'yBLRk':'model-p','PWIOx':_0x3524f2('0x3e')},_0x4c43a0=this;$[_0x3524f2('0x2e')](this['path']+_0x174cc4[_0x3524f2('0x15')],function(_0x3092c1){var _0x359095=_0x3524f2;_0x4c43a0[_0x359095('0x31')]=_0x3092c1,_0x4c43a0[_0x359095('0x31')][_0x359095('0x3b')]=_0x4c43a0['attrConfig'][_0x359095('0x1c')],_0x4c43a0[_0x359095('0x31')][_0x174cc4['yBLRk']]=_0x4c43a0['attrConfig']['model'],_0x4c43a0[_0x359095('0x28')]();});},'getDefaultVal':function(){var _0x50c935=_0x206adb,_0x5b5dfc={'Qeyzq':function(_0xd102c9,_0x3b1136){return _0xd102c9<_0x3b1136;},'GjSWc':function(_0x50d356,_0x3690f9){return _0x50d356!==_0x3690f9;},'obHGY':_0x50c935('0x23')},_0x1e4f0b,_0x3ac093=this[_0x50c935('0x31')],_0x2325df={};for(_0x1e4f0b in _0x3ac093){for(var _0x2907c8={},_0x139339=0x0;_0x5b5dfc[_0x50c935('0x2')](_0x139339,_0x3ac093[_0x1e4f0b][_0x50c935('0x3f')]['length']);_0x139339++){var _0x54232f=_0x3ac093[_0x1e4f0b][_0x50c935('0x3f')][_0x139339];_0x5b5dfc[_0x50c935('0x4')]('',_0x54232f['defval'])&&(_0x2907c8[_0x54232f[_0x50c935('0x42')]]=_0x54232f['defval']);}_0x2325df[_0x1e4f0b]=_0x2907c8;}console[_0x50c935('0x36')](_0x5b5dfc[_0x50c935('0x27')]),console[_0x50c935('0x36')](JSON[_0x50c935('0xa')](_0x2325df));},'getReadmeTxt':function(){var _0x4a190e=_0x206adb,_0x3693d8={'GcPrS':function(_0x597ddb,_0xb47464){return _0x597ddb<_0xb47464;},'kWNYi':function(_0x5b5fc9,_0x176f3b){return _0x5b5fc9+_0x176f3b;},'ehxaN':_0x4a190e('0x2b'),'jHkXP':',可选项：','BNSom':'\x20\x20\x20\x20\x20\x20\x20\x20\x22','dtkoD':_0x4a190e('0x9'),'xYBGx':_0x4a190e('0x22'),'gWZGc':'\x20\x20\x0a','jfWXm':_0x4a190e('0x10'),'QdhpO':_0x4a190e('0x35'),'IPTwa':_0x4a190e('0x39'),'rLyvT':'标绘属性配置.txt'},_0x4372ea,_0x23ffa1=this['attrConfig'],_0x5477d4='';for(_0x4372ea in _0x23ffa1){for(var _0x4f3fd0='',_0x59b879=0x0;_0x3693d8['GcPrS'](_0x59b879,_0x23ffa1[_0x4372ea][_0x4a190e('0x3f')]['length']);_0x59b879++){var _0x4c79f0=_0x23ffa1[_0x4372ea][_0x4a190e('0x3f')][_0x59b879];haoutil[_0x4a190e('0x3d')][_0x4a190e('0x21')](_0x4c79f0['defval'])&&(_0x4c79f0['defval']=_0x3693d8[_0x4a190e('0x1e')](_0x3693d8[_0x4a190e('0x1e')]('\x22',_0x4c79f0[_0x4a190e('0x2d')]),'\x22'));var _0x20a8f6='';_0x3693d8[_0x4a190e('0x12')]==_0x4c79f0[_0x4a190e('0x19')]&&(_0x20a8f6=_0x3693d8[_0x4a190e('0x34')],_0x4c79f0[_0x4a190e('0xe')][_0x4a190e('0x43')](function(_0x1dbac3){var _0x345edf=_0x4a190e;_0x20a8f6+=''[_0x345edf('0xb')](_0x1dbac3['value'],'(')[_0x345edf('0xb')](_0x1dbac3[_0x345edf('0x18')],'),');})),_0x4f3fd0+=_0x3693d8[_0x4a190e('0x2f')][_0x4a190e('0xb')](_0x4c79f0[_0x4a190e('0x42')],_0x3693d8[_0x4a190e('0x1f')])[_0x4a190e('0xb')](_0x4c79f0[_0x4a190e('0x2d')],_0x3693d8[_0x4a190e('0x0')])[_0x4a190e('0xb')](_0x4c79f0['label'],'\x20')['concat'](_0x20a8f6,_0x3693d8[_0x4a190e('0xc')]);}_0x5477d4+=_0x3693d8['jfWXm'][_0x4a190e('0xb')](_0x4372ea,_0x3693d8['QdhpO'])[_0x4a190e('0xb')](_0x4f3fd0,_0x3693d8[_0x4a190e('0x16')]);}haoutil['file'][_0x4a190e('0x41')](_0x3693d8['rLyvT'],_0x5477d4);},'viewWindow':null,'winCreateOK':function(_0x3dbc97,_0x55b298){this['viewWindow']=_0x55b298;},'activate':function(){},'disable':function(){},'getDefStyle':function(_0x2c098f){return mars3d['draw']['attr']['getDefStyle'](_0x2c098f);},'getMinPointNum':function(){var _0x108ecf=_0x206adb,_0x538fbf=this[_0x108ecf('0x24')][_0x108ecf('0x1')];return _0x538fbf&&_0x538fbf[_0x108ecf('0x1a')]&&_0x538fbf['editing']['_minPointNum']?_0x538fbf[_0x108ecf('0x1a')]['_minPointNum']:0x3;},'getMaxPointNum':function(){var _0x20da0f=_0x206adb,_0x29c17d=this['config'][_0x20da0f('0x1')];return _0x29c17d&&_0x29c17d[_0x20da0f('0x1a')]&&_0x29c17d[_0x20da0f('0x1a')][_0x20da0f('0x38')]?_0x29c17d[_0x20da0f('0x1a')][_0x20da0f('0x38')]:0x3e7;},'defaultAttrList':[{'name':'id','label':'主键','type':_0x206adb('0x26'),'defval':''},{'name':'name','label':'名称','type':_0x206adb('0x18'),'defval':''},{'name':_0x206adb('0x13'),'label':'备注','type':_0x206adb('0x37'),'defval':''}],'getAttrList':function(){var _0x19322c=_0x206adb;return this[_0x19322c('0x24')][_0x19322c('0x5')]||this['defaultAttrList'];},'startEditing':function(_0x32deed,_0x23125c){var _0xc696f2=_0x206adb;_0x32deed&&(this[_0xc696f2('0x24')][_0xc696f2('0x1')]=_0x32deed),_0x23125c&&(this[_0xc696f2('0x24')][_0xc696f2('0x11')]=_0x23125c),null!=this[_0xc696f2('0xf')]&&(_0x32deed=this[_0xc696f2('0x24')]['entity'],_0x23125c=this[_0xc696f2('0x24')][_0xc696f2('0x11')],this['viewWindow']['plotEdit']['startEditing'](_0x32deed['attribute'],_0x23125c));},'updateAttr2map':function(_0x165526){var _0x3fb72f=_0x206adb;this[_0x3fb72f('0x24')][_0x3fb72f('0x40')]&&this['config'][_0x3fb72f('0x40')](_0x165526);},'updateGeo2map':function(_0x2d1536,_0x1eccf8){var _0x57bbbc=_0x206adb,_0x1ff03b={'fwfZO':function(_0x5b83eb,_0x48bec8){return _0x5b83eb<_0x48bec8;},'affIW':function(_0x5a7a2b,_0x500c60){return _0x5a7a2b+_0x500c60;},'KqJyN':function(_0xf73ae5,_0x1ad497){return _0xf73ae5+_0x1ad497;},'tmCvP':function(_0x460f59,_0x3278f9){return _0x460f59+_0x3278f9;}},_0x1e7709=[];if(_0x1eccf8)for(var _0x39a489=0x0;_0x1ff03b[_0x57bbbc('0x33')](_0x39a489,_0x2d1536[_0x57bbbc('0x1d')]);_0x39a489+=0x3){var _0x4bf51b=Cesium[_0x57bbbc('0x2a')]['fromDegrees'](_0x2d1536[_0x39a489],_0x2d1536[_0x1ff03b[_0x57bbbc('0x30')](_0x39a489,0x1)],_0x2d1536[_0x1ff03b['KqJyN'](_0x39a489,0x2)]);_0x1e7709['push'](_0x4bf51b);}else for(_0x39a489=0x0;_0x1ff03b[_0x57bbbc('0x33')](_0x39a489,_0x2d1536[_0x57bbbc('0x1d')]);_0x39a489+=0x2){_0x4bf51b=Cesium[_0x57bbbc('0x2a')][_0x57bbbc('0xd')](_0x2d1536[_0x39a489],_0x2d1536[_0x1ff03b[_0x57bbbc('0x7')](_0x39a489,0x1)],0x0),_0x1e7709['push'](_0x4bf51b);}return this[_0x57bbbc('0x24')][_0x57bbbc('0x29')]&&this[_0x57bbbc('0x24')][_0x57bbbc('0x29')](_0x1e7709),_0x1e7709;},'centerCurrentEntity':function(){var _0x59ce5f=_0x206adb,_0x14ee9c=this[_0x59ce5f('0x24')][_0x59ce5f('0x1')];this[_0x59ce5f('0x24')][_0x59ce5f('0x2c')]&&this[_0x59ce5f('0x24')][_0x59ce5f('0x2c')](_0x14ee9c);},'deleteEntity':function(){var _0x20ed96=_0x206adb,_0x24ad66=this[_0x20ed96('0x24')][_0x20ed96('0x1')];this[_0x20ed96('0x24')][_0x20ed96('0x3a')]&&this['config'][_0x20ed96('0x3a')](_0x24ad66),this[_0x20ed96('0x8')]();},'getGeoJson':function(){var _0x2d2da1=_0x206adb,_0x15d93d=this[_0x2d2da1('0x24')][_0x2d2da1('0x1')];return mars3d[_0x2d2da1('0x3')][_0x2d2da1('0x17')][_0x2d2da1('0x32')](_0x15d93d);}}));
+(function (window, mars3d) {
+    //创建widget类，需要继承BaseWidget
+    class MyWidget extends mars3d.widget.BaseWidget {
+        //弹窗配置
+        get view() {
+            return {
+                type: "window",
+                url: "view.html",
+                "style": "dark",
+                "windowOptions": {
+                    "skin": "layer-mars-dialog animation-scale-up",
+                    "width": 250,
+                    "position": {
+                        "top": 10,
+                        "right": 5,
+                        "bottom": 30
+                    }
+                }
+            }
+        }
+
+        //初始化[仅执行1次]
+        create() {
+            var that = this;
+            $.getJSON(this.path + "config/attr.json", function (data) {
+                that.attrConfig = data;
+
+                // that.getDefaultVal();//测试用
+                // that.getReadmeTxt(); //测试用
+
+
+                that.attrConfig["curve"] = that.attrConfig["polyline"]
+                that.attrConfig["model-p"] = that.attrConfig["model"]
+                that.startEditing();
+            });
+
+        }
+        //获取所有可配置属性的默认值
+        getDefaultVal() {
+            var data = this.attrConfig;
+
+            //标号默认样式
+            var attrDefConfig = {};
+            for (var i in data) {
+                var defstyle = {};
+                for (var idx = 0; idx < data[i].style.length; idx++) {
+                    var item = data[i].style[idx];
+                    if (item.defval === "") continue;
+                    defstyle[item.name] = item.defval;
+                }
+                attrDefConfig[i] = defstyle;
+            }
+            console.log('===========标号默认样式=================');
+            console.log(JSON.stringify(attrDefConfig));
+        }
+        //获取所有可配置属性的说明文档
+        getReadmeTxt() {
+            var data = this.attrConfig;
+
+            //标号可配置的属性
+            var strAPI = '';
+            for (var i in data) {
+                var strAPIItem = ''
+                for (var idx = 0; idx < data[i].style.length; idx++) {
+                    var item = data[i].style[idx];
+                    if (haoutil.isutil.isString(item.defval))
+                        item.defval = '"' + item.defval + '"'
+
+                    var strData = "";
+                    if (item.type == "combobox") {
+                        strData = ",可选项：";
+                        item.data.forEach(function (comb) {
+                            strData += `${comb.value}(${comb.text}),`
+                        });
+                    }
+                    strAPIItem += `        "${item.name}": ${item.defval},      //${item.label} ${strData}  \n`
+
+
+                }
+                strAPI += `{
+    "type": "${i}", 
+    "style": {
+${strAPIItem}
+    }
+}
+`;
+            }
+            haoutil.file.downloadFile("标绘属性配置.txt", strAPI);
+        }
+        //每个窗口创建完成后调用
+        winCreateOK(opt, result) {
+            this.viewWindow = result;
+
+
+        }
+        //激活插件
+        activate() {
+
+        }
+        //释放插件
+        disable() {
+
+        }
+        getDefStyle(type) {
+            return mars3d.draw.attr.getDefStyle(type)
+        }
+        getMinPointNum() {
+            var entity = this.config.entity;
+            if (entity && entity.editing && entity.editing._minPointNum)
+                return entity.editing._minPointNum
+            return 3;
+        }
+        getMaxPointNum() {
+            var entity = this.config.entity;
+            if (entity && entity.editing && entity.editing._maxPointNum)
+                return entity.editing._maxPointNum
+            return 999;
+        }
+        get defaultAttrList() {
+            return [
+                { "name": "id", "label": "主键", "type": "label", "defval": "" },
+                { "name": "name", "label": "名称", "type": "text", "defval": "" },
+                { "name": "remark", "label": "备注", "type": "textarea", "defval": "" }
+            ]
+        }
+        getAttrList() {
+            return this.config.attrList || this.defaultAttrList;
+        }
+
+        startEditing(entity, lonlats) {
+            if (entity) this.config.entity = entity
+            if (lonlats) this.config.lonlats = lonlats
+
+            if (this.viewWindow == null) return;
+
+            var entity = this.config.entity;
+            var lonlats = this.config.lonlats;//this.drawControl.getCoordinates(entity);
+            this.viewWindow.plotEdit.startEditing(entity.attribute, lonlats);
+        }
+        //更新图上的属性
+        updateAttr2map(attr) {
+            if (this.config.updateAttr) this.config.updateAttr(attr);
+        }
+        //更新图上的几何形状、坐标等
+        updateGeo2map(coords, withHeight) {
+            var positions = [];
+            if (withHeight) {
+                for (var i = 0; i < coords.length; i += 3) {
+                    var point = Cesium.Cartesian3.fromDegrees(coords[i], coords[i + 1], coords[i + 2]);
+                    positions.push(point);
+                }
+            } else {
+                for (var i = 0; i < coords.length; i += 2) {
+                    var point = Cesium.Cartesian3.fromDegrees(coords[i], coords[i + 1], 0);
+                    positions.push(point);
+                }
+            }
+
+            if (this.config.updateGeo) this.config.updateGeo(positions);
+
+            return positions;
+        }
+        centerCurrentEntity() {
+            var entity = this.config.entity;
+            if (this.config.centerAt) this.config.centerAt(entity);
+        }
+        deleteEntity() {
+            var entity = this.config.entity;
+            if (this.config.deleteEntity) this.config.deleteEntity(entity);
+            this.disableBase();
+        }
+
+        //文件处理
+        getGeoJson() {
+            var entity = this.config.entity;
+            return mars3d.draw.attr.toGeoJSON(entity);
+        }  
+    }
+
+
+    //注册到widget管理器中。
+    mars3d.widget.bindClass(MyWidget);
+
+    //每个widet之间都是直接引入到index.html中，会存在彼此命名冲突，所以闭包处理下。
+})(window, mars3d)
