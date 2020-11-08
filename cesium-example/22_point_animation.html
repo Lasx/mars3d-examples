@@ -146,24 +146,27 @@
                 maximumHeights.push(height);
                 minimumHeights.push(0);
             }
-
-            viewer.entities.add({
-                name: "行政区划立体",
-                wall: {
+            var geometryInstance = new Cesium.GeometryInstance({
+                geometry: new Cesium.WallGeometry({
                     positions: positions,
                     maximumHeights: maximumHeights,
                     minimumHeights: minimumHeights,
-                    material: new mars3d.LineFlowMaterial({
-                        //动画线材质
-                        color: Cesium.Color.fromCssColorString("#0111A9"),
-                        duration: 5000, //时长，控制速度
-                        url: "img/textures/fence.png",
-                        repeat: new Cesium.Cartesian2(5, 1),
-                        axisY: true
-                    }),
-                    distanceDisplayCondition: new Cesium.DistanceDisplayCondition(20000)
-                },
+                })
             });
+            var primitive = viewer.scene.primitives.add(new Cesium.Primitive({
+                geometryInstances: geometryInstance,
+                appearance: new Cesium.MaterialAppearance({ 
+                    material: Cesium.Material.fromType(mars3d.material.LineFlowMaterial, {                  
+                        image: "img/textures/fence.png",
+                        color: Cesium.Color.fromCssColorString("#0111A9"),
+                        repeat: new Cesium.Cartesian2(5, 1),
+                        axisY: true, //方向，true时上下，false左右
+                        speed: 20, //速度，建议取值范围1-100
+                    }),
+                }),
+            }));
+            primitive.popup = "南京欢迎您 - 火星科技"
+         
 
             //添加名称
             var ptcenter = mars3d.point.centerOfMass(positions, 100);

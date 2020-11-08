@@ -69,7 +69,7 @@
             mars3d.createMap({
                 id: 'cesiumContainer',
                 url: configfile,
-                center: { "y": 31.478058, "x": 117.285823, "z": 56479.37, "heading": 2.2, "pitch": -48.7, "roll": 0 },
+                center: { "y": 31.516143, "x": 117.282937, "z": 46241.86, "heading": 2.2, "pitch": -48.7, "roll": 360 },
                 success: function (_viewer, jsondata) {//地图成功加载完成后执行
                     viewer = _viewer;
 
@@ -95,9 +95,9 @@
                 polyline: {
                     positions: positions,
                     width: 10,
-                    material: new mars3d.LineFlowMaterial({//动画线材质
-                        duration: 3000, //时长，控制速度
-                        url: 'img/textures/lineClr2.png'
+                    material: new mars3d.material.LineFlowMaterialProperty({//动画线材质 
+                        image: 'img/textures/lineClr2.png',
+                        speed: 10, //速度，建议取值范围1-100
                     }),
                 }
             });
@@ -111,11 +111,11 @@
                 polyline: {
                     positions: positions,
                     width: 18,
-                    material: new mars3d.LineFlowMaterial({//动画线材质
+                    material: new mars3d.material.LineFlowMaterialProperty({//动画线材质
                         color: Cesium.Color.fromCssColorString("#a6d96a"),
                         repeat: new Cesium.Cartesian2(4.0, 1.0),
-                        duration: 2000, //时长，控制速度
-                        url: 'img/textures/arrow_1.png'
+                        image: 'img/textures/arrow_1.png',
+                        speed: 20, //速度，建议取值范围1-100
                     }),
                 }
             });
@@ -126,19 +126,26 @@
             var startPoint = Cesium.Cartesian3.fromDegrees(117.281455, 31.896386, 22.64);
             var endPoint = Cesium.Cartesian3.fromDegrees(117.528249, 31.921552, 43.3);
             var positions = mars3d.polyline.getLinkedPointList(startPoint, endPoint, 20000, 50);//计算曲线点
-            dataSource.entities.add({
-                name: '3 空中流动线',
-                polyline: {
-                    positions: positions,
-                    width: 6,
-                    material: new mars3d.LineFlowMaterial({//动画线材质
-                        color: Cesium.Color.CYAN,
-                        duration: 5000, //时长，控制速度
-                        url: 'img/textures/LinkPulse.png'
-                    }),
-                }
-            });
 
+            // 空中流动线  Primitive方式
+            var polylineinstance = new Cesium.GeometryInstance({
+                geometry: new Cesium.PolylineGeometry({
+                    positions: positions,
+                    width: 6
+                }),
+                vertexFormat: Cesium.PolylineMaterialAppearance.VERTEX_FORMAT,
+            });
+            var primitive = viewer.scene.primitives.add(new Cesium.Primitive({
+                geometryInstances: [polylineinstance],
+                appearance: new Cesium.PolylineMaterialAppearance({ 
+                    material: Cesium.Material.fromType(mars3d.material.LineFlowMaterial, {
+                        image: 'img/textures/LinkPulse.png',
+                        color: Cesium.Color.CYAN,
+                        speed: 10, //速度，建议取值范围1-100
+                    }),
+                })
+            }));
+            primitive.popup = '3 空中流动线'
 
 
             dataSource.entities.add({
@@ -158,10 +165,10 @@
                         117.28621, 31.801059, 24.6
                     ]),
                     width: 5,
-                    material: new mars3d.LineFlowMaterial({//动画线材质
+                    material: new mars3d.material.LineFlowMaterialProperty({//动画线材质
                         color: Cesium.Color.fromCssColorString("#00ff00"),
-                        duration: 7000, //时长，控制速度
-                        url: 'img/textures/LinkPulse.png'
+                        image: 'img/textures/LinkPulse.png',
+                        speed: 3, //速度，建议取值范围1-100
                     }),
                 }
             });
@@ -173,10 +180,10 @@
                 polyline: {
                     positions: mars3d.pointconvert.lonlats2cartesians([[117.172852, 31.862736, 33.69], [117.251461, 31.856011, 26.44]]),
                     width: 6,
-                    material: new mars3d.LineFlowMaterial({//动画线材质
+                    material: new mars3d.material.LineFlowMaterialProperty({//动画线材质
                         color: Cesium.Color.fromCssColorString("#1a9850"),
-                        duration: 2000, //时长，控制速度
-                        url: 'img/textures/ArrowOpacity.png'
+                        image: 'img/textures/ArrowOpacity.png',
+                        speed: 20, //速度，建议取值范围1-100
                     }),
                 }
             });
@@ -188,11 +195,11 @@
                     positions: mars3d.pointconvert.lonlats2cartesians([[117.358187, 31.838662, 12.23], [117.4384, 31.819405, 11.78]]),
                     width: 8,
                     clampToGround: true,
-                    material: new mars3d.LineFlowMaterial({//动画线材质
+                    material: new mars3d.material.LineFlowMaterialProperty({//动画线材质
                         color: Cesium.Color.fromCssColorString("#66bd63"),
                         repeat: new Cesium.Cartesian2(2.0, 1.0),
-                        duration: 1000, //时长，控制速度
-                        url: 'img/textures/line.png'
+                        image: 'img/textures/line.png',
+                        speed: 25, //速度，建议取值范围1-100
                     }),
                 }
             });
@@ -203,15 +210,89 @@
                     positions: mars3d.pointconvert.lonlats2cartesians([[117.348938, 31.805369, 7.63], [117.429496, 31.786715, 8.41]]),
                     width: 5,
                     clampToGround: true,
-                    material: new mars3d.LineFlowMaterial({//动画线材质
+                    material: new mars3d.material.LineFlowMaterialProperty({//动画线材质
                         color: Cesium.Color.CHARTREUSE,
-                        duration: 3000, //时长，控制速度
-                        url: 'img/textures/lineClr.png'
+                        image: 'img/textures/lineClr.png',
+                        speed: 25, //速度，建议取值范围1-100
                     }),
                 }
             });
 
 
+
+
+            //显示线的箭头效果
+            var redLine = dataSource.entities.add({
+                name: '箭头线',
+                polyline: {
+                    positions: Cesium.Cartesian3.fromDegreesArrayHeights([
+                        117.313682, 31.7416, 10.85,
+                        117.311934, 31.774753, 19.71,
+                        117.305473, 31.800304, 23.86
+                    ]),
+                    width: 20,
+                    material: new mars3d.material.LineFlowMaterialProperty({//动画线材质
+                        color: Cesium.Color.AQUA,
+                        image: './img/textures/arrow2.png',
+                        repeat: new Cesium.Cartesian2(20, 1),
+                        speed: 30, //速度，建议取值范围1-100
+                    }),
+                }
+            });
+
+
+
+
+            //显示【贴地线】的箭头效果 
+            var instance = new Cesium.GeometryInstance({
+                geometry: new Cesium.GroundPolylineGeometry({
+                    positions: Cesium.Cartesian3.fromDegreesArray([
+                        117.169646, 31.769171,
+                        117.194579, 31.806466
+                    ]),
+                    width: 20
+                }),
+                id: 'GroundPolylineGeometry'
+            });
+            var primitive = viewer.scene.groundPrimitives.add(new Cesium.GroundPolylinePrimitive({
+                geometryInstances: instance,
+                appearance: new Cesium.Appearance({
+                    material: Cesium.Material.fromType(mars3d.material.LineFlowMaterial, {   
+                        image: './img/textures/arrow2.png',
+                        axisY: false,
+                        repeat: new Cesium.Cartesian2(20.0, 1.0),
+                        color: Cesium.Color.fromCssColorString("#ffff00"),
+                        speed: 60, //速度，建议取值范围1-100
+                    }),
+                    renderState: new Cesium.RenderState()
+                })
+            }));
+            primitive.popup = '贴地箭头线'
+
+
+            //墙示例（为了箭头终点参考的） 
+            dataSource.entities.add({
+                name: '贴地箭头线终点 的 红色感叹号墙',
+                wall: {
+                    positions: Cesium.Cartesian3.fromDegreesArray([
+                        117.191537,
+                        31.809769,
+                        117.198383,
+                        31.804991
+                    ]),
+                    maximumHeights: [500, 500],
+                    minimumHeights: [41.14, 39.84],
+                    material: new mars3d.material.LineFlowMaterialProperty({//动画线材质
+                        color: Cesium.Color.fromCssColorString("#ff0000"),
+                        image: 'img/textures/fence.png',
+                        axisY: true,
+                        speed: 10, //速度，建议取值范围1-100
+
+                        image2: 'img/textures/tanhao.png',
+                        color2: Cesium.Color.fromCssColorString("#FFFF00"),
+                    }),
+                }
+            });
 
 
 

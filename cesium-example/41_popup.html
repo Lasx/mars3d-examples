@@ -129,11 +129,11 @@
                 anchor: [0, -12],//左右、上下的偏移像素值。
                 onAdd: function (eleId) {
                     //popup的DOM添加到页面的回调方法,特殊需要操作dom的场景下使用（如视频video、echarts等）
-                    console.log("打开了popup：" + eleId);
+                    console.log("打开了popup", eleId);
                 },
                 onRemove: function (eleId) {
                     //popup的DOM从页面移除的回调方法
-                    console.log("移除了popup：" + eleId);
+                    console.log("移除了popup", eleId);
 
                 }
             };

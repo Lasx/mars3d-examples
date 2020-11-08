@@ -136,22 +136,21 @@
 
             //绑定事件，  mars3d.layer.GeoJsonLayer.event 或mars3d.event均可
             layerWork.on(mars3d.event.click, function (event) {//单击事件
-                var entity = event.sourceTarget
-                console.log('你单击了：' + entity.properties.name._value);
+                console.log("单击了图层", event);
 
+                // var entity = event.sourceTarget 
             })
             layerWork.on(mars3d.event.mouseOver, function (event) {//单击事件
+                console.log("鼠标移入图层", event);
+
                 var entity = event.sourceTarget
-
-                console.log('你鼠标移入到：' + entity.properties.name._value);
-
                 if (entity && entity.polygon)
                     highlightedEntity(entity);
             })
             layerWork.on(mars3d.event.mouseOut, function (event) {//单击事件
-                var entity = event.sourceTarget
-                console.log('你鼠标移出了：' + entity.properties.name._value);
+                console.log("鼠标移出图层", event);
 
+                var entity = event.sourceTarget 
                 if (entity && entity.polygon)
                     clearLastHighlightedEntity();
             })

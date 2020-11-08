@@ -121,11 +121,11 @@
                 anchor: [0, -12],//左右、上下的偏移像素值。
                 onAdd: function (eleId) {
                     //tooltip的DOM添加到页面的回调方法,特殊需要操作dom的场景下使用（如视频video）
-                    console.log("打开了tooltip：" + eleId);
+                    console.log("打开了tooltip", eleId);
                 },
                 onRemove: function (eleId) {
                     //popup的DOM从页面移除的回调方法
-                    console.log("移除了tooltip：" + eleId);
+                    console.log("移除了tooltip", eleId);
 
                 }
             };

@@ -67,8 +67,8 @@
 
             mars3d.createMap({
                 id: 'cesiumContainer',
-                url: configfile,  
-                center: { "y": 31.746206, "x": 117.229251, "z": 18225.61, "heading": 356.5, "pitch": -67, "roll": 360 },
+                url: configfile,
+                center: { "y": 31.694375, "x": 117.219727, "z": 31580.37, "heading": 359.3, "pitch": -68.8, "roll": 360 },
                 success: function (_viewer, jsondata) {//地图成功加载完成后执行
                     viewer = _viewer;
 
@@ -78,67 +78,98 @@
             });
         }
 
-        //取区域内的随机点
-        function randomPoint(height) {
-            var jd = haoutil.math.random(117.1 * 1000, 117.3 * 1000) / 1000;
-            var wd = haoutil.math.random(31.75 * 1000, 31.9 * 1000) / 1000;
-
-            return Cesium.Cartesian3.fromDegrees(jd, wd, height);
+        //取区域内的随机点  
+        function getRandomPoints(count) {
+            var arr = [];
+            var height = 0;
+            var bbox = [117.099462, 31.735326, 117.33896, 31.861058] //[xmin, ymin, xmax, ymax]
+            var arrPoint = turf.randomPoint(count, { bbox: bbox }).features; //随机点
+            for (var i = 0; i < arrPoint.length; i++) {
+                var item = arrPoint[i].geometry.coordinates;
+                var position = Cesium.Cartesian3.fromDegrees(item[0], item[1], height)
+                arr.push(position);
+            }
+            return arr;
         }
 
 
         //当前页面业务相关
         function initWork() {
-
-
-
             //单个圆圈 
-            for (var i = 0; i < 20; i++) {
-                var position = randomPoint();
+            var arrPoints = getRandomPoints(10);
+            for (var i = 0, len = arrPoints.length; i < len; i++) {
+                var position = arrPoints[i];
 
                 viewer.entities.add({
                     position: position,
                     ellipse: {
-                        height: 0.0,
-                        semiMinorAxis: 600.0,
-                        semiMajorAxis: 600.0,
-                        material: new mars3d.CircleFadeMaterial({//单个圆圈
-                            duration: 1500,//动画时长，单位：毫秒
+                        semiMinorAxis: 900.0,
+                        semiMajorAxis: 900.0,
+                        material: new mars3d.material.CircleWaveMaterialProperty({
                             color: Cesium.Color.fromCssColorString("#ff0000"),
+                            count: 1, //单个圆圈
+                            speed: 90,//速度，建议取值范围1-100
                         }),
                     }
                 });
             }
 
             //支持多个圆圈
-            for (var i = 0; i < 20; i++) {
-                var position = randomPoint();
+            var arrPoints = getRandomPoints(6);
+            for (var i = 0, len = arrPoints.length; i < len; i++) {
+                var position = arrPoints[i];
 
                 viewer.entities.add({
                     position: position,
                     ellipse: {
-                        height: 0.0,
-                        semiMinorAxis: 600.0,
-                        semiMajorAxis: 600.0,
-                        material: new mars3d.CircleWaveMaterial({//多个圆圈
-                            duration: 2000,//动画时长，单位：毫秒
+                        semiMinorAxis: 900.0,
+                        semiMajorAxis: 900.0,
+                        material: new mars3d.material.CircleWaveMaterialProperty({//多个圆圈
                             color: Cesium.Color.fromCssColorString("#00ff00"),
-                            gradient: 0,
-                            count: 3
+                            count: 3, //圆圈数量
+                            speed: 80,//速度，建议取值范围1-100
+                            gradient: 0.1, 
                         }),
                     }
                 });
             }
 
 
-            //扫描效果 
-            for (var i = 0; i < 20; i++) {
-                var position = randomPoint();
-                addCircleScan(position);
+
+
+            //Primitive 支持多个圆圈 
+            var arrPoints = getRandomPoints(6);
+            for (var i = 0, len = arrPoints.length; i < len; i++) {
+                var position = arrPoints[i];
+
+                var circleinstance = new Cesium.GeometryInstance({
+                    geometry: new Cesium.CircleGeometry({
+                        center: position,
+                        radius: 900.0, 
+                    }),
+                });
+                viewer.scene.primitives.add(new Cesium.Primitive({
+                    geometryInstances: [circleinstance],
+                    appearance: new Cesium.MaterialAppearance({
+                        material: Cesium.Material.fromType(mars3d.material.CircleWaveMaterial, {
+                            color: Cesium.Color.fromCssColorString("#ffff00"),
+                            count: 3, //圆圈数量
+                            speed: 80,//速度，建议取值范围1-100
+                            gradient: 0.1, 
+                        }),
+                    }),
+                }));
             }
 
+ 
 
-
+            //扫描效果 
+            var arrPoints = getRandomPoints(5);
+            for (var i = 0, len = arrPoints.length; i < len; i++) {
+                var position = arrPoints[i];
+                addCircleScan(position);
+            }
+ 
         }
 
 
@@ -149,9 +180,9 @@
             var entitie = viewer.entities.add({
                 position: position,
                 ellipse: {
-                    semiMinorAxis: 600.0,
-                    semiMajorAxis: 600.0,
-                    material: new mars3d.CircleScanMaterial({//扫描材质
+                    semiMinorAxis: 900.0,
+                    semiMajorAxis: 900.0, 
+                    material: new mars3d.material.CircleScanMaterialProperty({//扫描材质
                         url: "img/textures/circleScan.png",
                         color: Cesium.Color.fromCssColorString("#5fc4ee")
                     }),

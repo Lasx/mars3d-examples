@@ -231,7 +231,7 @@
     },
 
     "model": {
-        "name": "模型",
+        "name": "gltf模型",
         "style": [
             { "name": "modelUrl", "label": "路径", "type": "label", "defval": "" },
             { "name": "scale", "label": "比例", "type": "number", "defval": 1.0 },
@@ -254,6 +254,14 @@
             
             { "name": "hasShadows", "label": "是否阴影", "type": "radio", "defval": true},
             { "name": "clampToGround", "label": "是否贴地", "type": "radio", "defval": false }
+        ]
+    },
+
+    "3dtiles": {
+        "name": "3dtiles模型",
+        "style": [ 
+            { "name": "maximumScreenSpaceError", "label": "最大屏幕空间错误", "type": "number", "defval": 16.0 },
+            { "name": "maximumMemoryUsage", "label": "最大内存分配", "type": "number", "defval": 512 } 
         ]
     },
 

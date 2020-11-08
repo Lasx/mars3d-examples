@@ -46,15 +46,15 @@
         <div style="margin-top: 10px;">
             地表渲染：
             <div class="radio radio-info radio-inline">
-                <input type="radio" id="shadingMaterials1" name="shadingMaterials" value="none" checked >
+                <input type="radio" id="shadingMaterials1" name="shadingMaterials" value="none" checked>
                 <label for="shadingMaterials1">无阴影 </label>
             </div>
             <div class="radio radio-info radio-inline">
-                <input type="radio" id="shadingMaterials3" name="shadingMaterials" value="slope" >
+                <input type="radio" id="shadingMaterials3" name="shadingMaterials" value="slope">
                 <label for="shadingMaterials3">坡度 </label>
             </div>
             <div class="radio radio-info radio-inline">
-                <input type="radio" id="shadingMaterials4" name="shadingMaterials" value="aspect" >
+                <input type="radio" id="shadingMaterials4" name="shadingMaterials" value="aspect">
                 <label for="shadingMaterials4">坡向 </label>
             </div>
         </div>
@@ -102,6 +102,14 @@
         }
 
 
+        //另有:简单的直接分析坐标的方法
+        //  mars3d.util.getSlope({
+        //     positions:positions,
+        //     viewer: viewer,
+        //     callback: function (arr) {
+        //         console.log("分析完成",arr);
+        //     }
+        // });
 
 
         var slope;
@@ -109,6 +117,7 @@
 
         //当前页面业务相关
         function initWork() {
+
             //剖度坡向
             slope = new mars3d.analysi.Slope({
                 viewer: viewer,
@@ -130,6 +139,7 @@
                 },
             })
             slope.on(mars3d.analysi.Slope.event.end, function (event) {
+                console.log("分析完成", event);
                 // event.data[0] 数组内返回值说明： {
                 //     position:position,  //坐标位置
                 //     slope: slopeValDou, //度数法值，α(坡度)=arc tan (高程差/水平距离)
@@ -137,7 +147,6 @@
                 //     slopeStr2: text2,   //百分比法值字符串，坡度 = (高程差/水平距离)x100% 
                 //     direction: slopeAngle //坡向值（0-360度）
                 // }
-                console.log(event);
 
             });
 
@@ -148,7 +157,7 @@
                 show: false,//是否显示等高线
                 shadingType: "none" //地表渲染效果类型:无nono, 高程 elevation, 坡度slope, 坡向aspect
             });
-            $('input[type=radio][name=shadingMaterials]').change(function () { 
+            $('input[type=radio][name=shadingMaterials]').change(function () {
                 contourLine.shadingType = this.value
             });
 
@@ -178,13 +187,6 @@
                             count: 4        //缓冲的数量（影响坡度坡向的精度）会求周边(count*4)个点
                         });
 
-                        // mars3d.util.getSlope({
-                        //     positions:positions,
-                        //     viewer: viewer,
-                        //     callback: function (arr) {
-                        //         console.log(arr);
-                        //     }
-                        // });
 
                     }
                 });

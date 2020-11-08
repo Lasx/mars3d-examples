@@ -68,7 +68,7 @@
             mars3d.createMap({
                 id: 'cesiumContainer',
                 url: configfile,
-                center: { "y": 31.735621, "x": 117.155931, "z": 11700.82, "heading": 5.9, "pitch": -50.9, "roll": 0 },
+                center: { "y": 31.698225, "x": 117.282068, "z": 13029.65, "heading": 351, "pitch": -35.9, "roll": 360 },
                 success: function (_viewer, jsondata) {//地图成功加载完成后执行
                     viewer = _viewer;
 
@@ -93,9 +93,11 @@
             });
 
 
+
+
             //示例 
             dataSource.entities.add({
-                name: '动态立体墙1',
+                name: '动态立体墙',
                 wall: {
                     positions: Cesium.Cartesian3.fromDegreesArray([
                         117.154815, 31.853495,
@@ -110,14 +112,14 @@
                         117.151994, 31.839036,
                         117.150691, 31.8416,
                         117.151215, 31.844734,
-                        117.154788, 31.853486
+                        117.154815, 31.853495
                     ]),
                     maximumHeights: [600, 600, 600, 600, 600, 600, 600, 600, 600, 600, 600, 600, 600],
                     minimumHeights: [43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43],
-                    material: new mars3d.LineFlowMaterial({//动画线材质
+                    material: new mars3d.material.LineFlowMaterialProperty({//动画线材质
+                        image: 'img/textures/fence.png',
                         color: Cesium.Color.fromCssColorString("#00ff00"),
-                        duration: 2000, //时长，控制速度
-                        url: 'img/textures/fence.png',
+                        speed: 10, //速度，建议取值范围1-100
                         axisY: true
                     }),
                 }
@@ -128,19 +130,19 @@
                 name: '动态箭头立体墙',
                 wall: {
                     positions: Cesium.Cartesian3.fromDegreesArray([
-                        117.216321, 31.842863,
-                        117.246056, 31.843395,
-                        117.246503, 31.818713,
-                        117.217114, 31.819745,
-                        117.216566, 31.842705
+                        117.208302, 31.85757,
+                        117.234234, 31.858263,
+                        117.234261, 31.833317,
+                        117.207414, 31.834541,
+                        117.208302, 31.85757
                     ]),
                     maximumHeights: [500, 500, 500, 500, 500],
-                    minimumHeights: [38, 44, 34, 34, 38],
-                    material: new mars3d.LineFlowMaterial({//动画线材质
+                    minimumHeights: [40, 40, 40, 40, 40],
+                    material: new mars3d.material.LineFlowMaterialProperty({//动画线材质
+                        image: 'img/textures/arrow.png',
                         color: Cesium.Color.CHARTREUSE,
-                        duration: 1000, //时长，控制速度
-                        url: 'img/textures/arrow.png',
                         repeat: new Cesium.Cartesian2(30, 1),
+                        speed: 20, //速度，建议取值范围1-100
                     }),
                 }
             });
@@ -148,113 +150,107 @@
 
             //圆形时  
             var positions = mars3d.polygon.getEllipseOuterPositions({
-                position: Cesium.Cartesian3.fromDegrees(117.103707, 31.863181, 0),
-                radius: 1000, //半径
+                position: Cesium.Cartesian3.fromDegrees(117.276257, 31.866351, 19.57),
+                radius: 1500, //半径
                 count: 50 //共返回(count*4)个点
             });
             var minimumHeights = [];
             var maximumHeights = [];
             positions.forEach(function (key) {
                 minimumHeights.push(45);
-                maximumHeights.push(2000);
+                maximumHeights.push(1900);
             });
 
             dataSource.entities.add({
-                name: '动态立体墙2',
+                name: '圆形 动态立体墙',
                 wall: {
                     positions: positions,
                     minimumHeights: minimumHeights,
                     maximumHeights: maximumHeights,
-                    material: new mars3d.LineFlowMaterial({//动画线材质
+                    material: new mars3d.material.LineFlowMaterialProperty({//动画线材质
+                        image: 'img/textures/fence.png',
                         color: Cesium.Color.fromCssColorString("#00ffff"),
-                        duration: 3000, //时长，控制速度
-                        url: 'img/textures/fence.png',
+                        speed: 10, //速度，建议取值范围1-100
                         axisY: true
                     }),
                 }
             });
+
+
 
             //示例 
             dataSource.entities.add({
                 name: '红色感叹号墙',
                 wall: {
                     positions: Cesium.Cartesian3.fromDegreesArray([
-                        117.191537,
-                        31.809769,
-                        117.198383,
-                        31.804991
+                        117.229659, 31.908221, 117.240804, 31.908175
                     ]),
-                    maximumHeights: [500, 500],
-                    minimumHeights: [41.14, 39.84],
-                    material: new mars3d.LineFlowMaterial({//动画线材质
-                        color: Cesium.Color.fromCssColorString("#ff0000"),
-                        duration: 2000, //时长，控制速度
-                        url: 'img/textures/fence.png',
+                    maximumHeights: [700, 700],
+                    minimumHeights: [20, 20],
+                    material: new mars3d.material.LineFlowMaterialProperty({//动画线材质
+                        image: 'img/textures/fence.png',
                         axisY: true,
-                        bgUrl: 'img/textures/tanhao.png',
-                        bgColor: Cesium.Color.fromCssColorString("#FFFF00"),
+                        color: Cesium.Color.fromCssColorString("#ff0000"),
+                        image2: 'img/textures/tanhao.png',
+                        color2: Cesium.Color.fromCssColorString("#ffff00"),
+                        speed: 10, //速度，建议取值范围1-100
                     }),
                 }
             });
 
-            //显示【贴地线】的箭头效果
-            var flowMaterial = new mars3d.GroundLineFlowMaterial({
-                image: './img/textures/arrow2.png',
-                axisY: false,
-                speed: 5,
-                repeat: { x: 20, y: 1 },
-                color: Cesium.Color.GREENYELLOW
+
+            //  wall动态墙 - primitive方式添加
+            var coors = [[117.354785, 31.891524, 24.68], [117.33675, 31.898967, 25.9], [117.316599, 31.903457, 31.77], [117.298194, 31.908461, 17.79], [117.268077, 31.908718, 22.44]]
+            var positions = mars3d.pointconvert.lonlats2cartesians(coors);
+            var minimumHeights = [];
+            var maximumHeights = [];
+            positions.forEach(function (key) {
+                minimumHeights.push(25);
+                maximumHeights.push(400);
             });
-            var instance = new Cesium.GeometryInstance({
-                geometry: new Cesium.GroundPolylineGeometry({
-                    positions: Cesium.Cartesian3.fromDegreesArray([
-                        117.169646, 31.769171,
-                        117.194579, 31.806466,
-                    ]),
-                    width: 20
-                }),
-                id: 'GroundPolylineGeometry'
-            });
-            viewer.scene.groundPrimitives.add(new Cesium.GroundPolylinePrimitive({
-                geometryInstances: instance,
-                appearance: new Cesium.Appearance({
-                    material: flowMaterial,
-                    renderState: new Cesium.RenderState()
+            var geometryInstance = new Cesium.GeometryInstance({
+                geometry: new Cesium.WallGeometry({
+                    positions: positions,
+                    maximumHeights: maximumHeights,
+                    minimumHeights: minimumHeights,
                 })
+            });
+            var primitive = viewer.scene.primitives.add(new Cesium.Primitive({
+                geometryInstances: geometryInstance,
+                appearance: new Cesium.MaterialAppearance({
+                    material: Cesium.Material.fromType(mars3d.material.LineFlowMaterial, {   
+                        image: 'img/textures/arrow.png',
+                        color: Cesium.Color.fromCssColorString("#00eba8"),
+                        repeat: new Cesium.Cartesian2(20, 1),
+                        speed: 20, //速度，建议取值范围1-100
+                    }),
+                }),
             }));
 
 
 
 
 
-            //显示线的箭头效果
-            var redLine = dataSource.entities.add({
-                name: '箭头线',
-                polyline: {
-                    positions: Cesium.Cartesian3.fromDegreesArrayHeights([
-                        117.204289, 31.763824, 32.05,
-                        117.228083, 31.791911, 41.73,
+            dataSource.entities.add({
+                name: 'canvas生成的渐变图片',
+                wall: {
+                    positions: Cesium.Cartesian3.fromDegreesArray([
+                        117.206138, 31.877321, 117.206326, 31.901436
                     ]),
-                    width: 20,
-                    material: new mars3d.LineFlowMaterial({//动画线材质
-                        color: Cesium.Color.AQUA,
-                        duration: 1000, //时长，控制速度
-                        url: './img/textures/arrow2.png',
-                        repeat: new Cesium.Cartesian2(10, 1),
+                    maximumHeights: [500, 500],
+                    minimumHeights: [30, 30],
+                    material: new Cesium.ImageMaterialProperty({
+                        image: getColorRampCanvas(),
+                        transparent: false,
                     }),
                 }
             });
 
 
+
+
             //走马灯围墙效果
-            var positions = mars3d.pointconvert.lonlats2cartesians([
-                [117.13949, 31.822909, 38.43],
-                [117.148559, 31.822854, 35.56],
-                [117.151724, 31.822788, 41.61],
-                [117.161761, 31.816883, 42.53],
-                [117.152841, 31.805183, 40.7],
-                [117.139295, 31.805423, 26.78]
-            ]);
+            var positions = mars3d.pointconvert.lonlats2cartesians([[117.268479, 31.836646, 25.53], [117.282362, 31.827581, 34.28], [117.275399, 31.813784, 30.59], [117.256533, 31.817975, 31.95], [117.254811, 31.830772, 35.99]]);
             var scrollWallGlow = new mars3d.ScrollWallGlow(viewer, {
                 positions: positions,
                 color: Cesium.Color.fromCssColorString("#f2fa19"),
@@ -267,13 +263,10 @@
                 console.log("单击了对象", event);
             });
 
+
+
             //走马灯围墙效果2
-            var positions = mars3d.pointconvert.lonlats2cartesians([
-                [117.096979, 31.822785, 34.6],
-                [117.119188, 31.822947, 38.36],
-                [117.119354, 31.805121, 31.04],
-                [117.096974, 31.805181, 29.64]
-            ]);
+            var positions = mars3d.pointconvert.lonlats2cartesians([[117.319966, 31.842082, 12.29], [117.330034, 31.835286, 11.07], [117.330576, 31.823452, 11.01], [117.311457, 31.821023, 17.11], [117.308954, 31.828975, 16.29]]);
             var scrollWallGlow = new mars3d.ScrollWallGlow(viewer, {
                 positions: positions,
                 color: Cesium.Color.fromCssColorString("#f33349"),
@@ -285,10 +278,6 @@
             scrollWallGlow.on(mars3d.ConeGlow.event.click, function (event) {
                 console.log("单击了对象", event);
             });
-
-
-
-
 
 
         }
@@ -311,25 +300,58 @@
                 minimumHeights.push(0);
             }
 
-            viewer.entities.add({
-                name: "行政区划立体",
-                wall: {
+            var geometryInstance = new Cesium.GeometryInstance({
+                geometry: new Cesium.WallGeometry({
                     positions: positions,
                     maximumHeights: maximumHeights,
                     minimumHeights: minimumHeights,
-                    material: new mars3d.LineFlowMaterial({
-                        //动画线材质
-                        color: Cesium.Color.fromCssColorString("#0111A9"),
-                        duration: 3000, //时长，控制速度
-                        url: "img/textures/fence.png",
-                        repeat: new Cesium.Cartesian2(5, 1),
-                        axisY: false
-                    }),
-                },
+                })
             });
+            var primitive = viewer.scene.primitives.add(new Cesium.Primitive({
+                geometryInstances: geometryInstance,
+                appearance: new Cesium.MaterialAppearance({
+                    material: Cesium.Material.fromType(mars3d.material.LineFlowMaterial, {   
+                        image: "img/textures/fence.png",
+                        color: Cesium.Color.fromCssColorString("#bdf700"),
+                        repeat: new Cesium.Cartesian2(5, 1),
+                        axisY: true, //方向，true时上下，false左右
+                        speed: 10, //速度，建议取值范围1-100
+                    }),
+                }),
+            }));
+            primitive.tooltip = "合肥欢迎您 - 火星科技"
+
+
 
 
         }
+
+
+
+
+        //纹理图绘制
+        function getColorRampCanvas(elevationRamp) {
+            if (elevationRamp == null) {
+                // elevationRamp = { 0.0: "blue", 0.1: "cyan", 0.37: "lime", 0.54: "yellow", 1: "red" };
+                // elevationRamp = { 0.0: '#000000', 0.045: '#2747E0', 0.1: '#D33B7D', 0.15: '#D32738', 0.37: '#FF9742', 0.54: '#ffd700', 1.0: '#ffffff' }
+                elevationRamp = { 0.0: '#FFEDA0', 0.05: '#FED976', 0.1: '#FEB24C', 0.15: '#FD8D3C', 0.37: '#FC4E2A', 0.54: '#E31A1C', 0.70: '#BD0026', 1.0: '#800026' }
+            }
+
+            var canvas = document.createElement('canvas');
+            canvas.width = 1;
+            canvas.height = 100;
+
+            var ctx = canvas.getContext('2d');
+            var grd = ctx.createLinearGradient(0, 0, 0, 100);
+            for (var key in elevationRamp) {
+                grd.addColorStop(1 - Number(key), elevationRamp[key]);
+            }
+
+            ctx.fillStyle = grd;
+            ctx.fillRect(0, 0, 1, 100); //参数：左上角x  左上角y  宽度width  高度height
+            return canvas.toDataURL()
+        }
+
 
     </script>
 </body>
