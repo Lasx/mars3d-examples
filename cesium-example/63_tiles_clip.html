@@ -55,6 +55,7 @@
         提示：<br />
         (1) 当前只支持单个压平<br />
         (2) 对3dtiles数据有要求，仅适用于无自带着色器的模型<br />
+        (3) 每次切换视角需要模型加载完成后才去裁剪<br />
     </div>
 
     <script type="text/javascript">
@@ -154,6 +155,11 @@
                 "flyTo": true, 
             });
             
+            //会执行多次，重新加载一次完成后都会回调
+            layerWork.on(mars3d.layer.Tiles3dLayer.event.allTilesLoaded, function (event) {
+                console.log("触发allTilesLoaded事件", event)
+            })
+
 
             var tilesetDX;
             

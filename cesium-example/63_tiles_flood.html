@@ -123,14 +123,19 @@
                 "flyTo": true,
             });
 
+            //会执行多次，重新加载一次完成后都会回调
+            layerWork.on(mars3d.layer.Tiles3dLayer.event.allTilesLoaded, function (event) {
+                console.log("触发allTilesLoaded事件", event)
+            })
+
+
             var tilesetDX;
 
             //加载完成事件
             layerWork.on(mars3d.layer.Tiles3dLayer.event.load, function (event) {
                 tilesetDX = event.tileset
             })
-
-
+            
             var tilesetClip;
             $("#btnDraw").click(function () {
                 if (tilesetClip) {

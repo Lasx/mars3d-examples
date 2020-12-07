@@ -46,14 +46,14 @@
             模型URL：
             <input id="txtModel" type="text" value="http://data.marsgis.cn/gltf/mars/feiji.glb" class="form-control"
                 style="width:350px;" />
-                
+
             <div class="checkbox checkbox-primary checkbox-inline" title="解决跨域问题">
                 <input id="chkProxy" class="styled" type="checkbox">
                 <label for="chkProxy">
                     代理
                 </label>
             </div>
-            <input type="button" class="btn btn-primary" title="单击后在地图上点选位置即可" value="标绘" onclick="drawModel()" />
+            <input type="button" class="btn btn-primary" title="单击后在地图上点选位置即可" value="标绘" onclick="drawModel('point')" />
 
         </div>
         <div>
@@ -134,6 +134,9 @@
 
         //当前页面业务相关
         function initWork() {
+            // Cesium 1.61以后会默认关闭反走样，对于桌面端而言还是开启得好，
+            viewer.scene.postProcessStages.fxaa.enabled = true;
+            
             //固定光照，避免gltf模型随时间存在亮度不一致。
             var directionalLight = new Cesium.DirectionalLight({
                 direction: new Cesium.Cartesian3(0.35492591601301104, -0.8909182691839401, -0.2833588392420772),
@@ -285,28 +288,38 @@
 
 
 
-        function drawModel() {
-            var url = $("#txtModel").val(); 
+        function drawModel(editType) {
+            var url = $("#txtModel").val();
             haoutil.storage.add("gltf_edit", url);
 
             var isProxy = $("#chkProxy").is(':checked');
-            if(isProxy){
+            if (isProxy) {
                 url = "http://data.marsgis.cn/proxy/" + url
             }
 
-            drawControl.startDraw({
-                type: "model",
-                drawShow: true, //绘制时，是否显示模型，可避免在3dtiles上拾取坐标存在问题。
-                //编辑方式：3轴方式
-                editType: "axis", 
-                axisUrl: serverURL_gltf + '/mars/axis.gltf',
-                //编辑方式：只调整方向
-                // editType: "point",
-                style: {
-                    scale: 1,
-                    modelUrl: url
-                }
-            });
+            if (editType == "point") {
+                drawControl.startDraw({
+                    type: "model",
+                    drawShow: true, //绘制时，是否显示模型，可避免在3dtiles上拾取坐标存在问题。 
+                    editType: "point",//编辑方式：只调整四周方向和比例
+                    style: {
+                        scale: 1,
+                        modelUrl: url
+                    }
+                });
+            }
+            else {
+                drawControl.startDraw({
+                    type: "model",
+                    drawShow: true, //绘制时，是否显示模型，可避免在3dtiles上拾取坐标存在问题。 
+                    editType: "axis",     //编辑方式：调整3轴方向
+                    axisUrl: serverURL_gltf + '/mars/axis.gltf',  
+                    style: {
+                        scale: 1,
+                        modelUrl: url
+                    }
+                });
+            } 
         }
 
 

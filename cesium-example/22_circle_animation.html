@@ -96,7 +96,7 @@
         //当前页面业务相关
         function initWork() {
             //单个圆圈 
-            var arrPoints = getRandomPoints(10);
+            var arrPoints = getRandomPoints(6);
             for (var i = 0, len = arrPoints.length; i < len; i++) {
                 var position = arrPoints[i];
 
@@ -128,7 +128,7 @@
                             color: Cesium.Color.fromCssColorString("#00ff00"),
                             count: 3, //圆圈数量
                             speed: 80,//速度，建议取值范围1-100
-                            gradient: 0.1, 
+                            gradient: 0.1,
                         }),
                     }
                 });
@@ -145,23 +145,46 @@
                 var circleinstance = new Cesium.GeometryInstance({
                     geometry: new Cesium.CircleGeometry({
                         center: position,
-                        radius: 900.0, 
+                        radius: 900.0,
                     }),
                 });
                 viewer.scene.primitives.add(new Cesium.Primitive({
                     geometryInstances: [circleinstance],
                     appearance: new Cesium.MaterialAppearance({
-                        material: Cesium.Material.fromType(mars3d.material.CircleWaveMaterial, {
+                        material: Cesium.Material.fromType(mars3d.material.CircleWaveType, {
                             color: Cesium.Color.fromCssColorString("#ffff00"),
                             count: 3, //圆圈数量
                             speed: 80,//速度，建议取值范围1-100
-                            gradient: 0.1, 
+                            gradient: 0.1,
                         }),
                     }),
                 }));
             }
 
- 
+
+            
+            //Primitive  扫描线
+            var arrPoints = getRandomPoints(6);
+            for (var i = 0, len = arrPoints.length; i < len; i++) {
+                var position = arrPoints[i];
+
+                var circleinstance = new Cesium.GeometryInstance({
+                    geometry: new Cesium.CircleGeometry({
+                        center: position,
+                        radius: 2000.0,
+                    }),
+                });
+                viewer.scene.primitives.add(new Cesium.Primitive({
+                    geometryInstances: [circleinstance],
+                    appearance: new Cesium.MaterialAppearance({
+                        material: Cesium.Material.fromType(mars3d.material.ScanLineType, {
+                            color: new Cesium.Color(1.0, 1.0, 0.0, 1.0),
+                            speed: 20
+                        })
+                    }),
+                }));
+            }
+
 
             //扫描效果 
             var arrPoints = getRandomPoints(5);
@@ -169,7 +192,14 @@
                 var position = arrPoints[i];
                 addCircleScan(position);
             }
- 
+
+
+            var arrPoints = getRandomPoints(5);
+            for (var i = 0, len = arrPoints.length; i < len; i++) {
+                var position = arrPoints[i];
+                addCircleScan2(position);
+            }
+            
         }
 
 
@@ -181,9 +211,9 @@
                 position: position,
                 ellipse: {
                     semiMinorAxis: 900.0,
-                    semiMajorAxis: 900.0, 
+                    semiMajorAxis: 900.0,
                     material: new mars3d.material.CircleScanMaterialProperty({//扫描材质
-                        url: "img/textures/circleScan.png",
+                        url:  "img/textures/circleScan.png",
                         color: Cesium.Color.fromCssColorString("#5fc4ee")
                     }),
                     stRotation: new Cesium.CallbackProperty(function (e) {
@@ -195,6 +225,27 @@
             });
         }
 
+
+        function addCircleScan2(position) {
+            var _rotation = Math.random();
+
+            var entitie = viewer.entities.add({
+                position: position,
+                ellipse: {
+                    semiMinorAxis: 1500.0,
+                    semiMajorAxis: 1500.0,
+                    material: new mars3d.material.CircleScanMaterialProperty({//扫描材质
+                        url:  "img/textures/circle_bg.png",
+                        color: Cesium.Color.fromCssColorString("#5fc4ee")
+                    }),
+                    stRotation: new Cesium.CallbackProperty(function (e) {
+                        _rotation -= 0.1;
+                        return _rotation;
+                    }, false),
+                    classificationType: Cesium.ClassificationType.BOTH
+                },
+            });
+        }
 
 
     </script>

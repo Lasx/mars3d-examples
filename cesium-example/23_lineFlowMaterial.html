@@ -138,7 +138,7 @@
             var primitive = viewer.scene.primitives.add(new Cesium.Primitive({
                 geometryInstances: [polylineinstance],
                 appearance: new Cesium.PolylineMaterialAppearance({ 
-                    material: Cesium.Material.fromType(mars3d.material.LineFlowMaterial, {
+                    material: Cesium.Material.fromType(mars3d.material.LineFlowType, {
                         image: 'img/textures/LinkPulse.png',
                         color: Cesium.Color.CYAN,
                         speed: 10, //速度，建议取值范围1-100
@@ -257,7 +257,7 @@
             var primitive = viewer.scene.groundPrimitives.add(new Cesium.GroundPolylinePrimitive({
                 geometryInstances: instance,
                 appearance: new Cesium.Appearance({
-                    material: Cesium.Material.fromType(mars3d.material.LineFlowMaterial, {   
+                    material: Cesium.Material.fromType(mars3d.material.LineFlowType, {   
                         image: './img/textures/arrow2.png',
                         axisY: false,
                         repeat: new Cesium.Cartesian2(20.0, 1.0),

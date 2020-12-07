@@ -208,17 +208,14 @@
                 url: serverURL_3dtiles + "/max-shihua/tileset.json",
                 maximumScreenSpaceError: 16,
             });
-            tileset.readyPromise.then(function (tileset) {
-                mars3d.tileset.updateMatrix(tileset, { "x": 117.230432, "y": 31.823476, "z": 37.71, "scale": 10 });
-            }).otherwise(function (error) {
-                haoutil.alert(error, "加载数据出错");
-            });
             viewer.scene.primitives.add(tileset);
+            
+            tileset.mars.offset = { "x": 117.230432, "y": 31.823476, "z": 37.71 }
 
             tileset.on(Cesium.Cesium3DTileset.event.click, function (e) {
                 console.log('你单击了', e);
                 haoutil.msg('你单击了3DTileset');
-            }) 
+            })
 
 
 

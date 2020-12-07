@@ -154,6 +154,8 @@
                 radius: 1500, //半径
                 count: 50 //共返回(count*4)个点
             });
+            positions.push(positions[0]);
+            
             var minimumHeights = [];
             var maximumHeights = [];
             positions.forEach(function (key) {
@@ -218,7 +220,7 @@
             var primitive = viewer.scene.primitives.add(new Cesium.Primitive({
                 geometryInstances: geometryInstance,
                 appearance: new Cesium.MaterialAppearance({
-                    material: Cesium.Material.fromType(mars3d.material.LineFlowMaterial, {   
+                    material: Cesium.Material.fromType(mars3d.material.LineFlowType, {   
                         image: 'img/textures/arrow.png',
                         color: Cesium.Color.fromCssColorString("#00eba8"),
                         repeat: new Cesium.Cartesian2(20, 1),
@@ -310,7 +312,7 @@
             var primitive = viewer.scene.primitives.add(new Cesium.Primitive({
                 geometryInstances: geometryInstance,
                 appearance: new Cesium.MaterialAppearance({
-                    material: Cesium.Material.fromType(mars3d.material.LineFlowMaterial, {   
+                    material: Cesium.Material.fromType(mars3d.material.LineFlowType, {   
                         image: "img/textures/fence.png",
                         color: Cesium.Color.fromCssColorString("#bdf700"),
                         repeat: new Cesium.Cartesian2(5, 1),

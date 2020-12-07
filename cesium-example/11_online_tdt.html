@@ -98,8 +98,7 @@
         }
 
 
-        var key =["9ae78c51a0a28f06444d541148496e36"];
-
+  
         //获取自定义底图切换
         function getImageryProviderArr() {
             var providerViewModels = [];
@@ -113,8 +112,8 @@
                 iconUrl: "img/basemaps/tdt_img.png",
                 creationFunction: function () {
                     return [
-                        mars3d.layer.createImageryProvider({ type: "www_tdt", layer: "img_d", key: key }),
-                        mars3d.layer.createImageryProvider({ type: "www_tdt", layer: "img_z", key: key }),
+                        mars3d.layer.createImageryProvider({ type: "www_tdt", layer: "img_d", key: mars3d.token.tiandituArr }),
+                        mars3d.layer.createImageryProvider({ type: "www_tdt", layer: "img_z", key: mars3d.token.tiandituArr }),
                     ];
                 }
             });
@@ -127,8 +126,8 @@
                 iconUrl: "img/basemaps/tdt_vec.png",
                 creationFunction: function () {
                     return [
-                        mars3d.layer.createImageryProvider({ type: "www_tdt", layer: "vec_d", key: key }),
-                        mars3d.layer.createImageryProvider({ type: "www_tdt", layer: "vec_z", key: key }),
+                        mars3d.layer.createImageryProvider({ type: "www_tdt", layer: "vec_d", key: mars3d.token.tiandituArr }),
+                        mars3d.layer.createImageryProvider({ type: "www_tdt", layer: "vec_z", key: mars3d.token.tiandituArr }),
                     ];
                 }
             });
@@ -141,8 +140,8 @@
                 iconUrl: "img/basemaps/tdt_ter.png",
                 creationFunction: function () {
                     return [
-                        mars3d.layer.createImageryProvider({ type: "www_tdt", layer: "ter_d", key: key }),
-                        mars3d.layer.createImageryProvider({ type: "www_tdt", layer: "ter_z", key: key }),
+                        mars3d.layer.createImageryProvider({ type: "www_tdt", layer: "ter_d", key: mars3d.token.tiandituArr }),
+                        mars3d.layer.createImageryProvider({ type: "www_tdt", layer: "ter_z", key: mars3d.token.tiandituArr }),
                     ];
                 }
             });
@@ -158,8 +157,8 @@
                 iconUrl: "img/basemaps/tdt_img.png",
                 creationFunction: function () {
                     return [
-                        mars3d.layer.createImageryProvider({ type: "www_tdt", layer: "img_d", crs: "4326", key: key }),
-                        mars3d.layer.createImageryProvider({ type: "www_tdt", layer: "img_z", crs: "4326", key: key }),
+                        mars3d.layer.createImageryProvider({ type: "www_tdt", layer: "img_d", crs: "4326", key: mars3d.token.tiandituArr }),
+                        mars3d.layer.createImageryProvider({ type: "www_tdt", layer: "img_z", crs: "4326", key: mars3d.token.tiandituArr }),
                     ];
                 }
             });
@@ -172,8 +171,8 @@
                 iconUrl: "img/basemaps/tdt_vec.png",
                 creationFunction: function () {
                     return [
-                        mars3d.layer.createImageryProvider({ type: "www_tdt", layer: "vec_d", crs: "4326", key: key }),
-                        mars3d.layer.createImageryProvider({ type: "www_tdt", layer: "vec_z", crs: "4326", key: key }),
+                        mars3d.layer.createImageryProvider({ type: "www_tdt", layer: "vec_d", crs: "4326", key: mars3d.token.tiandituArr }),
+                        mars3d.layer.createImageryProvider({ type: "www_tdt", layer: "vec_z", crs: "4326", key: mars3d.token.tiandituArr }),
                     ];
                 }
             });
@@ -186,8 +185,8 @@
                 iconUrl: "img/basemaps/tdt_ter.png",
                 creationFunction: function () {
                     return [
-                        mars3d.layer.createImageryProvider({ type: "www_tdt", layer: "ter_d", crs: "4326", key: key }),
-                        mars3d.layer.createImageryProvider({ type: "www_tdt", layer: "ter_z", crs: "4326", key: key }),
+                        mars3d.layer.createImageryProvider({ type: "www_tdt", layer: "ter_d", crs: "4326", key: mars3d.token.tiandituArr }),
+                        mars3d.layer.createImageryProvider({ type: "www_tdt", layer: "ter_z", crs: "4326", key: mars3d.token.tiandituArr }),
                     ];
                 }
             });
